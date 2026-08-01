@@ -815,3 +815,20 @@ h1, h2, h3, h4, h5, .op-name, .value {
 .app-header h1 {
     margin: 0;
 }
+
+
+/* Back to Hub Button */
+.back-btn {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    color: var(--text-color);
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: color 0.3s, transform 0.3s;
+    z-index: 100;
+}
+.back-btn:hover {
+    color: var(--accent);
+    transform: scale(1.1);
+}
