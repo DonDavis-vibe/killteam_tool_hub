@@ -670,3 +670,27 @@ body {
         text-align: center;
     }
 }
+.lang-switcher {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    z-index: 100;
+}
+.lang-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: var(--transition);
+}
+.lang-btn.active, .lang-btn:hover {
+    background: var(--primary-glow);
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}

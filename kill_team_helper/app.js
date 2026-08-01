@@ -1,157 +1,65 @@
-const OPERATIVES_DB = [
-    {
-        id: 'theyn',
-        name: 'FLAMMKYN-THEYN',
-        limit: 1,
-        stats: { apg: 2, b: '5"', rw: '3+', lp: 9 },
-        abilities: [
-            '<strong>Auge der Ahnen:</strong> Wähle 1 oder 2 (wenn 3+ Kyn tot) Feinde. Jeder erhält 1 Grollmarker.',
-            '<strong>Gitterfeldzinne:</strong> 1x pro Schlacht, normalen Schaden ignorieren.'
-        ],
-        weaponSelect1: ['Autoch-Schema-Boltpistole', 'Autoch-Schema-Bolter', 'Boltrevolver', 'EtaCarn-Plasmapistole', 'Ionenblaster', 'Ionenpistole'],
-        weaponSelect2: ['Erschütterungsfaust', 'Plasmawaffe']
-    },
-    {
-        id: 'dozr',
-        name: 'FLAMMKYN-DÔZR',
-        limit: 1,
-        stats: { apg: 2, b: '5"', rw: '3+', lp: 8 },
-        abilities: [
-            '<strong>Schläger:</strong> Feinde können nicht unterstützen. -1 Schaden erlitten. Gegenschlag beim Tod.',
-            '<strong>Wuchtiger Hieb (1 AP):</strong> Feind bewegen, Schaden machen, APG reduzieren, dann Angreifen.'
-        ],
-        fixedWeapons: ['Autoch-Schema-Boltpistole', 'Erschütterungsschlagringe']
-    },
-    {
-        id: 'medic',
-        name: 'FLAMMKYN-FELDSANITÄTER',
-        limit: 1,
-        stats: { apg: 2, b: '5"', rw: '3+', lp: 8 },
-        abilities: [
-            '<strong>Sani!:</strong> 1x pro Wendepunkt Kyn vor dem Tod bewahren (bleibt bei 1 LP).',
-            '<strong>Sanitätsausrüstung (1 AP):</strong> Heilt 2W3 LP bei befreundetem Kyn in K-RW.'
-        ],
-        fixedWeapons: ['Boltrevolver', 'Plasmamesser']
-    },
-    {
-        id: 'grenadier',
-        name: 'FLAMMKYN-GRENADIER',
-        limit: 1,
-        stats: { apg: 2, b: '5"', rw: '3+', lp: 8 },
-        abilities: [
-            '<strong>Grenadier:</strong> Trefferwert +1 bei Fragment/Sprenggranaten.',
-            '<strong>Vâyr-3-Mehrzweckgranate (1 AP):</strong> Platziert Marker (3" Aura). Feinde zahlen +1 AP für Aktionen.'
-        ],
-        fixedWeapons: ['Autoch-Schema-Boltpistole', 'C8-HX-Sprengladung', 'Fäuste']
-    },
-    {
-        id: 'jump',
-        name: 'FLAMMKYN-SPRUNGKRIEGER',
-        limit: 1,
-        stats: { apg: 2, b: '8"', rw: '3+', lp: 8 },
-        abilities: [
-            '<strong>Sprungmodul:</strong> Kann FLIEGEN.',
-            '<strong>Kometeneinschlag:</strong> Nach "Angreifen" erhält Plasmawaffe Brutal.'
-        ],
-        fixedWeapons: ['Autoch-Schema-Boltpistole', 'Plasmawaffe']
-    },
-    {
-        id: 'comms',
-        name: 'FLAMMKYN-KÔMMKYN',
-        limit: 1,
-        stats: { apg: 2, b: '5"', rw: '3+', lp: 8 },
-        abilities: [
-            '<strong>Signal (1 AP):</strong> Wähle einen Kyn in der Killzone. Addiere 1 zu dessen APL.'
-        ],
-        weaponSelect1: ['Autoch-Schema-Bolter & Fäuste', 'Ionenblaster & Fäuste']
-    },
-    {
-        id: 'kognitaar',
-        name: 'FLAMMKYN-KOGNITÂAR',
-        limit: 1,
-        stats: { apg: 2, b: '5"', rw: '3+', lp: 8 },
-        abilities: [
-            '<strong>Taktiker:</strong> Platziere Angriffs- oder Verteidigungsmarker. Gewährt Ausgewogen oder Wiederholungswürfe in Aura.',
-            '<strong>Neubewertung (1 AP):</strong> Verschiebe deinen Marker.'
-        ],
-        weaponSelect1: ['Autoch-Schema-Bolter & Fäuste', 'Ionenblaster & Fäuste']
-    },
-    {
-        id: 'lokatr',
-        name: 'FLAMMKYN-LOKÂTR',
-        limit: 1,
-        stats: { apg: 2, b: '5"', rw: '3+', lp: 8 },
-        abilities: [
-            '<strong>Schussbeobachtung (1 AP):</strong> Befreundeter Kyn erhält Zielsucher leicht gegen markierten Feind.',
-            '<strong>Panspektral-Scan (1 AP):</strong> Scannermarker. Feinde in 3" geben Kyn Akkurat 1 und Hagel.'
-        ],
-        weaponSelect1: ['Autoch-Schema-Bolter & Fäuste', 'Ionenblaster & Fäuste']
-    },
-    {
-        id: 'lugger',
-        name: 'FLAMMKYN-SCHLEPPER',
-        limit: 1,
-        stats: { apg: 2, b: '5"', rw: '3+', lp: 8 },
-        abilities: [
-            '<strong>Gut ausgerüstet:</strong> 1 zusätzliche Ausrüstungsoption und +1 BP in Strategiephase.',
-            '<strong>Ich mach das:</strong> 1x pro Aktivierung missionsspezifische Aktion für 1 AP weniger.'
-        ],
-        weaponSelect1: ['Autoch-Schema-Bolter & Fäuste', 'Ionenblaster & Fäuste']
-    },
-    {
-        id: 'gunner1',
-        name: 'FLAMMKYN-SCHÜTZE (A)',
-        limit: 1,
-        stats: { apg: 2, b: '5"', rw: '3+', lp: 8 },
-        abilities: [
-            '<strong>Schwere Waffen:</strong> Wähle die beste Waffe für die Situation.'
-        ],
-        weaponSelect1: ['EtaCarn-Plasmastrahler & Fäuste', 'HYLas-Sturmgewehr & Fäuste', 'HYLas-Gatlingkanone & Fäuste', 'L7-Raketenwerfer & Fäuste', 'Magnabeschleunigungsgewehr & Fäuste']
-    },
-    {
-        id: 'gunner2',
-        name: 'FLAMMKYN-SCHÜTZE (B)',
-        limit: 1,
-        stats: { apg: 2, b: '5"', rw: '3+', lp: 8 },
-        abilities: [
-            '<strong>Schwere Waffen:</strong> Wähle die beste Waffe für die Situation.'
-        ],
-        weaponSelect1: ['EtaCarn-Plasmastrahler & Fäuste', 'HYLas-Sturmgewehr & Fäuste', 'HYLas-Gatlingkanone & Fäuste', 'L7-Raketenwerfer & Fäuste', 'Magnabeschleunigungsgewehr & Fäuste']
-    },
-    {
-        id: 'gunner3',
-        name: 'FLAMMKYN-SCHÜTZE (C)',
-        limit: 1,
-        stats: { apg: 2, b: '5"', rw: '3+', lp: 8 },
-        abilities: [
-            '<strong>Schwere Waffen:</strong> Wähle die beste Waffe für die Situation.'
-        ],
-        weaponSelect1: ['EtaCarn-Plasmastrahler & Fäuste', 'HYLas-Sturmgewehr & Fäuste', 'HYLas-Gatlingkanone & Fäuste', 'L7-Raketenwerfer & Fäuste', 'Magnabeschleunigungsgewehr & Fäuste']
-    },
-    {
-        id: 'warrior1',
-        name: 'FLAMMKYN-KRIEGER (A)',
-        limit: 1,
-        stats: { apg: 2, b: '5"', rw: '3+', lp: 8 },
-        abilities: [
-            '<strong>Bergungsgut sichern:</strong> Wenn Kyn Missionsziel kontrolliert, -1 Schaden pro Attackenwürfel.'
-        ],
-        weaponSelect1: ['Autoch-Schema-Bolter & Fäuste', 'Ionenblaster & Fäuste']
-    },
-    {
-        id: 'warrior2',
-        name: 'FLAMMKYN-KRIEGER (B)',
-        limit: 1,
-        stats: { apg: 2, b: '5"', rw: '3+', lp: 8 },
-        abilities: [
-            '<strong>Bergungsgut sichern:</strong> Wenn Kyn Missionsziel kontrolliert, -1 Schaden pro Attackenwürfel.'
-        ],
-        weaponSelect1: ['Autoch-Schema-Bolter & Fäuste', 'Ionenblaster & Fäuste']
-    }
-];
-
 document.addEventListener('DOMContentLoaded', () => {
     
+    // --- I18N LOGIC ---
+    let currentLang = localStorage.getItem('killteam_lang') || 'de';
+
+    function applyTranslations() {
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (translations[currentLang] && translations[currentLang][key]) {
+                el.innerHTML = translations[currentLang][key];
+            }
+        });
+
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.id === `lang-${currentLang}`);
+        });
+
+        document.title = translations[currentLang].title + " | Datapad";
+
+        renderBuilder();
+        
+        if (!document.getElementById('start-match-btn').disabled || Object.keys(selectedOperatives).length > 0) {
+            Object.keys(selectedOperatives).forEach(opId => {
+                const newOpData = OPERATIVES_DB[currentLang].find(o => o.id === opId);
+                if (newOpData) {
+                    selectedOperatives[opId].opData = newOpData;
+                    
+                    const oldOpData = OPERATIVES_DB[currentLang === 'de' ? 'en' : 'de'].find(o => o.id === opId);
+                    if (oldOpData && newOpData.weaponSelect1) {
+                        if (selectedOperatives[opId].w1) {
+                            const wIdx = oldOpData.weaponSelect1.indexOf(selectedOperatives[opId].w1);
+                            if (wIdx !== -1) {
+                                selectedOperatives[opId].w1 = newOpData.weaponSelect1[wIdx];
+                            }
+                        }
+                    }
+                    if (oldOpData && newOpData.weaponSelect2) {
+                        if (selectedOperatives[opId].w2) {
+                            const wIdx = oldOpData.weaponSelect2.indexOf(selectedOperatives[opId].w2);
+                            if (wIdx !== -1) {
+                                selectedOperatives[opId].w2 = newOpData.weaponSelect2[wIdx];
+                            }
+                        }
+                    }
+                }
+            });
+            buildMatchRoster();
+        }
+    }
+
+    document.getElementById('lang-en').addEventListener('click', () => {
+        currentLang = 'en';
+        localStorage.setItem('killteam_lang', 'en');
+        applyTranslations();
+    });
+
+    document.getElementById('lang-de').addEventListener('click', () => {
+        currentLang = 'de';
+        localStorage.setItem('killteam_lang', 'de');
+        applyTranslations();
+    });
+
     // --- TABS LOGIC ---
     const tabBtns = document.querySelectorAll('.tab-btn');
     const tabPanes = document.querySelectorAll('.tab-pane');
@@ -177,24 +85,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const startMatchBtn = document.getElementById('start-match-btn');
     const matchTabBtn = document.getElementById('match-tab-btn');
     
-    let selectedOperatives = {}; // { id: { opData, w1, w2 } }
+    let selectedOperatives = {}; // { id: { opData, w1, w2, currentLp, isDead } }
 
     function updateBuilderState() {
         const count = Object.keys(selectedOperatives).length;
         rosterCountSpan.textContent = count;
         
-        // Validation rules
         let isValid = count === 10;
-        
-        // Ensure exactly 1 Theyn is selected (Leader is mandatory)
         if (!selectedOperatives['theyn']) isValid = false;
 
-        // Check gunner unique weapons if selected
         const gunners = ['gunner1', 'gunner2', 'gunner3'].filter(id => selectedOperatives[id]);
         const gunnerWeapons = new Set();
         gunners.forEach(id => {
             const w1 = selectedOperatives[id].w1;
-            if (gunnerWeapons.has(w1)) isValid = false; // duplicate heavy weapon
+            if (gunnerWeapons.has(w1)) isValid = false;
             gunnerWeapons.add(w1);
         });
 
@@ -208,27 +112,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function renderBuilder() {
-        OPERATIVES_DB.forEach(op => {
+        builderGrid.innerHTML = '';
+        OPERATIVES_DB[currentLang].forEach(op => {
             const card = document.createElement('div');
             card.className = 'selection-card';
             card.id = `build-card-${op.id}`;
+            if (selectedOperatives[op.id]) card.classList.add('selected');
             
-            // Checkbox
             const header = document.createElement('div');
             header.className = 'selection-header';
             header.innerHTML = `<h3>${op.name}</h3><div class="checkbox-custom"></div>`;
             card.appendChild(header);
 
-            // Select 1
             let sel1, sel2;
             if (op.weaponSelect1) {
                 sel1 = document.createElement('select');
                 sel1.className = 'weapon-select';
-                sel1.disabled = true;
+                sel1.disabled = !selectedOperatives[op.id];
                 op.weaponSelect1.forEach(w => {
                     const opt = document.createElement('option');
                     opt.value = w;
                     opt.textContent = w;
+                    if (selectedOperatives[op.id] && selectedOperatives[op.id].w1 === w) opt.selected = true;
                     sel1.appendChild(opt);
                 });
                 card.appendChild(sel1);
@@ -236,17 +141,17 @@ document.addEventListener('DOMContentLoaded', () => {
             if (op.weaponSelect2) {
                 sel2 = document.createElement('select');
                 sel2.className = 'weapon-select';
-                sel2.disabled = true;
+                sel2.disabled = !selectedOperatives[op.id];
                 op.weaponSelect2.forEach(w => {
                     const opt = document.createElement('option');
                     opt.value = w;
                     opt.textContent = w;
+                    if (selectedOperatives[op.id] && selectedOperatives[op.id].w2 === w) opt.selected = true;
                     sel2.appendChild(opt);
                 });
                 card.appendChild(sel2);
             }
 
-            // Fixed weapons text
             if (op.fixedWeapons) {
                 const fixed = document.createElement('div');
                 fixed.style.fontSize = '0.8rem';
@@ -255,17 +160,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 card.appendChild(fixed);
             }
 
-            // Toggle selection logic
             header.addEventListener('click', () => {
                 if (selectedOperatives[op.id]) {
-                    // Deselect
                     delete selectedOperatives[op.id];
                     card.classList.remove('selected');
                     if (sel1) sel1.disabled = true;
                     if (sel2) sel2.disabled = true;
                 } else {
-                    // Select (limit check)
-                    if (Object.keys(selectedOperatives).length >= 10) return; // Max 10
+                    if (Object.keys(selectedOperatives).length >= 10) return; 
                     
                     selectedOperatives[op.id] = {
                         opData: op,
@@ -281,7 +183,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 updateBuilderState();
             });
 
-            // Update weapons on change
             if (sel1) {
                 sel1.addEventListener('change', () => {
                     if (selectedOperatives[op.id]) {
@@ -302,8 +203,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    renderBuilder();
-
     // --- MATCH LOGIC ---
     const template = document.getElementById('operative-card-template');
     const matchRoster = document.getElementById('match-roster');
@@ -316,6 +215,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = selectedOperatives[key];
             const clone = template.content.cloneNode(true);
             const cardEl = clone.querySelector('.operative-card');
+            if (data.isDead) cardEl.classList.add('dead');
             
             clone.querySelector('.op-name').textContent = data.opData.name;
             clone.querySelector('.op-apg').textContent = data.opData.stats.apg;
@@ -324,7 +224,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const lpValue = clone.querySelector('.op-lp');
             lpValue.textContent = data.currentLp;
 
-            // Weapons
+            // Apply translated labels
+            clone.querySelectorAll('[data-i18n]').forEach(el => {
+                const i18nKey = el.getAttribute('data-i18n');
+                if (translations[currentLang] && translations[currentLang][i18nKey]) {
+                    el.innerHTML = translations[currentLang][i18nKey];
+                }
+            });
+
             const wCont = clone.querySelector('.weapons-container');
             let weaponsHTML = '';
             if (data.opData.fixedWeapons) {
@@ -338,13 +245,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             wCont.innerHTML = weaponsHTML;
 
-            // Abilities
             const aCont = clone.querySelector('.op-abilities');
             let abHTML = '';
             data.opData.abilities.forEach(a => abHTML += `<li>${a}</li>`);
             aCont.innerHTML = abHTML;
 
-            // Accordion Logic inside template
             const accBtn = clone.querySelector('.accordion');
             const panel = clone.querySelector('.panel');
             accBtn.addEventListener('click', () => {
@@ -356,7 +261,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
-            // LP Logic
             const btnMinus = clone.querySelector('.lp-btn.minus');
             const btnPlus = clone.querySelector('.lp-btn.plus');
             btnMinus.addEventListener('click', () => {
@@ -380,7 +284,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
-            // Toggle Dead
             const toggleDeadBtn = clone.querySelector('.toggle-dead-btn');
             toggleDeadBtn.addEventListener('click', () => {
                 data.isDead = !data.isDead;
@@ -417,7 +320,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const itemHtml = `
             <div class="grudge-item" id="${targetId}">
                 <div class="grudge-info">
-                    <input type="text" class="target-name" value="Feindliches Ziel ${targetCount}" placeholder="Name des Ziels...">
+                    <input type="text" class="target-name" value="Target / Ziel ${targetCount}" placeholder="...">
                 </div>
                 <div class="grudge-controls">
                     <button class="counter-btn decrease" aria-label="Verringern">-</button>
@@ -439,25 +342,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let count = 0;
 
-        increaseBtn.addEventListener('click', () => {
-            count++;
-            countSpan.textContent = count;
-        });
-
-        decreaseBtn.addEventListener('click', () => {
-            if (count > 0) {
-                count--;
-                countSpan.textContent = count;
-            }
-        });
-
-        deleteBtn.addEventListener('click', () => {
-            newEl.remove();
-        });
+        increaseBtn.addEventListener('click', () => { count++; countSpan.textContent = count; });
+        decreaseBtn.addEventListener('click', () => { if (count > 0) { count--; countSpan.textContent = count; } });
+        deleteBtn.addEventListener('click', () => { newEl.remove(); });
 
         grudgeList.appendChild(newEl);
     }
 
     createGrudgeItem();
     addTargetBtn.addEventListener('click', createGrudgeItem);
+
+    // Init translations
+    applyTranslations();
 });
