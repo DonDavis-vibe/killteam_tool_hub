@@ -1,23 +1,30 @@
 # Warhammer Kill Team Hub
 
-A centralized, premium web hub for various Warhammer 40,000 Kill Team utilities and tools. This repository aggregates three specialized web applications into a single accessible portal.
+A centralized, premium web hub for various Warhammer 40,000 Kill Team utilities and tools. This repository aggregates three specialized web applications into a single accessible portal, designed to streamline your tabletop experience. 
+
+All applications run entirely in your browser with zero backend requirements, making them fast and fully portable.
 
 ## Included Applications
 
-### 1. Kill Team Helper
-A comprehensive tool designed to help you track your operatives, manage your team's status, and dominate the skirmish. 
-- Track operative health, action points, and status effects.
-- Quick reference for core rules and stats.
+### 1. Hearthkyn Salvagers (Flammkyn) Helper
+A comprehensive datapad designed specifically for Hearthkyn Salvager Kill Teams. Fully bilingual in **English** and **German**.
+* **Team Builder:** Construct a legal 10-operative roster. The app automatically validates limits, requires a Theyn leader, and restricts heavy weapon duplications for Gunners.
+* **Match Tracker:** A live dashboard to track the current Wounds (LP) and Status (Alive/Incapacitated) of your active operatives during a match.
+* **Grudge Tracker:** A dedicated system for managing your Grudge Tokens. Easily add enemy targets, tick their token count up or down, and keep track of who owes the Kin a blood debt.
+* **Rules Reference:** Quick, organized access to your Faction Rules, Strategy Ploys, and Firefight Ploys.
 
 ### 2. Mandrake Helper
-Specialized tracking tools tailored specifically for your Mandrake Kill Team.
-- Track Mandrake-specific abilities and shadows.
-- Optimized interface for fast-paced gameplay.
+Specialized tracking tools tailored specifically for the Mandrake Kill Team. Fully bilingual in **English** and **German**.
+* **Team Builder:** Construct a valid 9-operative roster, automatically ensuring your Nightfiend leader is selected.
+* **Match Tracker:** Track the Wounds and operational status of your slippery shadow-dwellers mid-game.
+* **Token & Soul Harvest Tracker:** Manage the unique resources of the Mandrakes. Includes default trackers for Soul Harvest Points (for the Chooser of the Flesh), Balefire Tokens, and Shadow Portals, with the ability to add custom trackers as needed.
+* **Rules Reference:** Quick access to the complex Faction Rules, Strategy Ploys, and Firefight Ploys for Mandrakes.
 
 ### 3. Mission Generator
-A quick and easy utility to generate varied gameplay setups.
-- Generate random missions.
-- Randomize primary objectives and deployment layouts.
+A quick and easy utility to generate varied, randomized gameplay setups so you can get right into the action.
+* **Randomized Missions:** Quickly generate primary objectives, deployment layouts, and mission rules to keep your games fresh.
+
+---
 
 ## Running Locally
 
