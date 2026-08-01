@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="title">EXACTION SQUAD | Datapad</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="background-effect"></div>
+    <div class="app-container">
+        <div class="lang-switcher">
+            <button id="lang-en" class="lang-btn">EN</button>
+            <button id="lang-de" class="lang-btn active">DE</button>
+        </div>
+        <header class="app-header glass-panel">
+            <div class="logo">
+                <i class="fa-solid fa-gavel glow-icon"></i>
+                <h1 data-i18n="title">Vollstreckertrupp</h1>
+            </div>
+            <nav class="tabs">
+                <button class="tab-btn active" data-tab="builder">
+                    <i class="fa-solid fa-wrench"></i> <span data-i18n="tabAssemble">TEAM BAUEN</span>
+                </button>
+                <button class="tab-btn" data-tab="match" id="match-tab-btn" disabled>
+                    <i class="fa-solid fa-crosshairs"></i> <span data-i18n="tabMatch">MATCH TRACKER</span>
+                </button>
+                <button class="tab-btn" data-tab="tokens">
+                    <i class="fa-solid fa-handcuffs"></i> <span data-i18n="tabTokens">MARKER / GERECHTIGKEIT</span>
+                </button>
+                <button class="tab-btn" data-tab="rules">
+                    <i class="fa-solid fa-book"></i> <span data-i18n="tabRules">REGELN</span>
+                </button>
+            </nav>
+        </header>
+
+        <main class="app-content">
+            <!-- TEAM BUILDER TAB -->
+            <section id="builder" class="tab-pane active glass-panel">
+                <div class="builder-header">
+                    <h2 data-i18n="tabAssemble">TEAM BAUEN</h2>
+                    <p data-i18n="builderDesc">Wähle 1 Proctor-exactant und 10 weitere Kämpfer. (Max 2 Schützen, Max 4 Subductoren)</p>
+                    <div class="counter-box">
+                        <span data-i18n="selectedText">Ausgewählt:</span> <span id="roster-count">0</span> / 11
+                    </div>
+                </div>
+
+                <div class="builder-grid" id="builder-grid">
+                    <!-- Operative selection cards will be injected here by JS -->
+                </div>
+
+                <div class="builder-actions">
+                    <button id="start-match-btn" class="primary-btn glow-btn" disabled data-i18n="startMatchBtn">
+                        MATCH STARTEN <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </section>
+
+            <!-- MATCH TRACKER TAB -->
+            <section id="match" class="tab-pane">
+                <div class="match-header glass-panel">
+                    <h2 data-i18n="activeTeam">AKTIVES TEAM</h2>
+                    <p data-i18n="activeTeamDesc">Verfolge die Lebenspunkte (LP) deiner Kämpfer.</p>
+                </div>
+                
+                <div class="roster-grid" id="match-roster">
+                    <!-- Active operative cards will be injected here by JS -->
+                </div>
+            </section>
+
+            <!-- TOKENS TAB -->
+            <section id="tokens" class="tab-pane glass-panel">
+                <div class="tokens-header">
+                    <h2 data-i18n="tokensTitle">MARKER & TRACKER</h2>
+                    <p data-i18n="tokensDesc">Verfolge Ziele für Gerechtigkeit (Marked for Justice), Festnahmen (Apprehend) und andere Marker.</p>
+                    <button id="add-token-btn" class="secondary-btn"><i class="fa-solid fa-plus"></i> <span data-i18n="newTargetBtn">Neues Ziel</span></button>
+                </div>
+                
+                <div id="token-list" class="grudge-list">
+                    <!-- Dynamic Token Items -->
+                </div>
+            </section>
+
+            <!-- RULES TAB -->
+            <section id="rules" class="tab-pane glass-panel">
+                <div class="rules-grid">
+                    <div class="rule-card">
+                        <h3><i class="fa-solid fa-scale-balanced"></i> <span data-i18n="rulesFaction">Fraktionsregeln</span></h3>
+                        <p data-i18n="ruleEfficiency"><strong>Skrupellose Effizienz:</strong> Beim Schießen (außer Spreng/Fragment) verhindern eigene Kämpfer in Kontrollreichweite des Feindes nicht, dass dieser als Ziel gewählt wird.</p>
+                        <p data-i18n="ruleMarked"><strong>Für die Gerechtigkeit markiert:</strong> STRATEGISCHES WAGNIS. Wähle ein feindliches Ziel. Waffen erhalten Strafend gegen es. Wenn es stirbt, wähle ein neues Ziel.</p>
+                        <p data-i18n="ruleRepress"><strong>Unterdrücken (Repress):</strong> Blocken blockt 2 Erfolge. Beim Gegenschlag schlägt der Verteidiger zuerst zu.</p>
+                    </div>
+
+                    <div class="rule-card">
+                        <h3><i class="fa-solid fa-chess-knight"></i> <span data-i18n="rulesStrategy">Strategielisten (Ploys)</span></h3>
+                        <ul class="rule-list">
+                            <li data-i18n="stratGuilt"><strong>Schuld offenbart sich:</strong> Feinde in 4" können nicht in Deckung sein (statt 2"). Deckungswurf bleibt erhalten, außer in 2".</li>
+                            <li data-i18n="stratInviolate"><strong>Unantastbare Gerichtsbarkeit:</strong> Beim Beschuss eines eigenen Kämpfers innerhalb von 2" zu einem Missionsziel/Feind darf 1 Verteidigungswürfel wiederholt werden.</li>
+                            <li data-i18n="stratDispense"><strong>Gerechtigkeit üben:</strong> Wenn sich der Kämpfer nicht weiter als sein B-Wert bewegt hat, erhalten Nahkampfwaffen Unaufhaltsam (Ceaseless).</li>
+                            <li data-i18n="stratTerminal"><strong>Todeserlass:</strong> Fernkampfwaffen gegen Feinde in 6" (oder alle für Schützen) erhalten Ausgewogen (Balanced).</li>
+                        </ul>
+                    </div>
+
+                    <div class="rule-card">
+                        <h3><i class="fa-solid fa-bolt"></i> <span data-i18n="rulesFirefight">Gefechtslisten (Tactical)</span></h3>
+                        <ul class="rule-list">
+                            <li data-i18n="fireLongArm"><strong>Der lange Arm des Gesetzes:</strong> Addiere 3" zur RW x einer Waffe (außer Granaten).</li>
+                            <li data-i18n="fireExact"><strong>Genaue Bestrafung:</strong> Nachdem ein Feind auf einen eigenen in 6" geschossen/gekämpft hat, darf dieser sofort kostenlos zurückschießen/kämpfen.</li>
+                            <li data-i18n="fireBrutal"><strong>Brutale Verstärkung:</strong> Wähle Feind in Kontrollreichweite. Ein anderer eigener Kämpfer darf sofort kostenlos gegen diesen Kämpfen.</li>
+                            <li data-i18n="fireExecution"><strong>Hinrichtungsbefehl:</strong> Wenn ein Feind eine Missionsaktion durchführt oder ein Ziel kontrolliert, unterbrich ihn, um einen eigenen Kämpfer zu aktivieren und ihn anzugreifen.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Templates for Operatives (Hidden) -->
+    <template id="operative-card-template">
+        <div class="operative-card">
+            <div class="card-header">
+                <h3 class="op-name">Name</h3>
+                <button class="toggle-dead-btn" title="Toggle"><i class="fa-solid fa-skull"></i></button>
+            </div>
+            <div class="stats-row">
+                <div class="stat"><span class="label" data-i18n="statApg">APG</span><span class="value op-apg"></span></div>
+                <div class="stat"><span class="label" data-i18n="statB">B</span><span class="value op-b"></span></div>
+                <div class="stat"><span class="label" data-i18n="statRw">RW</span><span class="value op-rw"></span></div>
+                <div class="stat lp-tracker">
+                    <span class="label" data-i18n="statLp">LP</span>
+                    <div class="lp-controls">
+                        <button class="lp-btn minus">-</button>
+                        <span class="value op-lp"></span>
+                        <button class="lp-btn plus">+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="weapons-container">
+                    <!-- Weapons injected here -->
+                </div>
+                <button class="accordion"><span data-i18n="abilitiesHeader">Fähigkeiten</span> <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="panel">
+                    <ul class="op-abilities">
+                        <!-- Abilities injected here -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <script src="i18n.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

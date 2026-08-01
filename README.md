@@ -20,7 +20,14 @@ Specialized tracking tools tailored specifically for the Mandrake Kill Team. Ful
 * **Token & Soul Harvest Tracker:** Manage the unique resources of the Mandrakes. Includes default trackers for Soul Harvest Points (for the Chooser of the Flesh), Balefire Tokens, and Shadow Portals, with the ability to add custom trackers as needed.
 * **Rules Reference:** Quick access to the complex Faction Rules, Strategy Ploys, and Firefight Ploys for Mandrakes.
 
-### 3. Mission Generator
+### 3. Exaction Squad Helper
+Specialized tracking tools for the Adeptus Arbites Exaction Squad Kill Team. Fully bilingual in **English** and **German**.
+* **Team Builder:** Construct a valid 11-operative roster (1 Proctor-exactant and 10 others), validating max gunner and subductor limits.
+* **Match Tracker:** Track the Wounds and operational status of your Arbitrators mid-game.
+* **Tokens & Justice Tracker:** Keep a log of your "Marked for Justice" targets, Cyber-Mastiff "Apprehend" targets, and Nuncio-aquila markers.
+* **Rules Reference:** Quick access to the complex Faction Rules (Ruthless Efficiency, Repress), Strategy Ploys, and Firefight Ploys for the Exaction Squad.
+
+### 4. Mission Generator
 A quick and easy utility to generate varied, randomized gameplay setups so you can get right into the action.
 * **Randomized Missions:** Quickly generate primary objectives, deployment layouts, and mission rules to keep your games fresh.
 
