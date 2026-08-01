@@ -55,3 +55,9 @@ To deploy via GitHub Pages:
 3. Under "Build and deployment", set the source to **Deploy from a branch**.
 4. Select the `main` branch and `/ (root)` folder, then save.
 5. Your hub will be live within a few minutes!
+
+---
+
+## Legal Disclaimer
+
+This is an unofficial fan-made utility. Warhammer 40,000, Kill Team, and all associated logos, names, and statistics are © Copyright Games Workshop Limited. This tool is provided for free and is not affiliated with, or endorsed by, Games Workshop in any way.
