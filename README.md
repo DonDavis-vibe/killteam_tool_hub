@@ -5,6 +5,8 @@
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
   [![Status](https://img.shields.io/badge/Status-Active-success.svg)]()
   [![Language](https://img.shields.io/badge/Language-EN%20%7C%20DE-blue)]()
+  
+  ### [🔴 Play Live Demo on Cloudflare Pages](https://killteam-tool-hub.pages.dev/)
 </div>
 
 ---
