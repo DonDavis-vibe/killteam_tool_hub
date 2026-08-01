@@ -200,8 +200,8 @@ h1 span {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 64px;
-    height: 64px;
+    width: 84px;
+    height: 84px;
     border-radius: 16px;
     background: rgba(255, 60, 60, 0.1);
     color: var(--accent);
@@ -288,8 +288,8 @@ h1 span {
 
 /* Custom Team Logos */
 .team-logo {
-    width: 64px;
-    height: 64px;
+    width: 84px;
+    height: 84px;
     border-radius: 50%;
     object-fit: cover;
     border: 2px solid var(--accent);

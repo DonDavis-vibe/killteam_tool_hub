@@ -6,6 +6,8 @@ const hubTranslations = {
         sectionGameTools: "Core Game Tools",
         subtitle: "Your central command for unofficial, fan-made Warhammer 40,000 Kill Team utilities.",
         hearthTitle: "Hearthkyn Helper",
+        deathguardTitle: "Plague Marines (Death Guard)",
+        deathguardDesc: "Build your Plague Marines kill team, track Contagions, and manage Nurgle's gifts.",
         hearthDesc: "Specialized tracking tools tailored for your Hearthkyn Salvager Kill Team rules and abilities.",
         mandrakeTitle: "Mandrake Helper",
         mandrakeDesc: "Specialized tracking tools tailored for your Mandrake Kill Team rules and abilities.",
@@ -13,6 +15,12 @@ const hubTranslations = {
         arbitesDesc: "Maintain Imperial Law. Track your Arbitrators, administer justice, and deploy the Cyber-Mastiff.",
         missionTitle: "Mission Generator",
         missionDesc: "Generate random missions, primary objectives, and setups for varied gameplay.",
+        pathfindersTitle: "Pathfinders",
+        pathfindersDesc: "Light up the darkness. Track your Markerlights, High-Intensity Markers, and unleash devastating firepower.",
+        legionariesTitle: "Legionaries",
+        legionariesDesc: "Embrace the ruinous powers. Track Chaos Marks, Favours of the Dark Gods, and specific operative abilities.",
+        kommandosTitle: "Kommandos",
+        kommandosDesc: "Krump 'em good. Track sneaky tactics, Throat Slittas, and Waaagh! energy across the killzone.",
         launchApp: "Launch App"
     },
     de: {
@@ -22,6 +30,8 @@ const hubTranslations = {
         sectionGameTools: "Kern-Spielwerkzeuge",
         subtitle: "Dein zentrales Kommando für inoffizielle, von Fans erstellte Warhammer 40.000 Kill Team Werkzeuge.",
         hearthTitle: "Flammkyn Helfer",
+        deathguardTitle: "Seuchenmarines (Death Guard)",
+        deathguardDesc: "Stelle dein Seuchenmarines Kill Team auf, verfolge Kontagionen und verwalte Nurgles Geschenke.",
         hearthDesc: "Spezialisierte Tracking-Tools, zugeschnitten auf die Regeln und Fähigkeiten deines Flammkyn-Bergungscrew Kill Teams.",
         mandrakeTitle: "Mandrake Helfer",
         mandrakeDesc: "Spezialisierte Tracking-Tools, zugeschnitten auf die Regeln und Fähigkeiten deines Mandrake Kill Teams.",
@@ -29,6 +39,12 @@ const hubTranslations = {
         arbitesDesc: "Sorge für imperiales Gesetz. Verfolge deine Arbitratoren, verwalte Gerechtigkeit und setze den Cybermastiff ein.",
         missionTitle: "Missionsgenerator",
         missionDesc: "Generiere zufällige Missionen, primäre Ziele und Setups für abwechslungsreiches Gameplay.",
+        pathfindersTitle: "Späher",
+        pathfindersDesc: "Erhelle die Dunkelheit. Verfolge deine Zielmarker, Hochintensitätsmarker und entfessle verheerende Feuerkraft.",
+        legionariesTitle: "Legionäre",
+        legionariesDesc: "Umarme die ruinösen Mächte. Verfolge Chaosmale, Gunst der Dunklen Götter und spezifische Fähigkeiten.",
+        kommandosTitle: "Kommandos",
+        kommandosDesc: "Mach sie platt. Verfolge listige Taktiken, Kehlenschlitza und Waaagh!-Energie in der Killzone.",
         launchApp: "App starten"
     }
 };

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="title">Kommandos | Datapad</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="background-effect"></div>
+    <div class="app-container">
+        <div class="lang-switcher">
+            <button id="lang-en" class="lang-btn active">EN</button>
+            <button id="lang-de" class="lang-btn">DE</button>
+        </div>
+        <header class="app-header glass-panel" style="position: relative;">
+            <a href="../index.html" class="back-btn" title="Back to Hub"><i class="fa-solid fa-house"></i></a>
+            <div class="logo">
+                <img src="../assets/logos/logo_kommandos.jpg" class="team-logo header-logo" alt="Kommandos Logo">
+                <h1 data-i18n="title">KOMMANDOS KILL TEAM</h1>
+            </div>
+            <nav class="tabs">
+                <button class="tab-btn active" data-tab="builder">
+                    <i class="fa-solid fa-users"></i> <span data-i18n="tabAssemble">ASSEMBLE TEAM</span>
+                </button>
+                <button class="tab-btn" data-tab="match" id="match-tab-btn" disabled>
+                    <i class="fa-solid fa-crosshairs"></i> <span data-i18n="tabMatch">MATCH TRACKER</span>
+                </button>
+                <button class="tab-btn" data-tab="tokens">
+                    <i class="fa-solid fa-ghost"></i> <span data-i18n="tabTokens">SOUL HARVEST / TOKENS</span>
+                </button>
+                <button class="tab-btn" data-tab="rules">
+                    <i class="fa-solid fa-book-skull"></i> <span data-i18n="tabRules">RULES</span>
+                </button>
+            </nav>
+        </header>
+
+        <main class="app-content">
+            <!-- TEAM BUILDER TAB -->
+            <section id="builder" class="tab-pane active glass-panel">
+                <div class="builder-header">
+                    <h2 data-i18n="tabAssemble">ASSEMBLE TEAM</h2>
+                    <p data-i18n="builderDesc">Select 1 Nightfiend and 8 other operatives.</p>
+                    <div class="counter-box">
+                        <span data-i18n="selectedText">Selected:</span> <span id="roster-count">0</span> / 9
+                    </div>
+                </div>
+
+                <div class="builder-grid" id="builder-grid">
+                    <!-- Operative selection cards will be injected here by JS -->
+                </div>
+
+                <div class="builder-actions">
+                    <button id="start-match-btn" class="primary-btn glow-btn" disabled data-i18n="startMatchBtn">
+                        START MATCH <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </section>
+
+            <!-- MATCH TRACKER TAB -->
+            <section id="match" class="tab-pane">
+                <div class="match-header glass-panel">
+                    <h2 data-i18n="activeTeam">ACTIVE TEAM</h2>
+                    <p data-i18n="activeTeamDesc">Track the Wounds of your operatives.</p>
+                </div>
+                
+                <div class="roster-grid" id="match-roster">
+                    <!-- Active operative cards will be injected here by JS -->
+                </div>
+            </section>
+
+            <!-- TOKENS TAB -->
+            <section id="tokens" class="tab-pane glass-panel">
+                <div class="tokens-header">
+                    <h2 data-i18n="tokensTitle">SOUL HARVEST & TOKENS</h2>
+                    <p data-i18n="tokensDesc">Track your Soul Harvest points (Chooser of the Flesh) and other markers (Balefire, Oubliex, etc.).</p>
+                    <button id="add-token-btn" class="secondary-btn"><i class="fa-solid fa-plus"></i> <span data-i18n="newTokenBtn">New Tracker</span></button>
+                </div>
+                
+                <div id="token-list" class="token-list">
+                    <!-- Dynamic Token Items -->
+                </div>
+            </section>
+
+            <!-- RULES TAB -->
+            <section id="rules" class="tab-pane glass-panel">
+                <div class="rules-grid">
+                    <div class="rule-card">
+                        <h3><i class="fa-solid fa-cloud-moon"></i> <span data-i18n="rulesFaction">Faction Rules</span></h3>
+                        <p data-i18n="ruleSoulstrike"><strong>Soulstrike:</strong> Defence dice ≤ APL is a success. Defence dice > APL is a fail. 1 is always critical success. 6 is always fail.</p>
+                        <p data-i18n="ruleShadowPassage"><strong>Shadow Passage:</strong> 1/TP, one operative WITHIN SHADOW can perform Reposition by teleporting to another shadow.</p>
+                        <p data-i18n="ruleUmbral"><strong>Umbral Entities:</strong> Ignore Piercing against Kommandos. Improve Save stat by 1 when WITHIN SHADOW.</p>
+                        <p data-i18n="ruleWithin"><strong>Within Shadow:</strong> Within 1" of Heavy terrain, underneath Vantage terrain, or near Shadow Portal marker.</p>
+                    </div>
+
+                    <div class="rule-card">
+                        <h3><i class="fa-solid fa-chess-knight"></i> <span data-i18n="rulesStrategy">Strategy Ploys</span></h3>
+                        <ul class="rule-list">
+                            <li data-i18n="stratCreeping"><strong>Creeping Horror:</strong> Free Dash if starting and ending WITHIN SHADOW.</li>
+                            <li data-i18n="stratGloaming"><strong>Gloaming Shroud:</strong> Retain one defence dice as normal success when WITHIN SHADOW.</li>
+                            <li data-i18n="stratBlade"><strong>Blade in the Dark:</strong> Can Charge while Concealed if starting or ending WITHIN SHADOW.</li>
+                            <li data-i18n="stratInescapable"><strong>Inescapable Nightmare:</strong> Re-roll one attack dice when WITHIN SHADOW.</li>
+                        </ul>
+                    </div>
+
+                    <div class="rule-card">
+                        <h3><i class="fa-solid fa-bolt"></i> <span data-i18n="rulesFirefight">Firefight Ploys</span></h3>
+                        <ul class="rule-list">
+                            <li data-i18n="fireSlither"><strong>Slither Out of Sight:</strong> At end of activation, change order to Conceal if WITHIN SHADOW.</li>
+                            <li data-i18n="fireFeast"><strong>Soul Feast:</strong> Heal Wounds equal to Enemy APL * successful damage dice.</li>
+                            <li data-i18n="fireHide"><strong>Nowhere to Hide:</strong> Move through terrain features as if they weren't there (fly).</li>
+                            <li data-i18n="fireBite"><strong>Shadow's Bite:</strong> Resolve the first attack dice as defender if WITHIN SHADOW.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Templates for Operatives (Hidden) -->
+    <template id="operative-card-template">
+        <div class="operative-card">
+            <div class="card-header">
+                <h3 class="op-name">Name</h3>
+                <button class="toggle-dead-btn" title="Mark as Incapacitated"><i class="fa-solid fa-skull"></i></button>
+            </div>
+            <div class="stats-row">
+                <div class="stat"><span class="label" data-i18n="statApg">APL</span><span class="value op-apg"></span></div>
+                <div class="stat"><span class="label" data-i18n="statB">MOVE</span><span class="value op-b"></span></div>
+                <div class="stat"><span class="label" data-i18n="statRw">SAVE</span><span class="value op-rw"></span></div>
+                <div class="stat lp-tracker">
+                    <span class="label" data-i18n="statLp">WOUNDS</span>
+                    <div class="lp-controls">
+                        <button class="lp-btn minus">-</button>
+                        <span class="value op-lp"></span>
+                        <button class="lp-btn plus">+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="weapons-container">
+                    <!-- Weapons injected here -->
+                </div>
+                <button class="accordion"><span data-i18n="abilitiesHeader">Abilities</span> <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="panel">
+                    <ul class="op-abilities">
+                        <!-- Abilities injected here -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <script src="i18n.js"></script>
+    <script src="app.js"></script>
+
+    <footer class="legal-footer">
+        <p data-i18n="legalDisclaimer">This is an unofficial fan-made utility. Warhammer 40,000, Kill Team, and all associated logos, names, and statistics are &copy; Copyright Games Workshop Limited. This tool is provided for free and is not affiliated with, or endorsed by, Games Workshop in any way.</p>
+    </footer>
+</body>
+</html>

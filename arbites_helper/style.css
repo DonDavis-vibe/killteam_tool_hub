@@ -1,12 +1,12 @@
 :root {
     --bg-color: #050b14; /* Deep Arbites Blue-Black */
     --panel-bg: rgba(12, 45, 74, 0.4); /* Blue glass */
-    --primary-color: #ffcc00; /* Imperial Gold */
-    --primary-glow: rgba(255, 204, 0, 0.2);
+    --accent-main: #fbbf24; /* Imperial Gold */
+    --primary-glow: rgba(251, 191, 36, 0.2);
     --secondary-color: #3c8cff; /* Enforcer Blue */
     --text-main: #e0e6ed;
     --text-muted: #8a9bb3;
-    --border-color: rgba(255, 204, 0, 0.15);
+    --border-color: rgba(251, 191, 36, 0.15);
     --accent-red: #ff3c3c;
     --success-green: #3cff8c;
     --glass-blur: blur(12px);
@@ -111,8 +111,8 @@ h1, h2, h3, h4, h5, .op-name, .value {
 
 .lang-btn.active, .lang-btn:hover {
     background: var(--primary-glow);
-    color: var(--primary-color);
-    border-color: var(--primary-color);
+    color: var(--accent-main);
+    border-color: var(--accent-main);
 }
 
 /* Glassmorphism Panels */
@@ -144,7 +144,7 @@ h1, h2, h3, h4, h5, .op-name, .value {
 
 .glow-icon {
     font-size: 2rem;
-    color: var(--primary-color);
+    color: var(--accent-main);
     filter: drop-shadow(0 0 10px var(--primary-glow));
 }
 
@@ -152,7 +152,7 @@ h1, h2, h3, h4, h5, .op-name, .value {
     font-size: 2.2rem;
     font-weight: 700;
     letter-spacing: 2px;
-    background: linear-gradient(90deg, #fff, var(--primary-color));
+    background: linear-gradient(90deg, #fff, var(--accent-main));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -185,8 +185,8 @@ h1, h2, h3, h4, h5, .op-name, .value {
 
 .tab-btn.active {
     background: var(--primary-glow);
-    border-color: var(--primary-color);
-    color: var(--primary-color);
+    border-color: var(--accent-main);
+    color: var(--accent-main);
 }
 
 .tab-btn:disabled {
@@ -235,7 +235,7 @@ h1, h2, h3, h4, h5, .op-name, .value {
 }
 
 #roster-count {
-    color: var(--primary-color);
+    color: var(--accent-main);
 }
 
 .builder-grid {
@@ -321,7 +321,7 @@ h1, h2, h3, h4, h5, .op-name, .value {
 }
 
 .weapon-select:focus {
-    border-color: var(--primary-color);
+    border-color: var(--accent-main);
     box-shadow: 0 0 0 2px var(--primary-glow);
 }
 
@@ -338,9 +338,9 @@ h1, h2, h3, h4, h5, .op-name, .value {
 }
 
 .primary-btn {
-    background: rgba(255, 204, 0, 0.1);
-    border: 1px solid var(--primary-color);
-    color: var(--primary-color);
+    background: rgba(251, 191, 36, 0.1);
+    border: 1px solid var(--accent-main);
+    color: var(--accent-main);
     padding: 1rem 2.5rem;
     font-size: 1.2rem;
     font-family: 'Rajdhani', sans-serif;
@@ -354,7 +354,7 @@ h1, h2, h3, h4, h5, .op-name, .value {
 }
 
 .glow-btn:hover:not(:disabled) {
-    background: var(--primary-color);
+    background: var(--accent-main);
     color: #000;
     box-shadow: 0 0 20px var(--primary-glow);
     transform: translateY(-2px);
@@ -375,7 +375,7 @@ h1, h2, h3, h4, h5, .op-name, .value {
 }
 
 .match-header h2 {
-    color: var(--primary-color);
+    color: var(--accent-main);
     font-size: 2rem;
     margin-bottom: 0.5rem;
 }
@@ -461,10 +461,10 @@ h1, h2, h3, h4, h5, .op-name, .value {
 }
 
 .lp-tracker {
-    background: rgba(255, 204, 0, 0.05);
+    background: rgba(251, 191, 36, 0.05);
     padding: 0.5rem 1rem;
     border-radius: 8px;
-    border: 1px solid rgba(255, 204, 0, 0.2);
+    border: 1px solid rgba(251, 191, 36, 0.2);
 }
 
 .lp-controls {
@@ -585,7 +585,7 @@ h1, h2, h3, h4, h5, .op-name, .value {
 }
 
 .tokens-header h2 {
-    color: var(--primary-color);
+    color: var(--accent-main);
     font-size: 2rem;
 }
 
@@ -645,7 +645,7 @@ h1, h2, h3, h4, h5, .op-name, .value {
 }
 
 .target-name:focus {
-    border-bottom-color: var(--primary-color);
+    border-bottom-color: var(--accent-main);
 }
 
 .grudge-controls {
@@ -681,7 +681,7 @@ h1, h2, h3, h4, h5, .op-name, .value {
     font-size: 2rem;
     font-family: 'Rajdhani', sans-serif;
     font-weight: 700;
-    color: var(--primary-color);
+    color: var(--accent-main);
     min-width: 40px;
     text-align: center;
 }
@@ -717,7 +717,7 @@ h1, h2, h3, h4, h5, .op-name, .value {
     background: rgba(0,0,0,0.3);
     padding: 1.5rem;
     border-radius: 8px;
-    border-left: 4px solid var(--primary-color);
+    border-left: 4px solid var(--accent-main);
 }
 
 .rule-card h3 {
