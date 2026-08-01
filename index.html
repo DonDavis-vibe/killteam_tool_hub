@@ -32,7 +32,24 @@
             color: #ff3c3c;
             border-color: #ff3c3c;
         }
-    </style>
+    
+/* Legal Footer */
+.legal-footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.4);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.legal-footer p {
+    margin: 0;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.4;
+}
+</style>
 </head>
 <body>
     <div class="background-effect"></div>
@@ -115,5 +132,9 @@
 
     <script src="i18n.js"></script>
     <script src="app.js"></script>
+
+    <footer class="legal-footer">
+        <p data-i18n="legalDisclaimer">This is an unofficial fan-made utility. Warhammer 40,000, Kill Team, and all associated logos, names, and statistics are &copy; Copyright Games Workshop Limited. This tool is provided for free and is not affiliated with, or endorsed by, Games Workshop in any way.</p>
+    </footer>
 </body>
 </html>

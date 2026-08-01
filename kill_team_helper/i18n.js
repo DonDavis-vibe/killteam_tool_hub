@@ -1,5 +1,6 @@
 const translations = {
     en: {
+        legalDisclaimer: "This is an unofficial fan-made utility. Warhammer 40,000, Kill Team, and all associated logos, names, and statistics are © Copyright Games Workshop Limited. This tool is provided for free and is not affiliated with, or endorsed by, Games Workshop in any way.",
         title: "HEARTHKYN SALVAGERS",
         tabAssemble: "ASSEMBLE TEAM",
         tabMatch: "MATCH TRACKER",
@@ -33,6 +34,7 @@ const translations = {
         abilitiesHeader: "Abilities"
     },
     de: {
+        legalDisclaimer: "Dies ist ein inoffizielles, von Fans erstelltes Hilfsprogramm. Warhammer 40.000, Kill Team und alle zugehörigen Logos, Namen und Statistiken sind © Copyright Games Workshop Limited. Dieses Tool wird kostenlos zur Verfügung gestellt und ist in keiner Weise mit Games Workshop verbunden oder wird von Games Workshop unterstützt.",
         title: "FLAMMKYN-BERGUNGSCREW",
         tabAssemble: "TEAM BAUEN",
         tabMatch: "MATCH TRACKER",

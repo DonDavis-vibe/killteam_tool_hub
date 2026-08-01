@@ -1,5 +1,6 @@
 const hubTranslations = {
     en: {
+        legalDisclaimer: "This is an unofficial fan-made utility. Warhammer 40,000, Kill Team, and all associated logos, names, and statistics are © Copyright Games Workshop Limited. This tool is provided for free and is not affiliated with, or endorsed by, Games Workshop in any way.",
         title: "Kill Team <span class=\"highlight\">Hub</span>",
         subtitle: "Your central command for all Warhammer 40,000 Kill Team utilities.",
         hearthTitle: "Hearthkyn Helper",
@@ -13,6 +14,7 @@ const hubTranslations = {
         launchApp: "Launch App"
     },
     de: {
+        legalDisclaimer: "Dies ist ein inoffizielles, von Fans erstelltes Hilfsprogramm. Warhammer 40.000, Kill Team und alle zugehörigen Logos, Namen und Statistiken sind © Copyright Games Workshop Limited. Dieses Tool wird kostenlos zur Verfügung gestellt und ist in keiner Weise mit Games Workshop verbunden oder wird von Games Workshop unterstützt.",
         title: "Kill Team <span class=\"highlight\">Hub</span>",
         subtitle: "Dein zentrales Kommando für alle Warhammer 40.000 Kill Team Werkzeuge.",
         hearthTitle: "Flammkyn Helfer",

@@ -766,3 +766,21 @@ h1, h2, h3, h4, h5, .op-name, .value {
         align-items: flex-start;
     }
 }
+
+
+/* Legal Footer */
+.legal-footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.4);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.legal-footer p {
+    margin: 0;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.4;
+}
