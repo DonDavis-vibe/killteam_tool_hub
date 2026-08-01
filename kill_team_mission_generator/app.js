@@ -1572,32 +1572,15 @@ document.addEventListener('DOMContentLoaded', () => {
   applyTranslations();
   
   // 2. VP Tracker Setup
-  const savedVP = localStorage.getItem('killteam_vp_state');
-  if (savedVP) {
-    let parsed = JSON.parse(savedVP);
-    Object.assign(vpState, parsed);
-    if (vpState.p1.cp === undefined) vpState.p1.cp = 2;
-    if (vpState.p2.cp === undefined) vpState.p2.cp = 2;
-    if (vpState.match === undefined) vpState.match = { tp: 1 };
-  }
-  updateVPDisplay();
-  
-  // Delegate VP button clicks from the tracker section
-  const vpSection = document.getElementById('vp-tracker-section');
-  if (vpSection) vpSection.addEventListener('click', handleVpChange);
-  
-  // Listen for primary op radio changes
-  document.querySelectorAll('input[name="p1-primary"], input[name="p2-primary"]').forEach(radio => {
-    radio.addEventListener('change', updateVPDisplay);
-  });
-  
-  const resetBtn = document.getElementById('reset-vp');
-  if (resetBtn) resetBtn.addEventListener('click', resetVP);
+  // Handled by the new DOMContentLoaded in SECTION 7
   
   // 3. Generator Setup
   const genBtn = document.getElementById('generate-btn');
   if (genBtn) genBtn.addEventListener('click', generateMission);
-  
+
+  const resetBtn = document.getElementById('reset-vp');
+  if (resetBtn) resetBtn.addEventListener('click', resetVP);
+
   // 4. Checklist Setup
   document.querySelectorAll('.collapsible-header').forEach(header => {
     header.addEventListener('click', toggleChecklistSection);
