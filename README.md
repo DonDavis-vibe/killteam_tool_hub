@@ -1,6 +1,8 @@
 # Warhammer Kill Team Hub
 
-A centralized, premium web hub for various Warhammer 40,000 Kill Team utilities and tools. This repository aggregates three specialized web applications into a single accessible portal, designed to streamline your tabletop experience. 
+A centralized, premium web hub for various Warhammer 40,000 Kill Team utilities and tools. This repository aggregates four specialized web applications into a single accessible portal, designed to streamline your tabletop experience. 
+
+The Hub landing page is fully bilingual in **English** and **German**, and syncs your language preference across all of the included tools.
 
 All applications run entirely in your browser with zero backend requirements, making them fast and fully portable.
 
