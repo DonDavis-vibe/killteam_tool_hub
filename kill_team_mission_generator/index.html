@@ -94,121 +94,12 @@
         <button class="plus" data-target="turning-point">+</button>
       </div>
     </div>
-
-    <div class="vp-tracker-grid">
-      <div class="player-column" id="player-1">
-        <div class="player-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-          <h3 data-i18n="player1" style="margin: 0;" contenteditable="true" spellcheck="false" class="editable-name">Player 1</h3>
-          <label style="font-size: 0.8rem; color: #a1a1aa; display: flex; align-items: center; gap: 5px; cursor: pointer;">
-            <input type="radio" name="initiative" value="p1" style="accent-color: #f97316;"> <span data-i18n="initiativeLbl">Initiative</span>
-          </label>
-        </div>
-        
-        <div class="vp-row">
-          <label data-i18n="critOpLbl">Crit Op</label>
-          <div class="counter">
-            <button class="minus" data-target="p1-crit">-</button>
-            <span id="p1-crit">0</span>
-            <button class="plus" data-target="p1-crit">+</button>
-          </div>
-          <input type="radio" name="p1-primary" value="crit" aria-label="Crit Primary" checked>
-        </div>
-
-        <div class="vp-row">
-          <label data-i18n="killOpLbl">Kill Op</label>
-          <div class="counter">
-            <button class="minus" data-target="p1-kill">-</button>
-            <span id="p1-kill">0</span>
-            <button class="plus" data-target="p1-kill">+</button>
-          </div>
-          <input type="radio" name="p1-primary" value="kill" aria-label="Kill Primary">
-        </div>
-
-        <div class="vp-row">
-          <label data-i18n="tacOpLbl">Tac Op</label>
-          <div class="counter">
-            <button class="minus" data-target="p1-tac">-</button>
-            <span id="p1-tac">0</span>
-            <button class="plus" data-target="p1-tac">+</button>
-          </div>
-          <input type="radio" name="p1-primary" value="tac" aria-label="Tac Primary">
-        </div>
-
-        <div class="vp-row cp-row" style="margin-top: 15px; border-top: 1px solid var(--border); padding-top: 10px;">
-          <label data-i18n="cpLbl" style="color: #38bdf8;">Command Points</label>
-          <div class="counter">
-            <button class="minus" data-target="p1-cp">-</button>
-            <span id="p1-cp" style="color: #38bdf8;">2</span>
-            <button class="plus" data-target="p1-cp">+</button>
-          </div>
-        </div>
-        
-        <div class="total-row">
-          <div class="total-display">
-            <span data-i18n="totalVpLbl">Total VP:</span> <strong id="p1-total">0</strong>
-          </div>
-          <div class="bonus-display">
-            <span data-i18n="primaryBonusLbl">Primary Bonus:</span> <span id="p1-bonus">0</span>
-          </div>
-        </div>
-      </div>
-      
-      <div class="player-column" id="player-2">
-        <div class="player-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-          <h3 data-i18n="player2" style="margin: 0;" contenteditable="true" spellcheck="false" class="editable-name">Player 2</h3>
-          <label style="font-size: 0.8rem; color: #a1a1aa; display: flex; align-items: center; gap: 5px; cursor: pointer;">
-            <input type="radio" name="initiative" value="p2" style="accent-color: #3b82f6;"> <span data-i18n="initiativeLbl">Initiative</span>
-          </label>
-        </div>
-        
-        <div class="vp-row">
-          <label data-i18n="critOpLbl">Crit Op</label>
-          <div class="counter">
-            <button class="minus" data-target="p2-crit">-</button>
-            <span id="p2-crit">0</span>
-            <button class="plus" data-target="p2-crit">+</button>
-          </div>
-          <input type="radio" name="p2-primary" value="crit" aria-label="Crit Primary" checked>
-        </div>
-
-        <div class="vp-row">
-          <label data-i18n="killOpLbl">Kill Op</label>
-          <div class="counter">
-            <button class="minus" data-target="p2-kill">-</button>
-            <span id="p2-kill">0</span>
-            <button class="plus" data-target="p2-kill">+</button>
-          </div>
-          <input type="radio" name="p2-primary" value="kill" aria-label="Kill Primary">
-        </div>
-
-        <div class="vp-row">
-          <label data-i18n="tacOpLbl">Tac Op</label>
-          <div class="counter">
-            <button class="minus" data-target="p2-tac">-</button>
-            <span id="p2-tac">0</span>
-            <button class="plus" data-target="p2-tac">+</button>
-          </div>
-          <input type="radio" name="p2-primary" value="tac" aria-label="Tac Primary">
-        </div>
-
-        <div class="vp-row cp-row" style="margin-top: 15px; border-top: 1px solid var(--border); padding-top: 10px;">
-          <label data-i18n="cpLbl" style="color: #38bdf8;">Command Points</label>
-          <div class="counter">
-            <button class="minus" data-target="p2-cp">-</button>
-            <span id="p2-cp" style="color: #38bdf8;">2</span>
-            <button class="plus" data-target="p2-cp">+</button>
-          </div>
-        </div>
-        
-        <div class="total-row">
-          <div class="total-display">
-            <span data-i18n="totalVpLbl">Total VP:</span> <strong id="p2-total">0</strong>
-          </div>
-          <div class="bonus-display">
-            <span data-i18n="primaryBonusLbl">Primary Bonus:</span> <span id="p2-bonus">0</span>
-          </div>
-        </div>
-      </div>
+    <div class="tracker-controls" style="text-align: right; margin-bottom: 10px;">
+      <button id="add-player-btn" class="btn btn-secondary" style="padding: 5px 10px; font-size: 0.9rem;">+ Add Player</button>
+      <button id="remove-player-btn" class="btn btn-secondary" style="padding: 5px 10px; font-size: 0.9rem;">- Remove Player</button>
+    </div>
+    <div class="vp-tracker-grid" id="vp-tracker-grid">
+      <!-- Players dynamically generated by app.js -->
     </div>
     <div class="reset-container">
       <button id="reset-vp" data-i18n="resetVpBtn">Reset Tracker</button>

@@ -1226,90 +1226,184 @@ function generateMission() {
 // SECTION 7: VP TRACKER
 // ==========================================
 
-const vpState = {
-  p1: { crit: 0, kill: 0, tac: 0, cp: 2 },
-  p2: { crit: 0, kill: 0, tac: 0, cp: 2 },
+const VP_COLORS = ['#FF5A1E', '#3b82f6', '#22c55e', '#a855f7', '#eab308', '#ef4444'];
+
+let vpState = {
+  players: [
+    { name: "Player 1", crit: 0, kill: 0, tac: 0, cp: 2, bonus: false },
+    { name: "Player 2", crit: 0, kill: 0, tac: 0, cp: 2, bonus: false }
+  ],
   match: { tp: 1 }
 };
 
-function updateVPDisplay() {
-  const tpEl = document.getElementById('turning-point');
-  if (tpEl && vpState.match) tpEl.textContent = vpState.match.tp;
-
-  for (let p of ['p1', 'p2']) {
-    for (let type of ['crit', 'kill', 'tac', 'cp']) {
-      const el = document.getElementById(`${p}-${type}`);
-      if (el) el.textContent = vpState[p][type];
-    }
-    
-    let total = vpState[p].crit + vpState[p].kill + vpState[p].tac;
-    // Get primary op selection
-    const primaryRadio = document.querySelector(`input[name="${p}-primary"]:checked`);
-    const primaryType = primaryRadio ? primaryRadio.value : 'crit';
-    let bonus = Math.ceil(vpState[p][primaryType] / 2);
-    let grandTotal = total + bonus;
-    
-    const totalEl = document.getElementById(`${p}-total`);
-    if (totalEl) totalEl.textContent = grandTotal;
-    const bonusEl = document.getElementById(`${p}-bonus`);
-    if (bonusEl) bonusEl.textContent = `+${bonus}`;
-  }
+function renderPlayers() {
+  const grid = document.getElementById('vp-tracker-grid');
+  if (!grid) return;
   
-  // Save state
-  localStorage.setItem('killteam_vp_state', JSON.stringify(vpState));
+  grid.innerHTML = '';
+  vpState.players.forEach((player, index) => {
+    const pId = `p${index+1}`;
+    const color = VP_COLORS[index % VP_COLORS.length];
+    
+    const col = document.createElement('div');
+    col.className = 'player-column';
+    col.style.borderTop = `4px solid ${color}`;
+    
+    col.innerHTML = `
+      <div class="player-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+        <h3 contenteditable="true" spellcheck="false" class="editable-name" data-index="${index}" style="margin: 0; color: ${color}; border-bottom: 1px dashed ${color}66;">${player.name}</h3>
+        <label style="font-size: 0.8rem; color: #a1a1aa; display: flex; align-items: center; gap: 5px; cursor: pointer;">
+          <input type="radio" name="initiative" value="${pId}" style="accent-color: ${color};"> <span data-i18n="initiativeLbl">Initiative</span>
+        </label>
+      </div>
+      
+      <div class="vp-row">
+        <label data-i18n="critOpLbl">Crit Op</label>
+        <div class="counter">
+          <button class="minus" data-target="${index}-crit" style="--btn-color: ${color}">-</button>
+          <span>${player.crit}</span>
+          <button class="plus" data-target="${index}-crit" style="--btn-color: ${color}">+</button>
+        </div>
+      </div>
+
+      <div class="vp-row">
+        <label data-i18n="killOpLbl">Kill Op</label>
+        <div class="counter">
+          <button class="minus" data-target="${index}-kill" style="--btn-color: ${color}">-</button>
+          <span>${player.kill}</span>
+          <button class="plus" data-target="${index}-kill" style="--btn-color: ${color}">+</button>
+        </div>
+      </div>
+
+      <div class="vp-row">
+        <label data-i18n="tacOpLbl">Tac Op</label>
+        <div class="counter">
+          <button class="minus" data-target="${index}-tac" style="--btn-color: ${color}">-</button>
+          <span>${player.tac}</span>
+          <button class="plus" data-target="${index}-tac" style="--btn-color: ${color}">+</button>
+        </div>
+      </div>
+
+      <div class="vp-row cp-row" style="margin-top: 15px; border-top: 1px solid var(--border); padding-top: 10px;">
+        <label data-i18n="cpLbl" style="color: #38bdf8;">Command Points</label>
+        <div class="counter">
+          <button class="minus" data-target="${index}-cp" style="--btn-color: #38bdf8">-</button>
+          <span style="color: #38bdf8;">${player.cp}</span>
+          <button class="plus" data-target="${index}-cp" style="--btn-color: #38bdf8">+</button>
+        </div>
+      </div>
+
+      <div class="total-row" style="display: flex; justify-content: space-between; align-items: center;">
+        <div class="total-display">
+          <span data-i18n="totalVpLbl">Total VP:</span> <strong style="color: ${color}">${player.crit + player.kill + player.tac + (player.bonus ? 2 : 0)}</strong>
+        </div>
+        <button class="bonus-btn ${player.bonus ? 'active' : ''}" data-target="${index}-bonus" style="--btn-color: ${color}">
+          Primary Bonus: +${player.bonus ? '2' : '0'}
+        </button>
+      </div>
+    `;
+    grid.appendChild(col);
+  });
+  
+  if (typeof updateContent === 'function') updateContent();
+
+  grid.querySelectorAll('.editable-name').forEach(el => {
+    el.addEventListener('blur', (e) => {
+      const idx = e.target.dataset.index;
+      vpState.players[idx].name = e.target.textContent;
+      saveVPState();
+    });
+  });
 }
 
 function handleVpChange(e) {
-  const btn = e.target.closest('button.minus, button.plus');
+  const btn = e.target.closest('button.minus, button.plus, button.bonus-btn');
   if (!btn) return;
   
-  const targetId = btn.dataset.target; // e.g. 'p1-crit'
+  const targetId = btn.dataset.target;
   if (!targetId) return;
   
-  let player, type;
   if (targetId === 'turning-point') {
-    player = 'match';
-    type = 'tp';
+    if (btn.classList.contains('plus')) vpState.match.tp = Math.min(4, vpState.match.tp + 1);
+    if (btn.classList.contains('minus')) vpState.match.tp = Math.max(1, vpState.match.tp - 1);
+    document.getElementById('turning-point').textContent = vpState.match.tp;
+    saveVPState();
+    return;
+  }
+
+  const parts = targetId.split('-');
+  const pIndex = parseInt(parts[0]);
+  const type = parts[1];
+  
+  if (type === 'bonus') {
+    vpState.players[pIndex].bonus = !vpState.players[pIndex].bonus;
   } else {
-    [player, type] = targetId.split('-'); // 'p1', 'crit'
-  }
-  
-  if (!vpState[player] || vpState[player][type] === undefined) return;
-  
-  if (btn.classList.contains('plus')) {
-    if (type !== 'cp' && type !== 'tp' && vpState[player][type] >= 6) return;
-    if (type === 'tp' && vpState[player][type] >= 4) return;
-    vpState[player][type]++;
+    let max = type === 'cp' ? 20 : (type === 'kill' || type === 'tac' ? 4 : 12);
+    let min = 0;
     
-    // Auto-increment CP when TP increases
-    if (type === 'tp') {
-      if (vpState.p1.cp !== undefined) vpState.p1.cp++;
-      if (vpState.p2.cp !== undefined) vpState.p2.cp++;
-      
-      // Uncheck initiative to remind players to roll-off?
-      // document.querySelectorAll('input[name="initiative"]').forEach(el => el.checked = false);
-    }
-  } else if (btn.classList.contains('minus')) {
-    let min = (type === 'tp') ? 1 : 0;
-    if (vpState[player][type] > min) {
-      vpState[player][type]--;
+    if (btn.classList.contains('plus')) {
+      if (vpState.players[pIndex][type] < max) vpState.players[pIndex][type]++;
+    } else if (btn.classList.contains('minus')) {
+      if (vpState.players[pIndex][type] > min) vpState.players[pIndex][type]--;
     }
   }
   
-  updateVPDisplay();
+  saveVPState();
+  renderPlayers();
+}
+
+function addPlayer() {
+  vpState.players.push({ name: `Player ${vpState.players.length + 1}`, crit: 0, kill: 0, tac: 0, cp: 2, bonus: false });
+  saveVPState();
+  renderPlayers();
+}
+
+function removePlayer() {
+  if (vpState.players.length > 1) {
+    vpState.players.pop();
+    saveVPState();
+    renderPlayers();
+  }
 }
 
 function resetVP() {
   vpState.match = { tp: 1 };
-  for (let p of ['p1', 'p2']) {
-    vpState[p] = { crit: 0, kill: 0, tac: 0, cp: 2 };
-  }
-  updateVPDisplay();
-  document.getElementById('enemy-op-count').value = 10;
-  updateKillGradeTable();
+  document.getElementById('turning-point').textContent = 1;
+  vpState.players.forEach(p => {
+    p.crit = 0; p.kill = 0; p.tac = 0; p.cp = 2; p.bonus = false;
+  });
+  saveVPState();
+  renderPlayers();
+  const countEl = document.getElementById('enemy-op-count');
+  if (countEl) countEl.value = 10;
+  if (typeof updateKillGradeTable === 'function') updateKillGradeTable();
 }
 
-// ==========================================
+function saveVPState() {
+  localStorage.setItem('kt_vp_state', JSON.stringify(vpState));
+}
+
+function loadVPState() {
+  const saved = localStorage.getItem('kt_vp_state');
+  if (saved) {
+    try {
+      const parsed = JSON.parse(saved);
+      if (parsed.players) vpState = parsed;
+    } catch (e) {}
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  loadVPState();
+  renderPlayers();
+  
+  const addBtn = document.getElementById('add-player-btn');
+  if (addBtn) addBtn.addEventListener('click', addPlayer);
+  
+  const remBtn = document.getElementById('remove-player-btn');
+  if (remBtn) remBtn.addEventListener('click', removePlayer);
+});
+
 // SECTION 8: KILL GRADE TABLE
 // ==========================================
 
