@@ -784,3 +784,34 @@ h1, h2, h3, h4, h5, .op-name, .value {
     margin-right: auto;
     line-height: 1.4;
 }
+
+
+/* Custom Team Logos */
+.team-logo {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--accent);
+    box-shadow: 0 0 10px var(--accent-glow);
+    transition: var(--transition);
+}
+.app-card:hover .team-logo {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 0 20px var(--accent-glow);
+}
+.header-logo {
+    width: 48px;
+    height: 48px;
+    margin-right: 15px;
+    vertical-align: middle;
+    display: inline-block;
+}
+.app-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.app-header h1 {
+    margin: 0;
+}
