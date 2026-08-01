@@ -578,6 +578,22 @@ section {
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 2px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.editable-name {
+  outline: none;
+  border-bottom: 1px dashed rgba(255,255,255,0.2) !important;
+  cursor: text;
+  transition: all 0.3s;
+  min-width: 100px;
+  padding: 0 5px;
+}
+.editable-name:focus {
+  border-bottom-style: solid !important;
+  background: rgba(255,255,255,0.05);
+  border-radius: 4px;
 }
 
 .vp-row {
