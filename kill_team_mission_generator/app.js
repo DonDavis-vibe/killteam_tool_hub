@@ -470,7 +470,7 @@ const critOps = [
     vpRules: {
       en: "At the end of each turning point after the first: If any objective markers are secured by your kill team, you score 1VP. If more objective markers are secured by your kill team than your opponent's kill team, you score 1VP.",
       de: "Am Ende jedes Wendepunkts nach dem ersten: Wenn mindestens ein Missionsziel von deinem Kill Team gesichert ist, erzielst du 1SP. Wenn mehr Missionsziele von deinem Kill Team gesichert sind als vom gegnerischen Kill Team, erzielst du 1SP."
-    }
+    }, tip: { en: "Push forward to take and hold objective markers before the enemy does. You score points simply by having more markers than your opponent at the end of Turning Points 2, 3, and 4!", de: "Rücke vor, um Missionsziele einzunehmen und zu halten, bevor der Gegner es tut. Du punktest einfach dadurch, am Ende von Wendepunkt 2, 3 und 4 mehr Marker als dein Gegner zu haben!" }
   },
   {
     id: 2,
@@ -490,7 +490,7 @@ const critOps = [
     vpRules: {
       en: "Whenever a friendly operative performs the Loot action, you score 1VP (to a maximum of 2VP per turning point).",
       de: "Immer wenn ein befreundeter Agent die Aktion Plündern ausführt, erzielst du 1SP (bis zu einem Maximum von 2SP pro Wendepunkt)."
-    }
+    }, tip: { en: "Use your actions to Loot objectives! Once looted, an objective cannot be looted again that turn, so make sure you loot them before the enemy gets the chance. Maximize your 2VP per turn by looting two different markers.", de: "Nutze deine Aktionen, um Ziele zu plündern! Einmal geplündert, kann ein Ziel in diesem Wendepunkt nicht erneut geplündert werden, also plündere sie, bevor der Gegner die Chance hat." }
   },
   {
     id: 3,
@@ -510,7 +510,7 @@ const critOps = [
     vpRules: {
       en: "At the end of each turning point after the first: If friendly operatives control any transmitting objective markers, you score 1VP. If friendly operatives control more transmitting objective markers than enemy operatives do, you score 1VP.",
       de: "Am Ende jedes Wendepunkts nach dem ersten: Wenn befreundete Agenten übertragende Missionsziele kontrollieren, erzielst du 1SP. Wenn befreundete Agenten mehr übertragende Missionsziele kontrollieren als gegnerische Agenten, erzielst du 1SP."
-    }
+    }, tip: { en: "Convert markers into transmitting stations! They stay active until the next turn, so try to initiate transmissions late in the turn so the enemy cannot easily stop you from scoring at the end of the round.", de: "Verwandle Marker in Sendestationen! Sie bleiben bis zum nächsten Zug aktiv. Versuche, Übertragungen spät im Zug zu starten, damit der Gegner dich nicht leicht am Punkten hindern kann." }
   },
   {
     id: 4,
@@ -534,7 +534,7 @@ const critOps = [
     vpRules: {
       en: "At the end of each turning point after the first, for each objective marker that friendly operatives control that doesn't have the Orb token, you score 1VP.",
       de: "Am Ende jedes Wendepunkts nach dem ersten erzielst du 1SP für jedes Missionsziel, das befreundete Agenten kontrollieren und das nicht den Sphären-Marker hat."
-    }
+    }, tip: { en: "The Orb starts in the middle. You score points by holding the OTHER markers. Try to grab the Orb and throw it onto an objective marker your opponent controls, denying them points while you safely score on yours!", de: "Die Sphäre startet in der Mitte. Du punktest, indem du die ANDEREN Marker hältst. Versuche, die Sphäre auf ein vom Gegner kontrolliertes Missionsziel zu werfen, um ihm Punkte zu verweigern!" }
   },
   {
     id: 5,
@@ -547,7 +547,7 @@ const critOps = [
     vpRules: {
       en: "At the end of each turning point after the first: If friendly operatives control more objective markers than enemy operatives do, you score 1VP. If your selected claim is true, you score 1VP.",
       de: "Am Ende jedes Wendepunkts nach dem ersten: Wenn befreundete Agenten mehr Missionsziele kontrollieren als gegnerische Agenten, erzielst du 1SP. Wenn dein gewählter Anspruch wahr ist, erzielst du 1SP."
-    }
+    }, tip: { en: "Each turn you must bet on an objective: either you will control it, or the enemy won't contest it. Pick objectives you know you can defend, and remember you can only pick each marker once per game!", de: "In jedem Zug musst du auf ein Missionsziel wetten: Entweder wirst du es kontrollieren, oder der Gegner macht es dir nicht streitig. Wähle Ziele, die du verteidigen kannst, und wähle klug!" }
   },
   {
     id: 6,
@@ -560,7 +560,7 @@ const critOps = [
     vpRules: {
       en: "At the end of each turning point after the first, if friendly operatives control more objective markers than enemy operatives do, you score 1VP. At the end of the battle, for each objective marker friendly operatives are carrying, you score 1VP.",
       de: "Am Ende jedes Wendepunkts nach dem ersten, wenn befreundete Agenten mehr Missionsziele kontrollieren als gegnerische Agenten, erzielst du 1SP. Am Ende der Schlacht erzielst du für jedes Missionsziel, das befreundete Agenten tragen, 1SP."
-    }
+    }, tip: { en: "You can actually pick up the objective markers and walk away with them! It costs extra AP in early turns, but carrying them to safety guarantees you points at the end of the game and denies them to the enemy.", de: "Du kannst die Missionsziele tatsächlich aufheben und mit ihnen weggehen! In frühen Zügen kostet das extra AP, aber sie in Sicherheit zu bringen, garantiert dir Punkte am Spielende." }
   },
   {
     id: 7,
@@ -580,7 +580,7 @@ const critOps = [
     vpRules: {
       en: "At the end of each turning point after the first, if friendly operatives control more objective markers than enemy operatives do, you score 1VP. Ignore downloaded objective markers. Whenever Download action during TP3, score 1VP. During TP4, score 2VP.",
       de: "Am Ende jedes Wendepunkts nach dem ersten, wenn befreundete Agenten mehr Missionsziele kontrollieren als gegnerische Agenten, erzielst du 1SP. Ignoriere heruntergeladene Missionsziele. Immer wenn die Aktion Download in WP3 ausgeführt wird, erziele 1SP. In WP4 erziele 2SP."
-    }
+    }, tip: { en: "Focus on the center or the enemy's side of the board! Downloading requires you to push up. Since downloading scores heavy points in turns 3 and 4, position your operatives safely near objectives early on.", de: "Konzentriere dich auf die Mitte oder die gegnerische Spielfeldseite! Da der Download in Runde 3 und 4 viele Punkte bringt, positioniere deine Agenten früh sicher nahe der Ziele." }
   },
   {
     id: 8,
@@ -614,7 +614,7 @@ const critOps = [
     vpRules: {
       en: "At end of TP2 and TP3, if more Compile Data actions performed than enemy, score 1VP. Whenever Send Data action performed, score VP equal to Data points removed.",
       de: "Am Ende von WP2 und WP3, wenn mehr Daten kompilieren Aktionen ausgeführt wurden als vom Gegner, erziele 1SP. Immer wenn Daten senden ausgeführt wird, erziele SP in Höhe der entfernten Datenpunkte."
-    }
+    }, tip: { en: "In turns 2 and 3, rush to objectives and Compile Data to place a dice on them. Then, in turns 3 and 4, use Send Data to convert those dice into Victory Points before the enemy stops you!", de: "In Runde 2 und 3 musst du zu den Zielen eilen und Daten kompilieren, um Würfel darauf zu platzieren. Nutze dann in Runde 3 und 4 Daten senden, um diese in Siegpunkte umzuwandeln!" }
   },
   {
     id: 9,
@@ -638,7 +638,7 @@ const critOps = [
     vpRules: {
       en: "At end of each TP after first, for each objective marker friendly operatives control, score 1VP. Ignore inert markers.",
       de: "Am Ende jedes WP nach dem ersten für jedes von befreundeten Agenten kontrollierte Missionsziel 1SP erzielen. Ignoriere inaktive Marker."
-    }
+    }, tip: { en: "One objective will be randomly inert (worthless) each turn based on a secret dice bid! If a marker you control becomes inert, use the Reboot action to reactivate it so you can still score.", de: "Ein Missionsziel wird jede Runde durch ein geheimes Würfelgebot inaktiv (wertlos)! Wenn ein von dir kontrollierter Marker inaktiv wird, nutze die Neustart-Aktion, um ihn zu reaktivieren." }
   }
 ];
 
@@ -661,7 +661,7 @@ const tacOps = [
     vpRules: {
       en: "End of each TP after first: opponent's objective marker has your Device token = 1VP. Each other objective marker enemy contests with your Device token = 1VP. Max 2VP/TP.",
       de: "Am Ende jedes WP nach dem ersten: gegnerisches Missionsziel hat deinen Geräte-Marker = 1SP. Jedes andere Missionsziel, das der Gegner streitig macht und das deinen Geräte-Marker hat = 1SP. Max 2SP/WP."
-    }
+    }, tip: { en: "Push forward to take and hold objective markers before the enemy does. You score points simply by having more markers than your opponent at the end of Turning Points 2, 3, and 4!", de: "Rücke vor, um Missionsziele einzunehmen und zu halten, bevor der Gegner es tut. Du punktest einfach dadurch, am Ende von Wendepunkt 2, 3 und 4 mehr Marker als dein Gegner zu haben!" }
   },
   {
     id: 2,
@@ -675,7 +675,7 @@ const tacOps = [
     vpRules: {
       en: "End of each TP after first, if carrying any Intelligence = 1VP. End of battle, per Intelligence carried = 1VP.",
       de: "Am Ende jedes WP nach dem ersten, wenn Information getragen wird = 1SP. Am Ende der Schlacht, pro getragener Information = 1SP."
-    }
+    }, tip: { en: "Use your actions to Loot objectives! Once looted, an objective cannot be looted again that turn, so make sure you loot them before the enemy gets the chance. Maximize your 2VP per turn by looting two different markers.", de: "Nutze deine Aktionen, um Ziele zu plündern! Einmal geplündert, kann ein Ziel in diesem Wendepunkt nicht erneut geplündert werden, also plündere sie, bevor der Gegner die Chance hat." }
   },
   {
     id: 3,
@@ -689,7 +689,7 @@ const tacOps = [
     vpRules: {
       en: "End of each TP after first: 1 tracked = 1VP (2VP if TP4). 2+ tracked = 2VP. Max 2VP/TP.",
       de: "Am Ende jedes WP nach dem ersten: 1 verfolgt = 1SP (2SP in WP4). 2+ verfolgt = 2SP. Max 2SP/WP."
-    }
+    }, tip: { en: "Convert markers into transmitting stations! They stay active until the next turn, so try to initiate transmissions late in the turn so the enemy cannot easily stop you from scoring at the end of the round.", de: "Verwandle Marker in Sendestationen! Sie bleiben bis zum nächsten Zug aktiv. Versuche, Übertragungen spät im Zug zu starten, damit der Gegner dich nicht leicht am Punkten hindern kann." }
   },
   // Recon
   {
@@ -704,7 +704,7 @@ const tacOps = [
     vpRules: {
       en: "After reveal, end of each TP after first, per flank controlled = 1VP. In TP4 if also controlled in TP3 = 2VP instead. Max 2VP/TP.",
       de: "Nach Aufdecken, am Ende jedes WP nach dem ersten, pro kontrollierter Flanke = 1SP. In WP4, wenn auch in WP3 kontrolliert = stattdessen 2SP. Max 2SP/WP."
-    }
+    }, tip: { en: "The Orb starts in the middle. You score points by holding the OTHER markers. Try to grab the Orb and throw it onto an objective marker your opponent controls, denying them points while you safely score on yours!", de: "Die Sphäre startet in der Mitte. Du punktest, indem du die ANDEREN Marker hältst. Versuche, die Sphäre auf ein vom Gegner kontrolliertes Missionsziel zu werfen, um ihm Punkte zu verweigern!" }
   },
   {
     id: 5,
@@ -720,7 +720,7 @@ const tacOps = [
     vpRules: {
       en: "First time each objective searched = 1VP. End of battle, per Retrieval marker carried = 1VP.",
       de: "Das erste Mal, wenn jedes Missionsziel durchsucht wird = 1SP. Am Ende der Schlacht, pro getragenem Bergungs-Marker = 1SP."
-    }
+    }, tip: { en: "Each turn you must bet on an objective: either you will control it, or the enemy won't contest it. Pick objectives you know you can defend, and remember you can only pick each marker once per game!", de: "In jedem Zug musst du auf ein Missionsziel wetten: Entweder wirst du es kontrollieren, oder der Gegner macht es dir nicht streitig. Wähle Ziele, die du verteidigen kannst, und wähle klug!" }
   },
   {
     id: 6,
@@ -736,7 +736,7 @@ const tacOps = [
     vpRules: {
       en: "End of each TP after first, per monitored enemy visible to friendlies = 1VP. Max 2VP/TP.",
       de: "Am Ende jedes WP nach dem ersten, pro überwachtem Gegner, der für befreundete Agenten sichtbar ist = 1SP. Max 2SP/WP."
-    }
+    }, tip: { en: "You can actually pick up the objective markers and walk away with them! It costs extra AP in early turns, but carrying them to safety guarantees you points at the end of the game and denies them to the enemy.", de: "Du kannst die Missionsziele tatsächlich aufheben und mit ihnen weggehen! In frühen Zügen kostet das extra AP, aber sie in Sicherheit zu bringen, garantiert dir Punkte am Spielende." }
   },
   // Security
   {
@@ -753,7 +753,7 @@ const tacOps = [
     vpRules: {
       en: "End of each TP after first, if Banner in enemy territory and controlled = 1VP; if also no enemy contests = 2VP instead. Must be in killzone (not carried).",
       de: "Am Ende jedes WP nach dem ersten, wenn Banner im gegnerischen Gebiet und kontrolliert = 1SP; wenn auch kein Gegner streitig macht = stattdessen 2SP. Muss in der Killzone sein (nicht getragen)."
-    }
+    }, tip: { en: "Focus on the center or the enemy's side of the board! Downloading requires you to push up. Since downloading scores heavy points in turns 3 and 4, position your operatives safely near objectives early on.", de: "Konzentriere dich auf die Mitte oder die gegnerische Spielfeldseite! Da der Download in Runde 3 und 4 viele Punkte bringt, positioniere deine Agenten früh sicher nahe der Ziele." }
   },
   {
     id: 8,
@@ -767,7 +767,7 @@ const tacOps = [
     vpRules: {
       en: "End of each TP after first, if contesting marker with Martyr tokens, remove tokens: per token = 1VP; if also control marker = 2VP instead. Max 2VP/TP.",
       de: "Am Ende jedes WP nach dem ersten, wenn Marker mit Märtyrer-Markern streitig gemacht wird, entferne Marker: pro Marker = 1SP; wenn Marker auch kontrolliert = stattdessen 2SP. Max 2SP/WP."
-    }
+    }, tip: { en: "In turns 2 and 3, rush to objectives and Compile Data to place a dice on them. Then, in turns 3 and 4, use Send Data to convert those dice into Victory Points before the enemy stops you!", de: "In Runde 2 und 3 musst du zu den Zielen eilen und Daten kompilieren, um Würfel darauf zu platzieren. Nutze dann in Runde 3 und 4 Daten senden, um diese in Siegpunkte umzuwandeln!" }
   },
   {
     id: 9,
@@ -781,7 +781,7 @@ const tacOps = [
     vpRules: {
       en: "End of each TP after first, if envoy wholly in enemy territory and not in control range = 1VP; if also no wounds lost that TP = 2VP instead.",
       de: "Am Ende jedes WP nach dem ersten, wenn der Abgesandte vollständig im gegnerischen Gebiet und nicht in Kontrollreichweite = 1SP; wenn er in diesem WP keine Wunden verloren hat = stattdessen 2SP."
-    }
+    }, tip: { en: "One objective will be randomly inert (worthless) each turn based on a secret dice bid! If a marker you control becomes inert, use the Reboot action to reactivate it so you can still score.", de: "Ein Missionsziel wird jede Runde durch ein geheimes Würfelgebot inaktiv (wertlos)! Wenn ein von dir kontrollierter Marker inaktiv wird, nutze die Neustart-Aktion, um ihn zu reaktivieren." }
   },
   // Seek & Destroy
   {
@@ -1009,6 +1009,13 @@ function renderCritOp(critOp, lang) {
     html += `<div class="additional-rules">
                <h4>${t('additionalRules')}</h4>
                <p>${critOp.additionalRules[lang]}</p>
+             </div>`;
+  }
+  
+  if (critOp.tip) {
+    html += `<div class="mission-tip-box" style="margin-top: 15px; padding: 10px; background: rgba(56, 189, 248, 0.1); border-left: 3px solid #38bdf8; border-radius: 4px;">
+               <strong style="color: #38bdf8; font-size: 0.9em; display: block; margin-bottom: 5px;">💡 ${lang === 'de' ? 'Strategie-Tipp' : 'Strategy Tip'}</strong>
+               <p style="margin: 0; font-size: 0.85em; color: #e2e8f0;">${critOp.tip[lang]}</p>
              </div>`;
   }
   
