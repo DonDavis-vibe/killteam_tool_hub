@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kill Team Mission Generator</title>
+  <meta name="description" content="Generate random missions for Warhammer 40K Kill Team 3rd Edition. Includes Approved Ops 2025 crit ops, maps, kill ops, tac ops, VP tracker and game sequence.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="title-container">
+      <h1 class="main-title" data-i18n="appTitle">KILL TEAM</h1>
+      <h2 class="sub-title" data-i18n="appSubtitle">MISSION GENERATOR</h2>
+    </div>
+    <button id="lang-toggle" data-i18n="langToggle">EN | DE</button>
+  </header>
+  
+  <div class="divider"></div>
+
+  <section id="generate-section">
+    <div class="selector-container">
+      <label for="killzone-select" data-i18n="killzoneLabel">Killzone</label>
+      <select id="killzone-select">
+        <option value="generic" data-i18n="kzGeneric" selected>Starter Set / Non-Specific</option>
+        <option value="volkus" data-i18n="kzVolkus">Volkus</option>
+        <option value="gallowdark" data-i18n="kzGallowdark">Gallowdark</option>
+        <option value="tombworld" data-i18n="kzTombWorld">Tomb World</option>
+        <option value="bhetadecima" data-i18n="kzBhetaDecima">Bheta-Decima</option>
+      </select>
+    </div>
+    <button id="generate-btn">
+      <span class="icon">⚄</span> <span data-i18n="generateBtn">GENERATE MISSION</span>
+    </button>
+  </section>
+
+  <section id="mission-output" class="hidden" style="display: none;">
+    <div class="cards-grid">
+      <div id="crit-op-card" class="mission-card crit-op-card"></div>
+      <div id="map-card" class="mission-card map-card"></div>
+      
+      <div id="kill-op-card" class="mission-card">
+        <h3 class="card-title" data-i18n="killOpTitle">KILL OP</h3>
+        <p class="kill-op-desc" data-i18n="killOpDesc">Kill grades based on starting operative count.</p>
+        
+        <div class="enemy-count-input">
+          <label for="enemy-op-count" data-i18n="enemyOpCountLabel">Enemy Operatives:</label>
+          <input type="number" id="enemy-op-count" min="4" max="14" value="6">
+        </div>
+
+        <table id="kill-grade-table">
+          <thead>
+            <tr>
+              <th data-i18n="kgStartOps">Starting Operatives</th>
+              <th data-i18n="kgGrade1">Grade 1</th>
+              <th data-i18n="kgGrade2">Grade 2</th>
+              <th data-i18n="kgGrade3">Grade 3</th>
+              <th data-i18n="kgGrade4">Grade 4</th>
+              <th data-i18n="kgGrade5">Grade 5</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-ops="4"><td>4</td><td>1</td><td>2</td><td>3</td><td>-</td><td>-</td></tr>
+            <tr data-ops="5"><td>5</td><td>1</td><td>2</td><td>3</td><td>4</td><td>-</td></tr>
+            <tr data-ops="6"><td>6</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+            <tr data-ops="7"><td>7</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr>
+            <tr data-ops="8"><td>8</td><td>2</td><td>3</td><td>5</td><td>6</td><td>7</td></tr>
+            <tr data-ops="9"><td>9</td><td>2</td><td>4</td><td>5</td><td>7</td><td>8</td></tr>
+            <tr data-ops="10"><td>10</td><td>2</td><td>4</td><td>6</td><td>7</td><td>9</td></tr>
+            <tr data-ops="11"><td>11</td><td>3</td><td>5</td><td>6</td><td>8</td><td>10</td></tr>
+            <tr data-ops="12"><td>12</td><td>3</td><td>5</td><td>7</td><td>9</td><td>11</td></tr>
+            <tr data-ops="13"><td>13</td><td>3</td><td>5</td><td>8</td><td>10</td><td>12</td></tr>
+            <tr data-ops="14"><td>14</td><td>3</td><td>6</td><td>8</td><td>11</td><td>13</td></tr>
+          </tbody>
+        </table>
+        
+        <p class="vp-rules" data-i18n="killOpRules">Whenever you move to a new kill grade, you score 1VP. At the end of the battle, if your kill grade is higher than your opponent's, you score 1VP.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="vp-tracker-section">
+    <h2 class="section-title" data-i18n="vpTrackerTitle">MATCH TRACKER</h2>
+    
+    <div class="tp-tracker" style="text-align: center; margin-bottom: 20px;">
+      <strong style="color: var(--primary); letter-spacing: 1px; margin-right: 15px;" data-i18n="turningPoint">Turning Point</strong>
+      <div class="counter tp-counter" style="display: inline-flex;">
+        <button class="minus" data-target="turning-point">-</button>
+        <span id="turning-point" style="font-size: 1.5rem; color: #fff; margin: 0 15px;">1</span>
+        <button class="plus" data-target="turning-point">+</button>
+      </div>
+    </div>
+
+    <div class="vp-tracker-grid">
+      <div class="player-column" id="player-1">
+        <div class="player-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+          <h3 data-i18n="player1" style="margin: 0;">Player 1</h3>
+          <label style="font-size: 0.8rem; color: #a1a1aa; display: flex; align-items: center; gap: 5px; cursor: pointer;">
+            <input type="radio" name="initiative" value="p1" style="accent-color: #f97316;"> <span data-i18n="initiativeLbl">Initiative</span>
+          </label>
+        </div>
+        
+        <div class="vp-row">
+          <label data-i18n="critOpLbl">Crit Op</label>
+          <div class="counter">
+            <button class="minus" data-target="p1-crit">-</button>
+            <span id="p1-crit">0</span>
+            <button class="plus" data-target="p1-crit">+</button>
+          </div>
+          <input type="radio" name="p1-primary" value="crit" aria-label="Crit Primary" checked>
+        </div>
+
+        <div class="vp-row">
+          <label data-i18n="killOpLbl">Kill Op</label>
+          <div class="counter">
+            <button class="minus" data-target="p1-kill">-</button>
+            <span id="p1-kill">0</span>
+            <button class="plus" data-target="p1-kill">+</button>
+          </div>
+          <input type="radio" name="p1-primary" value="kill" aria-label="Kill Primary">
+        </div>
+
+        <div class="vp-row">
+          <label data-i18n="tacOpLbl">Tac Op</label>
+          <div class="counter">
+            <button class="minus" data-target="p1-tac">-</button>
+            <span id="p1-tac">0</span>
+            <button class="plus" data-target="p1-tac">+</button>
+          </div>
+          <input type="radio" name="p1-primary" value="tac" aria-label="Tac Primary">
+        </div>
+
+        <div class="vp-row cp-row" style="margin-top: 15px; border-top: 1px solid var(--border); padding-top: 10px;">
+          <label data-i18n="cpLbl" style="color: #38bdf8;">Command Points</label>
+          <div class="counter">
+            <button class="minus" data-target="p1-cp">-</button>
+            <span id="p1-cp" style="color: #38bdf8;">2</span>
+            <button class="plus" data-target="p1-cp">+</button>
+          </div>
+        </div>
+        
+        <div class="total-row">
+          <div class="total-display">
+            <span data-i18n="totalVpLbl">Total VP:</span> <strong id="p1-total">0</strong>
+          </div>
+          <div class="bonus-display">
+            <span data-i18n="primaryBonusLbl">Primary Bonus:</span> <span id="p1-bonus">0</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="player-column" id="player-2">
+        <div class="player-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+          <h3 data-i18n="player2" style="margin: 0;">Player 2</h3>
+          <label style="font-size: 0.8rem; color: #a1a1aa; display: flex; align-items: center; gap: 5px; cursor: pointer;">
+            <input type="radio" name="initiative" value="p2" style="accent-color: #3b82f6;"> <span data-i18n="initiativeLbl">Initiative</span>
+          </label>
+        </div>
+        
+        <div class="vp-row">
+          <label data-i18n="critOpLbl">Crit Op</label>
+          <div class="counter">
+            <button class="minus" data-target="p2-crit">-</button>
+            <span id="p2-crit">0</span>
+            <button class="plus" data-target="p2-crit">+</button>
+          </div>
+          <input type="radio" name="p2-primary" value="crit" aria-label="Crit Primary" checked>
+        </div>
+
+        <div class="vp-row">
+          <label data-i18n="killOpLbl">Kill Op</label>
+          <div class="counter">
+            <button class="minus" data-target="p2-kill">-</button>
+            <span id="p2-kill">0</span>
+            <button class="plus" data-target="p2-kill">+</button>
+          </div>
+          <input type="radio" name="p2-primary" value="kill" aria-label="Kill Primary">
+        </div>
+
+        <div class="vp-row">
+          <label data-i18n="tacOpLbl">Tac Op</label>
+          <div class="counter">
+            <button class="minus" data-target="p2-tac">-</button>
+            <span id="p2-tac">0</span>
+            <button class="plus" data-target="p2-tac">+</button>
+          </div>
+          <input type="radio" name="p2-primary" value="tac" aria-label="Tac Primary">
+        </div>
+
+        <div class="vp-row cp-row" style="margin-top: 15px; border-top: 1px solid var(--border); padding-top: 10px;">
+          <label data-i18n="cpLbl" style="color: #38bdf8;">Command Points</label>
+          <div class="counter">
+            <button class="minus" data-target="p2-cp">-</button>
+            <span id="p2-cp" style="color: #38bdf8;">2</span>
+            <button class="plus" data-target="p2-cp">+</button>
+          </div>
+        </div>
+        
+        <div class="total-row">
+          <div class="total-display">
+            <span data-i18n="totalVpLbl">Total VP:</span> <strong id="p2-total">0</strong>
+          </div>
+          <div class="bonus-display">
+            <span data-i18n="primaryBonusLbl">Primary Bonus:</span> <span id="p2-bonus">0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="reset-container">
+      <button id="reset-vp" data-i18n="resetVpBtn">Reset Tracker</button>
+    </div>
+  </section>
+
+  <section id="checklist-section">
+    <h2 class="section-title" data-i18n="checklistTitle">GAME SEQUENCE</h2>
+    <div class="collapsible-group">
+      
+      <!-- BEGINNER GUIDE CARD -->
+      <div class="collapsible-item">
+        <button class="collapsible-header setup-guide-header">
+          <span data-i18n="setupHelpTitle">❓ BEGINNER GUIDE: WHAT DO I NEED? (MUST I CHECK ALL BOXES?)</span>
+          <span class="toggle-icon">+</span>
+        </button>
+        <div class="collapsible-content setup-guide-content">
+          <p class="guide-intro" data-i18n="setupHelpIntro">Here is everything you and your buddy need to set up a quick game of Kill Team 3rd Edition:</p>
+          
+          <div class="guide-box">
+            <h4 data-i18n="setupReq1_title">1. Physical Components:</h4>
+            <p data-i18n="setupReq1_text">Two Kill Teams with datacards/tokens, your 30"x22" board & terrain (e.g. from the Starter Set), 6 objective markers (numbered 1-6), 6-sided dice (D6), and a measuring tape (in inches).</p>
+          </div>
+          
+          <div class="guide-box">
+            <h4 data-i18n="setupReq2_title">2. Objective Placement:</h4>
+            <p data-i18n="setupReq2_text">Look at the generated Map diagram above! Place your 6 objectives on your physical table exactly where the circles show (P1 and P2 are player home objectives, 1-4 are neutral).</p>
+          </div>
+          
+          <div class="guide-box highlight-box">
+            <h4 data-i18n="setupReq3_title">3. Do you need all the checkboxes below?</h4>
+            <p data-i18n="setupReq3_text">NO! You do NOT need to check every box to play. The checklist below is an optional, step-by-step tournament companion to make sure you don't forget official rules (like drafting equipment or CP starting rules). For casual games with buddies: Just generate a mission above, place your terrain and 6 objectives, deploy your models in your drop zones, start with 2 Command Points each, and start rolling dice!</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- LINE OF SIGHT & CONCEAL GUIDE CARD -->
+      <div class="collapsible-item">
+        <button class="collapsible-header setup-guide-header">
+          <span data-i18n="losHelpTitle">🎯 RULES: CONCEAL VS ENGAGE & COVER</span>
+          <span class="toggle-icon">+</span>
+        </button>
+        <div class="collapsible-content setup-guide-content">
+          <p class="guide-intro" data-i18n="losHelpIntro">Not sure if you can shoot an enemy? Follow these 3 steps to check Line of Sight (LoS):</p>
+          
+          <div class="guide-box">
+            <h4 data-i18n="losReq1_title">1. Visibility:</h4>
+            <p data-i18n="losReq1_text">Can the shooter's head see any part of the target's body? If you can't see them at all, you can't shoot them!</p>
+          </div>
+          
+          <div class="guide-box">
+            <h4 data-i18n="losReq2_title">2. Obscured (Heavy Terrain):</h4>
+            <p data-i18n="losReq2_text">Does the cover line cross Heavy terrain that is more than 2" away from the target? If yes, they are Obscured and cannot be shot.</p>
+          </div>
+          
+          <div class="guide-box">
+            <h4 data-i18n="losReq3_title">3. Cover & Orders:</h4>
+            <p data-i18n="losReq3_text">Does the cover line cross terrain within 1" of the target?</p>
+            <ul style="margin: 8px 0 0 20px; color: var(--text-muted); font-size: 0.9rem;">
+              <li style="margin-bottom: 6px;"><strong style="color: #f97316;" data-i18n="losEngageTitle">Engage (Orange Token):</strong> <span data-i18n="losEngageDesc">They are peaking out. YOU CAN SHOOT THEM (they get a free save).</span></li>
+              <li><strong style="color: #64748b;" data-i18n="losConcealTitle">Conceal (Grey/Black Token):</strong> <span data-i18n="losConcealDesc">They are hiding. YOU CANNOT SHOOT THEM.</span></li>
+            </ul>
+          </div>
+          <div class="guide-box highlight-box" style="margin-top: 15px; border-left-color: #94a3b8; background: rgba(148, 163, 184, 0.05);">
+            <h4 data-i18n="losFaqTitle" style="color: #94a3b8; margin-bottom: 5px;">💡 Pro Tip: What does Conceal actually do?</h4>
+            <p data-i18n="losFaqText" style="font-size: 0.9rem; line-height: 1.5; color: var(--text-muted);">
+              Conceal does <strong>not</strong> give you extra defense dice. It simply makes you invisible <em>if</em> you are in Cover.
+              <br><br>
+              <strong>In the open:</strong> Conceal does nothing. You can be shot normally.<br>
+              <strong>In Cover:</strong> Both Engage and Conceal give you the "Benefit of Cover" (you keep 1 defense die as an automatic success). The difference is that on Engage, enemies can shoot you. On Conceal, they can't shoot you at all!
+            </p>
+          </div>
+
+          <div class="guide-box highlight-box" style="margin-top: 20px;">
+            <h4 data-i18n="interactiveLosTitle" style="text-align: center; margin-bottom: 15px;">Interactive Line of Sight Simulator</h4>
+            
+            <!-- Controls -->
+            <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 15px; flex-wrap: wrap;">
+              <div class="los-toggle-group">
+                <span data-i18n="targetOrderLbl" style="font-size: 0.8rem; color: #a1a1aa; margin-right: 5px;">Target Order:</span>
+                <button id="btn-los-engage" class="los-btn active">Engage</button>
+                <button id="btn-los-conceal" class="los-btn">Conceal</button>
+              </div>
+              <div class="los-toggle-group">
+                <button id="btn-los-add-terrain" class="los-btn active" data-i18n="addTerrainBtn" style="color: #4ade80; border-color: #4ade80;">+ Add Terrain</button>
+              </div>
+            </div>
+
+            <!-- Visualizer Container -->
+            <div style="position: relative; width: 100%; height: 250px; background: #1a1a20; border: 1px solid #2a2a30; border-radius: 6px; overflow: hidden; touch-action: none;" id="los-sandbox">
+              
+              <!-- Grid Background (optional for scaling) -->
+              <svg width="100%" height="100%" style="position: absolute; top:0; left:0; pointer-events: none;">
+                <defs>
+                  <pattern id="losGrid" width="20" height="20" patternUnits="userSpaceOnUse">
+                    <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#2a2a30" stroke-width="0.5"/>
+                  </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#losGrid)" />
+                <!-- Cover Line -->
+                <line id="los-cover-line" x1="50" y1="125" x2="250" y2="125" stroke="#fff" stroke-dasharray="4" stroke-width="2"/>
+                <!-- 1" Radius Ring around Shooter -->
+                <circle id="los-shooter-ring" cx="50" cy="125" r="40" fill="none" stroke="#f97316" stroke-opacity="0.3" stroke-width="1" stroke-dasharray="2"/>
+                <!-- 1" Radius Ring around Target -->
+                <circle id="los-target-ring" cx="250" cy="125" r="40" fill="none" stroke="#3b82f6" stroke-opacity="0.3" stroke-width="1" stroke-dasharray="2"/>
+                <!-- 2" Obscuring Ring around Target -->
+                <circle id="los-obscuring-ring" cx="250" cy="125" r="80" fill="none" stroke="#ef4444" stroke-opacity="0.2" stroke-width="1" stroke-dasharray="2" style="display: none;"/>
+              </svg>
+
+              <!-- Terrain Element (Draggable) -->
+              <div class="draggable los-terrain" data-type="light" style="position: absolute; left: 140px; top: 75px; width: 20px; height: 100px; background: #38bdf8; border: 1px dashed #fff; border-radius: 2px; cursor: move; display: flex; align-items: center; justify-content: center;">
+                <span class="los-terrain-lbl" style="transform: rotate(-90deg); color: #fff; font-size: 10px; font-weight: bold; pointer-events: none;">LIGHT</span>
+                <div class="los-terrain-delete" style="position: absolute; top: -8px; right: -8px; width: 16px; height: 16px; background: #ef4444; border-radius: 50%; color: #fff; font-size: 10px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-weight: bold; z-index: 20;">✕</div>
+              </div>
+
+              <!-- Shooter Element (Draggable) -->
+              <div id="los-shooter" class="draggable" style="position: absolute; left: 40px; top: 115px; width: 20px; height: 20px; background: #e2e8f0; border: 2px solid #f97316; border-radius: 50%; cursor: move; z-index: 10;">
+                <span style="position: absolute; top: 22px; left: -10px; color: #f97316; font-size: 10px; font-weight: bold; pointer-events: none;">Shooter</span>
+              </div>
+
+              <!-- Target Element (Draggable) -->
+              <div id="los-target" class="draggable" style="position: absolute; left: 240px; top: 115px; width: 20px; height: 20px; background: #94a3b8; border: 2px solid #3b82f6; border-radius: 50%; cursor: move; z-index: 10;">
+                <span style="position: absolute; top: 22px; left: -8px; color: #3b82f6; font-size: 10px; font-weight: bold; pointer-events: none;">Target</span>
+                <!-- Order Token -->
+                <div id="los-target-token" style="position: absolute; top: -10px; left: 10px; width: 14px; height: 14px; background: #f97316; border-radius: 50%; color: #000; font-size: 9px; font-weight: bold; display: flex; align-items: center; justify-content: center; pointer-events: none;">E</div>
+              </div>
+
+            </div>
+
+            <!-- Result Readout -->
+            <div id="los-result" style="text-align: center; margin-top: 15px; padding: 10px; background: rgba(74, 222, 128, 0.1); border: 1px solid #4ade80; border-radius: 6px; font-weight: bold; font-size: 1.1rem; color: #4ade80;">
+              ✅ VALID TARGET
+            </div>
+            <p id="los-reason" style="text-align: center; color: var(--text-muted); font-size: 0.85rem; margin-top: 5px;">
+              Cover line crosses terrain, target is in Cover. Target has Engage order, so they can be shot.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Core Actions Guide -->
+      <div class="collapsible-item">
+        <button class="collapsible-header setup-guide-header">
+          <span data-i18n="actionsHelpTitle">🏃 RULES: CORE ACTIONS</span>
+          <span class="toggle-icon">+</span>
+        </button>
+        <div class="collapsible-content setup-guide-content">
+          <p class="guide-intro" data-i18n="actionsHelpIntro">A quick reminder of what you can do with your Action Points (AP):</p>
+          
+          <div class="guide-box">
+            <ul style="margin: 0; padding-left: 20px; color: var(--text-muted); font-size: 0.9rem;">
+              <li style="margin-bottom: 8px;"><strong style="color: #38bdf8;" data-i18n="actionMoveTitle">Move:</strong> <span data-i18n="actionMoveDesc">Move up to your Movement characteristic in inches.</span></li>
+              <li style="margin-bottom: 8px;"><strong style="color: #38bdf8;" data-i18n="actionDashTitle">Dash:</strong> <span data-i18n="actionDashDesc">Move up to 3 inches. Cannot be used to enter Engagement Range.</span></li>
+              <li style="margin-bottom: 8px;"><strong style="color: #ef4444;" data-i18n="actionChargeTitle">Charge:</strong> <span data-i18n="actionChargeDesc">Move up to Movement + 1 inch. Must end in Engagement Range of an enemy.</span></li>
+              <li style="margin-bottom: 8px;"><strong style="color: #f97316;" data-i18n="actionShootTitle">Shoot:</strong> <span data-i18n="actionShootDesc">Make a ranged attack. Requires Engage order and Line of Sight.</span></li>
+              <li style="margin-bottom: 8px;"><strong style="color: #f97316;" data-i18n="actionFightTitle">Fight:</strong> <span data-i18n="actionFightDesc">Resolve melee combat against an enemy in Engagement Range.</span></li>
+              <li style="margin-bottom: 8px;"><strong style="color: #a1a1aa;" data-i18n="actionFallBackTitle">Fall Back:</strong> <span data-i18n="actionFallBackDesc">Move out of Engagement Range. Costs 2 AP.</span></li>
+              <li><strong style="color: #a1a1aa;" data-i18n="actionPassTitle">Pass:</strong> <span data-i18n="actionPassDesc">Do nothing for 1 AP.</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- USRs Guide -->
+      <div class="collapsible-item">
+        <button class="collapsible-header setup-guide-header">
+          <span data-i18n="usrHelpTitle">⚔️ RULES: WEAPON KEYWORDS</span>
+          <span class="toggle-icon">+</span>
+        </button>
+        <div class="collapsible-content setup-guide-content">
+          <p class="guide-intro" data-i18n="usrHelpIntro">Common Universal Special Rules (USRs) on weapon profiles:</p>
+          
+          <div class="guide-box">
+            <div class="weapon-rules-grid">
+              <div><strong style="color: #38bdf8;" data-i18n="usrAccurateTitle">Accurate (Präzise):</strong> <span data-i18n="usrAccurateDesc">Retain failed hits as normal hits up to x.</span></div>
+              <div><strong style="color: #e8b059;" data-i18n="usrAPTitle">APx (Durchschlag):</strong> <span data-i18n="usrAPDesc">Target rolls x fewer Defense dice.</span></div>
+              <div><strong style="color: #38bdf8;" data-i18n="usrBalancedTitle">Balanced (Ausgewogen):</strong> <span data-i18n="usrBalancedDesc">Re-roll one attack die.</span></div>
+              <div><strong style="color: #ef4444;" data-i18n="usrBlastTitle">Blast x (Explosiv):</strong> <span data-i18n="usrBlastDesc">Attack each operative within x" of target.</span></div>
+              <div><strong style="color: #ef4444;" data-i18n="usrBrutalTitle">Brutal (Brutal):</strong> <span data-i18n="usrBrutalDesc">Opponent can only parry with Critical hits.</span></div>
+              <div><strong style="color: #ef4444;" data-i18n="usrDevastatingTitle">Devastating x (Verheerend):</strong> <span data-i18n="usrDevastatingDesc">Each Critical hit deals x extra damage.</span></div>
+              <div><strong style="color: #a1a1aa;" data-i18n="usrHeavyTitle">Heavy (Schwer):</strong> <span data-i18n="usrHeavyDesc">Cannot Move/Dash in same activation as shooting.</span></div>
+              <div><strong style="color: #a1a1aa;" data-i18n="usrIndirectTitle">Indirect (Indirekt):</strong> <span data-i18n="usrIndirectDesc">Target cannot retain cover saves automatically.</span></div>
+              <div><strong style="color: #e8b059;" data-i18n="usrLethalTitle">Lethal x+ (Tödlich):</strong> <span data-i18n="usrLethalDesc">Critical hits on a roll of x+ instead of 6.</span></div>
+              <div><strong style="color: #e8b059;" data-i18n="usrPiercingTitle">Piercing x (Panzerbrechend):</strong> <span data-i18n="usrPiercingDesc">If you retain any Critical hits, gains APx.</span></div>
+              <div><strong style="color: #38bdf8;" data-i18n="usrPunishingTitle">Punishing (Bestrafend):</strong> <span data-i18n="usrPunishingDesc">If you retain a Critical hit, retain one failed hit as normal.</span></div>
+              <div><strong style="color: #38bdf8;" data-i18n="usrReliableTitle">Reliable x (Zuverlässig):</strong> <span data-i18n="usrReliableDesc">Retain up to x attack dice without rolling.</span></div>
+              <div><strong style="color: #e8b059;" data-i18n="usrRendingTitle">Rending (Reißend):</strong> <span data-i18n="usrRendingDesc">If you retain a Critical hit, change one normal hit into Critical.</span></div>
+              <div><strong style="color: #e8b059;" data-i18n="usrSevereTitle">Severe (Schwerwiegend):</strong> <span data-i18n="usrSevereDesc">If you retain NO Critical hits, change one normal hit into Critical.</span></div>
+              <div><strong style="color: #a1a1aa;" data-i18n="usrSilentTitle">Silent (Lautlos):</strong> <span data-i18n="usrSilentDesc">Can shoot while on a Conceal order.</span></div>
+              <div><strong style="color: #a1a1aa;" data-i18n="usrSmartTitle">Smart (Zielsuchend):</strong> <span data-i18n="usrSmartDesc">Can shoot targets even if they are Obscured.</span></div>
+              <div><strong style="color: #a1a1aa;" data-i18n="usrStunTitle">Stun (Betäuben):</strong> <span data-i18n="usrStunDesc">If you retain any Critical hits, subtract 1 from target's APL.</span></div>
+              <div><strong style="color: #ef4444;" data-i18n="usrTorrentTitle">Torrent x (Schwall):</strong> <span data-i18n="usrTorrentDesc">Attack valid targets within x" of each other.</span></div>
+              <div><strong style="color: #a1a1aa;" data-i18n="usrUnwieldyTitle">Unwieldy (Unhandlich):</strong> <span data-i18n="usrUnwieldyDesc">Costs 2 Action Points (AP) to shoot.</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="collapsible-item">
+        <button class="collapsible-header">
+          <span data-i18n="seqStep1">1. Set Up the Battle</span>
+          <span class="toggle-icon">+</span>
+        </button>
+        <div class="collapsible-content">
+          <label><input type="checkbox"><span data-i18n="seqStep1_1">Select kill teams</span></label>
+          <label><input type="checkbox"><span data-i18n="seqStep1_2">Set up terrain</span></label>
+          <label><input type="checkbox"><span data-i18n="seqStep1_3">Determine crit op & place objectives</span></label>
+          <label><input type="checkbox"><span data-i18n="seqStep1_4">Roll-off for initiative</span></label>
+          <label><input type="checkbox"><span data-i18n="seqStep1_5">Choose drop zones</span></label>
+        </div>
+      </div>
+
+      <div class="collapsible-item">
+        <button class="collapsible-header">
+          <span data-i18n="seqStep2">2. Select Operatives</span>
+          <span class="toggle-icon">+</span>
+        </button>
+        <div class="collapsible-content">
+          <label><input type="checkbox"><span data-i18n="seqStep2_1">Secretly select operatives then reveal</span></label>
+          <label><input type="checkbox"><span data-i18n="seqStep2_2">Select up to 4 equipment options then reveal</span></label>
+          <label><input type="checkbox"><span data-i18n="seqStep2_3">Start with 2CP each</span></label>
+          <label><input type="checkbox"><span data-i18n="seqStep2_4">Secretly select tac op from archetype</span></label>
+        </div>
+      </div>
+
+      <div class="collapsible-item">
+        <button class="collapsible-header">
+          <span data-i18n="seqStep3">3. Set Up Operatives</span>
+          <span class="toggle-icon">+</span>
+        </button>
+        <div class="collapsible-content">
+          <label><input type="checkbox"><span data-i18n="seqStep3_1">Alternate placing equipment</span></label>
+          <label><input type="checkbox"><span data-i18n="seqStep3_2">Alternate deploying operatives in thirds (Conceal order)</span></label>
+        </div>
+      </div>
+
+      <div class="collapsible-item">
+        <button class="collapsible-header">
+          <span data-i18n="seqStep4">4. Play the Battle</span>
+          <span class="toggle-icon">+</span>
+        </button>
+        <div class="collapsible-content">
+          <label><input type="checkbox"><span data-i18n="seqStep4_1">Roll-off for initiative each TP</span></label>
+          <label><input type="checkbox"><span data-i18n="seqStep4_2">Use initiative cards</span></label>
+          <label><input type="checkbox"><span data-i18n="seqStep4_3">Select primary op as Strategic Gambit (TP1)</span></label>
+          <label><input type="checkbox"><span data-i18n="seqStep4_4">Max 6VP per op</span></label>
+        </div>
+      </div>
+
+      <div class="collapsible-item">
+        <button class="collapsible-header">
+          <span data-i18n="seqStep5">5. End the Battle</span>
+          <span class="toggle-icon">+</span>
+        </button>
+        <div class="collapsible-content">
+          <label><input type="checkbox"><span data-i18n="seqStep5_1">Battle ends after 4 turning points</span></label>
+          <label><input type="checkbox"><span data-i18n="seqStep5_2">Reveal primary ops simultaneously</span></label>
+          <label><input type="checkbox"><span data-i18n="seqStep5_3">Score bonus VP = half primary op VP (round up)</span></label>
+          <label><input type="checkbox"><span data-i18n="seqStep5_4">Most VP wins</span></label>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="tac-ops-section">
+    <h2 class="section-title" data-i18n="tacOpsTitle">TAC OPS</h2>
+    <div class="tac-op-filters">
+      <button data-filter="all" class="active" data-i18n="filterAll">All</button>
+      <button data-filter="infiltration" data-i18n="filterInfil">Infiltration</button>
+      <button data-filter="recon" data-i18n="filterRecon">Recon</button>
+      <button data-filter="security" data-i18n="filterSecurity">Security</button>
+      <button data-filter="seekDestroy" data-i18n="filterSeek">Seek & Destroy</button>
+    </div>
+    <div id="tac-ops-grid"></div>
+  </section>
+
+  <footer>
+    <p class="disclaimer" data-i18n="footerText">Kill Team &copy; Games Workshop. This is an unofficial fan tool.</p>
+    <a href="https://wahapedia.ru" target="_blank" data-i18n="footerRulesLink">Rules Reference (Wahapedia)</a>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flammkyn-Bergungscrew | Datapad</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="background-effect"></div>
+    <div class="app-container">
+        <header class="app-header glass-panel">
+            <div class="logo">
+                <i class="fa-solid fa-satellite-dish glow-icon"></i>
+                <h1>FLAMMKYN-BERGUNGSCREW</h1>
+            </div>
+            <nav class="tabs">
+                <button class="tab-btn active" data-tab="builder">
+                    <i class="fa-solid fa-wrench"></i> TEAM BAUEN
+                </button>
+                <button class="tab-btn" data-tab="match" id="match-tab-btn" disabled>
+                    <i class="fa-solid fa-crosshairs"></i> MATCH TRACKER
+                </button>
+                <button class="tab-btn" data-tab="grudge">
+                    <i class="fa-solid fa-skull"></i> GROLLMARKER
+                </button>
+                <button class="tab-btn" data-tab="rules">
+                    <i class="fa-solid fa-book"></i> REGELN
+                </button>
+            </nav>
+        </header>
+
+        <main class="app-content">
+            <!-- TEAM BUILDER TAB -->
+            <section id="builder" class="tab-pane active glass-panel">
+                <div class="builder-header">
+                    <h2>TEAM ZUSAMMENSTELLEN</h2>
+                    <p>Wähle 1 Theyn und 9 weitere Kämpfer aus.</p>
+                    <div class="counter-box">
+                        Ausgewählt: <span id="roster-count">0</span> / 10
+                    </div>
+                </div>
+
+                <div class="builder-grid" id="builder-grid">
+                    <!-- Operative selection cards will be injected here by JS -->
+                </div>
+
+                <div class="builder-actions">
+                    <button id="start-match-btn" class="primary-btn glow-btn" disabled>
+                        MATCH STARTEN <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </section>
+
+            <!-- MATCH TRACKER TAB -->
+            <section id="match" class="tab-pane">
+                <div class="match-header glass-panel">
+                    <h2>AKTIVES TEAM</h2>
+                    <p>Verfolge die Lebenspunkte (LP) deiner Kämpfer.</p>
+                </div>
+                
+                <div class="roster-grid" id="match-roster">
+                    <!-- Active operative cards will be injected here by JS -->
+                </div>
+            </section>
+
+            <!-- GRUDGE TAB -->
+            <section id="grudge" class="tab-pane glass-panel">
+                <div class="grudge-header">
+                    <h2>GROLLMARKER</h2>
+                    <p>Feind besiegen? Token vergeben. Für jeden Token am Ziel: 1 normaler Erfolg wird zum kritischen Erfolg.</p>
+                    <button id="add-target-btn" class="secondary-btn"><i class="fa-solid fa-plus"></i> Neues Ziel</button>
+                </div>
+                
+                <div id="grudge-list" class="grudge-list">
+                    <!-- Dynamic Grudge Items -->
+                </div>
+            </section>
+
+            <!-- RULES TAB -->
+            <section id="rules" class="tab-pane glass-panel">
+                <div class="rules-grid">
+                    <div class="rule-card">
+                        <h3><i class="fa-solid fa-scale-unbalanced"></i> Fraktionsregel: Groll</h3>
+                        <p>Wenn ein Kyn stirbt, erhält der Täter 1 Grollmarker.</p>
+                        <p>Beim Angriff auf ein Ziel mit Grollmarkern: Für jeden Marker am Ziel darfst du 1 normalen Erfolg in einen <strong>kritischen Erfolg</strong> umwandeln. Marker werden danach <strong>nicht</strong> entfernt.</p>
+                    </div>
+
+                    <div class="rule-card">
+                        <h3><i class="fa-solid fa-chess-knight"></i> Strategielisten (Ploys)</h3>
+                        <ul class="rule-list">
+                            <li><strong>Stählerner Widerstand:</strong> Wenn beschossen und max 1 Erfolg, behalte einen Fehlwurf als normalen Erfolg.</li>
+                            <li><strong>Bedarf behält:</strong> Wähle Missionsmarker. Kyn zählen als +1 APL zur Kontrolle. Kyn in 3" haben Nahkampf-A +1.</li>
+                            <li><strong>Mühsal verdient:</strong> Wähle Marker. Feind in 3" zählt als hätte er +1 Grollmarker.</li>
+                            <li><strong>Kurzstreckenbeschuss:</strong> Feind in 6" beschießen: Trefferwert +1 (max 3+).</li>
+                        </ul>
+                    </div>
+
+                    <div class="rule-card">
+                        <h3><i class="fa-solid fa-bolt"></i> Gefechtslisten (Tactical)</h3>
+                        <ul class="rule-list">
+                            <li><strong>Die Ahnen sehen zu:</strong> Bei Aktivierung. Kostenlos Kämpfen oder Schießen, ignoriere Verletzungs-Mali.</li>
+                            <li><strong>Nicht umsonst:</strong> Wenn kampfunfähig: Kostenlose missionsspezifische Aktion vorm Sterben.</li>
+                            <li><strong>Robust:</strong> Beim Verteidigen: Wandle gegnerische Krits in normale Erfolge um.</li>
+                            <li><strong>Angreifen und in Besitz nehmen:</strong> Wiederhole beliebige Attackenwürfel gegen Feinde, die Marker kontrollieren.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Templates for Operatives (Hidden) -->
+    <template id="operative-card-template">
+        <div class="operative-card">
+            <div class="card-header">
+                <h3 class="op-name">Name</h3>
+                <button class="toggle-dead-btn" title="Kampfunfähig markieren"><i class="fa-solid fa-skull"></i></button>
+            </div>
+            <div class="stats-row">
+                <div class="stat"><span class="label">APG</span><span class="value op-apg"></span></div>
+                <div class="stat"><span class="label">B</span><span class="value op-b"></span></div>
+                <div class="stat"><span class="label">RW</span><span class="value op-rw"></span></div>
+                <div class="stat lp-tracker">
+                    <span class="label">LP</span>
+                    <div class="lp-controls">
+                        <button class="lp-btn minus">-</button>
+                        <span class="value op-lp"></span>
+                        <button class="lp-btn plus">+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="weapons-container">
+                    <!-- Weapons injected here -->
+                </div>
+                <button class="accordion">Fähigkeiten <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="panel">
+                    <ul class="op-abilities">
+                        <!-- Abilities injected here -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <script src="app.js"></script>
+</body>
+</html>
