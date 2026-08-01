@@ -40,8 +40,8 @@ A quick and easy utility to generate varied, randomized gameplay setups so you c
 To run this project locally, simply clone the repository and open `index.html` in any modern web browser. No build steps or servers are required.
 
 ```bash
-git clone https://github.com/DonDavis-vibe/killteam_hub.git
-cd killteam_hub
+git clone https://github.com/DonDavis-vibe/killteam_tool_hub.git
+cd killteam_tool_hub
 # Open index.html in your browser
 ```
 
