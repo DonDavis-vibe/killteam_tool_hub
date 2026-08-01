@@ -1408,6 +1408,9 @@ document.addEventListener('DOMContentLoaded', () => {
   if (addBtn) addBtn.addEventListener('click', addPlayer);
   
   const remBtn = document.getElementById('remove-player-btn');
+  
+  const vpSection = document.getElementById('vp-tracker-section');
+  if (vpSection) vpSection.addEventListener('click', handleVpChange);
   if (remBtn) remBtn.addEventListener('click', removePlayer);
 });
 

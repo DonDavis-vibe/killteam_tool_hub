@@ -39,12 +39,9 @@
 
 body {
   background-color: var(--bg-main);
-  background-image: 
-    radial-gradient(circle at 50% 0%, rgba(255, 90, 30, 0.12) 0%, transparent 60%),
-    radial-gradient(circle at 10% 80%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
-    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-  background-size: 100% 100%, 100% 100%, 30px 30px, 30px 30px;
+  background-image: url('../assets/bg.jpg');
+  background-size: cover;
+  background-position: center;
   background-attachment: fixed;
   color: var(--text-main);
   font-family: var(--font-body);
