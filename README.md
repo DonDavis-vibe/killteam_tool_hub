@@ -41,44 +41,51 @@ Specialized tracking tools for the Adeptus Arbites Exaction Squad.
 - **Team Builder:** Construct a valid 11-operative roster (1 Proctor-exactant and 10 others).
 - **Match Tracker:** Track the Wounds and operational status of your Arbitrators mid-game.
 - **Tokens & Justice Tracker:** Keep a log of your "Marked for Justice" targets, Cyber-Mastiff "Apprehend" targets, and Nuncio-aquila markers.
-- **Rules Reference:** Quick access to Faction Rules (Ruthless Efficiency, Repress), Strategy Ploys, and Firefight Ploys.
+- **Ploys & CP Tracker:** Interactive Strategy and Firefight Ploys with an integrated Command Point tracker to manage your CP economy.
+- **Rules Reference:** Quick access to Faction Rules (Ruthless Efficiency, Repress).
 
 ### 3. 🛡️ Hearthkyn Salvagers (Flammkyn) Helper
 A comprehensive datapad designed specifically for Hearthkyn Salvager Kill Teams.
 - **Team Builder:** Construct a legal 10-operative roster (validates limits and Heavy weapons).
 - **Match Tracker:** A live dashboard to track Wounds (LP) and Status.
 - **Grudge Tracker:** A dedicated system for managing your Grudge Tokens and keeping track of who owes the Kin a blood debt.
-- **Rules Reference:** Quick, organized access to your Faction Rules and Ploys.
+- **Ploys & CP Tracker:** Interactive Strategy and Firefight Ploys with an integrated Command Point tracker to manage your CP economy.
+- **Rules Reference:** Quick, organized access to your Faction Rules.
 
 ### 4. 💀 Mandrake Helper
 Specialized tracking tools tailored specifically for the Mandrake Kill Team.
 - **Team Builder:** Construct a valid 9-operative roster, ensuring your Nightfiend leader is selected.
 - **Match Tracker:** Track the Wounds and operational status of your slippery shadow-dwellers.
 - **Token & Soul Harvest Tracker:** Manage Soul Harvest Points, Balefire Tokens, and Shadow Portals.
-- **Rules Reference:** Quick access to the complex Faction Rules and Ploys.
+- **Ploys & CP Tracker:** Interactive Strategy and Firefight Ploys with an integrated Command Point tracker to manage your CP economy.
+- **Rules Reference:** Quick access to the complex Faction Rules.
 
 ### 5. 🎯 Pathfinders Helper
 Specialized tracking tools tailored specifically for the T'au Empire Pathfinders.
 - **Team Builder:** Construct a valid roster with all your drones and specialists.
 - **Markerlight Tracker:** Keep track of your Markerlight tokens to boost your shooting accuracy.
-- **Rules Reference:** Quick access to Faction Rules (Markerlights, Saviour Protocols) and Ploys.
+- **Ploys & CP Tracker:** Interactive Strategy and Firefight Ploys with an integrated Command Point tracker to manage your CP economy.
+- **Rules Reference:** Quick access to Faction Rules (Markerlights, Saviour Protocols).
 
 ### 6. ⚔️ Legionaries Helper
 A robust datapad for the Chaos Space Marine Legionaries Kill Team.
 - **Team Builder:** Construct a valid 6-operative roster with complex weapon options.
 - **Chaos Mark Tracker:** Track the blessings of the Chaos Gods for your operatives.
-- **Rules Reference:** Easy access to your Chaos marks and tactical ploys.
+- **Ploys & CP Tracker:** Interactive Strategy and Firefight Ploys with an integrated Command Point tracker to manage your CP economy.
+- **Rules Reference:** Easy access to your Chaos marks.
 
 ### 7. 🍄 Kommandos Helper
 Da sneakiest Ork datapad around! 
 - **Team Builder:** Construct a valid 10-operative roster of specialized Boyz.
 - **Tracker:** Track Throat Slittas, Waagh! energy, and wounds.
-- **Rules Reference:** Quick access to kunnin' but brutal ploys.
+- **Ploys & CP Tracker:** Interactive Strategy and Firefight Ploys with an integrated Command Point tracker to manage your CP economy.
+- **Rules Reference:** Quick access to kunnin' but brutal faction rules.
 
 ### 8. ☣️ Plague Marines (Death Guard) Helper
 A putrid, rotting datapad to manage Nurgle's finest.
 - **Team Builder:** Build a legal 6-operative roster, properly validating Gunner/Fighter limits.
 - **Poison Tracker:** Keep a tally of Poison Tokens to track the debilitation of your enemies.
+- **Ploys & CP Tracker:** Interactive Strategy and Firefight Ploys with an integrated Command Point tracker to manage your CP economy.
 - **Rules Reference:** Easy access to Disgustingly Resilient rules and Contagions.
 
 ---
