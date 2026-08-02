@@ -1,3 +1,35 @@
+
+const PLOYS_DB = {
+    en: {
+        strategy: [
+            { name: "Creeping Horror", desc: "Free Dash if starting and ending WITHIN SHADOW." },
+            { name: "Gloaming Shroud", desc: "Retain one defence dice as normal success when WITHIN SHADOW." },
+            { name: "Blade in the Dark", desc: "Can Charge while Concealed if starting or ending WITHIN SHADOW." },
+            { name: "Inescapable Nightmare", desc: "Re-roll one attack dice when WITHIN SHADOW." }
+        ],
+        firefight: [
+            { name: "Slither Out of Sight", desc: "At end of activation, change order to Conceal if WITHIN SHADOW." },
+            { name: "Soul Feast", desc: "Heal Wounds equal to Enemy APL * successful damage dice." },
+            { name: "Nowhere to Hide", desc: "Move through terrain features as if they weren't there (fly)." },
+            { name: "Shadow's Bite", desc: "Resolve the first attack dice as defender if WITHIN SHADOW." }
+        ]
+    },
+    de: {
+        strategy: [
+            { name: "Schleichender Schrecken", desc: "Kostenloses Sprinten, wenn IM SCHATTEN begonnen und beendet." },
+            { name: "Zwielichtschleier", desc: "Behalte einen Verteidigungswürfel als normalen Erfolg, wenn IM SCHATTEN." },
+            { name: "Klinge im Dunkel", desc: "Kann mit Defensivbefehl Angreifen, wenn IM SCHATTEN begonnen oder beendet." },
+            { name: "Unentrinnbarer Albtraum", desc: "Einen Attackenwürfel wiederholen, wenn IM SCHATTEN." }
+        ],
+        firefight: [
+            { name: "Außer Sicht gleiten", desc: "Ändere am Ende der Aktivierung den Befehl zu Defensivbefehl, wenn IM SCHATTEN." },
+            { name: "Seelenmahl", desc: "Heile LP in Höhe von Feind-APG * erfolgreiche Schadenswürfel." },
+            { name: "Keine Zuflucht", desc: "Bewege dich durch Geländestücke, als wären sie nicht vorhanden." },
+            { name: "Zuschnappender Schatten", desc: "Handle als Verteidiger den ersten Attackenwürfel ab, wenn IM SCHATTEN." }
+        ]
+    }
+};
+
 const translations = {
     en: {
         legalDisclaimer: "This is an unofficial fan-made utility. Warhammer 40,000, Kill Team, and all associated logos, names, and statistics are © Copyright Games Workshop Limited. This tool is provided for free and is not affiliated with, or endorsed by, Games Workshop in any way.",
@@ -6,6 +38,7 @@ const translations = {
         tabMatch: "MATCH TRACKER",
         tabTokens: "SOUL HARVEST / TOKENS",
         tabRules: "RULES",
+        resetPloysBtn: "RESET PLOYS",
         builderDesc: "Select 1 Nightfiend and 8 other operatives.",
         selectedText: "Selected:",
         startMatchBtn: "START MATCH <i class=\"fa-solid fa-arrow-right\"></i>",
@@ -18,7 +51,6 @@ const translations = {
         ruleSoulstrike: "<strong>Soulstrike:</strong> Defence dice ≤ APL is a success. Defence dice > APL is a fail. 1 is always critical success. 6 is always fail.",
         ruleShadowPassage: "<strong>Shadow Passage:</strong> 1/TP, one operative WITHIN SHADOW can perform Reposition by teleporting to another shadow.",
         ruleUmbral: "<strong>Umbral Entities:</strong> Ignore Piercing against Mandrakes. Improve Save stat by 1 when WITHIN SHADOW.",
-        ruleWithin: "<strong>Within Shadow:</strong> Within 1\" of Heavy terrain, underneath Vantage terrain, or near Shadow Portal marker.",
         rulesStrategy: "Strategy Ploys",
         stratCreeping: "<strong>Creeping Horror:</strong> Free Dash if starting and ending WITHIN SHADOW.",
         stratGloaming: "<strong>Gloaming Shroud:</strong> Retain one defence dice as normal success when WITHIN SHADOW.",
@@ -42,6 +74,7 @@ const translations = {
         tabMatch: "MATCH TRACKER",
         tabTokens: "SEELENERHTE / MARKER",
         tabRules: "REGELN",
+        resetPloysBtn: "PLOYS ZURÜCKSETZEN",
         builderDesc: "Wähle 1 Nachtteufel und 8 andere Kämpfer aus.",
         selectedText: "Ausgewählt:",
         startMatchBtn: "MATCH STARTEN <i class=\"fa-solid fa-arrow-right\"></i>",
@@ -51,10 +84,9 @@ const translations = {
         tokensDesc: "Verfolge deine Seelenernte-Punkte (Fleischsammler) und andere Marker (Kaltes Feuer, Oubliex, etc.).",
         newTokenBtn: "Neuer Marker",
         rulesFaction: "Fraktionsregeln",
-        ruleSoulstrike: "<strong>Seelenschlag:</strong> Verteidigungswürfel ≤ APG ist ein Erfolg. > APG ist ein Fehlschlag. 1 ist immer kritisch. 6 ist immer Fehlschlag.",
-        ruleShadowPassage: "<strong>Schattenwandeln:</strong> 1x pro Wendepunkt kann ein Kämpfer IM SCHATTEN per Positionswechsel zu einem anderen Schatten teleportieren.",
-        ruleUmbral: "<strong>Schattenwesen:</strong> Ignoriere Durchdringend gegen Mandraks. Verbessere RW um 1, wenn IM SCHATTEN.",
-        ruleWithin: "<strong>Im Schatten:</strong> Innerhalb von 1\" um schweres Gelände, unter Aussichtspunkten oder nahe eines Schattenportalmarkers.",
+        ruleSoulstrike: "<strong>Seelenschlag:</strong> Verteidigungswürfel ≤ APG ist ein Erfolg. > APG ist ein Fehlschlag. 1 ist immer kritisch, 6 ist immer Fehlschlag.",
+        ruleShadowPassage: "<strong>Schattenpfad:</strong> 1/TP, ein Kämpfer IM SCHATTEN kann sich zu einem anderen Schatten teleportieren.",
+        ruleUmbral: "<strong>Umbrale Entitäten:</strong> Ignoriere Durchdringend. Verbessere Rüstungswurf um 1, wenn IM SCHATTEN.",
         rulesStrategy: "Strategielisten",
         stratCreeping: "<strong>Schleichender Schrecken:</strong> Kostenloses Sprinten, wenn IM SCHATTEN begonnen und beendet.",
         stratGloaming: "<strong>Zwielichtschleier:</strong> Behalte einen Verteidigungswürfel als normalen Erfolg, wenn IM SCHATTEN.",

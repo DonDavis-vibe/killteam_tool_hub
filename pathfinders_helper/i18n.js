@@ -1,3 +1,35 @@
+
+const PLOYS_DB = {
+    en: {
+        strategy: [
+            { name: "Recon Sweep", desc: "PATHFINDERs within 6\" of a killzone edge can free Dash. Must end within 6\" of an edge." },
+            { name: "Suppressing Fire", desc: "Select an enemy operative; worsen its Movement and Ballistic Skill when shot by pulse weapons." },
+            { name: "A Worthy Cause", desc: "Activate one ready PATHFINDER before the enemy if you have initiative." },
+            { name: "Kauyon", desc: "Fall Back for 1 AP less (min 1). Can shoot even if Falling Back." }
+        ],
+        firefight: [
+            { name: "Point-Blank Fusillade", desc: "When shooting within 3\", resolve first attack dice as defender." },
+            { name: "Reposition", desc: "At the end of an activation, perform a free Dash." },
+            { name: "Supporting Fire", desc: "When an enemy charges, a nearby PATHFINDER can shoot them." },
+            { name: "Saviour Protocols", desc: "A Drone can take a hit meant for a nearby PATHFINDER." }
+        ]
+    },
+    de: {
+        strategy: [
+            { name: "Aufklärungsmission", desc: "SPÄHER innerhalb von 6\" einer Spielfeldkante dürfen kostenlos Sprinten." },
+            { name: "Unterdrückungsfeuer", desc: "Wähle einen Feind; verschlechtere seine Bewegung und BF, wenn er beschossen wird." },
+            { name: "Ein würdiger Zweck", desc: "Aktiviere einen bereiten SPÄHER vor dem Feind, wenn du die Initiative hast." },
+            { name: "Kauyon", desc: "Rückzug kostet 1 AP weniger (min 1). Kann trotz Rückzug schießen." }
+        ],
+        firefight: [
+            { name: "Gefecht auf kurze Distanz", desc: "Beim Schießen innerhalb von 3\" ersten Würfel als Verteidiger abhandeln." },
+            { name: "Neupositionierung", desc: "Am Ende der Aktivierung ein kostenloses Sprinten durchführen." },
+            { name: "Unterstützungsfeuer", desc: "Wenn ein Feind angreift, darf ein naher SPÄHER schießen." },
+            { name: "Rettungsprotokolle", desc: "Eine Drohne fängt einen Treffer für einen SPÄHER ab." }
+        ]
+    }
+};
+
 const translations = {
     en: {
         legalDisclaimer: "This is an unofficial fan-made utility. Warhammer 40,000, Kill Team, and all associated logos, names, and statistics are © Copyright Games Workshop Limited. This tool is provided for free and is not affiliated with, or endorsed by, Games Workshop in any way.",
@@ -6,6 +38,7 @@ const translations = {
         tabMatch: "MATCH TRACKER",
         tabTokens: "MARKERLIGHTS & TOKENS",
         tabRules: "RULES",
+        resetPloysBtn: "RESET PLOYS",
         builderDesc: "Select 1 Shas'ui and 11 other operatives.",
         selectedText: "Selected:",
         startMatchBtn: "START MATCH <i class=\"fa-solid fa-arrow-right\"></i>",
@@ -15,10 +48,10 @@ const translations = {
         tokensDesc: "Track your Soul Harvest points (Chooser of the Flesh) and other markers (Balefire, Oubliex, etc.).",
         newTokenBtn: "New Tracker",
         rulesFaction: "Faction Rules",
-        ruleSoulstrike: "<strong>Soulstrike:</strong> Defence dice ≤ APL is a success. Defence dice > APL is a fail. 1 is always critical success. 6 is always fail.",
-        ruleShadowPassage: "<strong>Shadow Passage:</strong> 1/TP, one operative WITHIN SHADOW can perform Reposition by teleporting to another shadow.",
-        ruleUmbral: "<strong>Umbral Entities:</strong> Ignore Piercing against Pathfinders. Improve Save stat by 1 when WITHIN SHADOW.",
-        ruleWithin: "<strong>Within Shadow:</strong> Within 1\" of Heavy terrain, underneath Vantage terrain, or near Shadow Portal marker.",
+        ruleMarkerlights: "<strong>Markerlights:</strong> Each token gives cumulative bonuses (e.g. 1: re-roll 1, 2: ignore cover, 3: improve BS).",
+        ruleSaviour: "<strong>Saviour Protocols:</strong> Drones can intercept an attack targeting a nearby friendly PATHFINDER.",
+        ruleBonded: "<strong>Bonded Heroes:</strong> PATHFINDERs work in perfect synchronization.",
+
         rulesStrategy: "Strategy Ploys",
         stratCreeping: "<strong>Creeping Horror:</strong> Free Dash if starting and ending WITHIN SHADOW.",
         stratGloaming: "<strong>Gloaming Shroud:</strong> Retain one defence dice as normal success when WITHIN SHADOW.",
@@ -42,6 +75,7 @@ const translations = {
         tabMatch: "MATCH TRACKER",
         tabTokens: "ZIELMARKER & MARKER",
         tabRules: "REGELN",
+        resetPloysBtn: "PLOYS ZURÜCKSETZEN",
         builderDesc: "Wähle 1 Shas'ui und 11 andere Kämpfer aus.",
         selectedText: "Ausgewählt:",
         startMatchBtn: "MATCH STARTEN <i class=\"fa-solid fa-arrow-right\"></i>",
@@ -51,10 +85,10 @@ const translations = {
         tokensDesc: "Verfolge deine Seelenernte-Punkte (Fleischsammler) und andere Marker (Kaltes Feuer, Oubliex, etc.).",
         newTokenBtn: "Neuer Marker",
         rulesFaction: "Fraktionsregeln",
-        ruleSoulstrike: "<strong>Seelenschlag:</strong> Verteidigungswürfel ≤ APG ist ein Erfolg. > APG ist ein Fehlschlag. 1 ist immer kritisch. 6 ist immer Fehlschlag.",
-        ruleShadowPassage: "<strong>Schattenwandeln:</strong> 1x pro Wendepunkt kann ein Kämpfer IM SCHATTEN per Positionswechsel zu einem anderen Schatten teleportieren.",
-        ruleUmbral: "<strong>Schattenwesen:</strong> Ignoriere Durchdringend gegen Spähers. Verbessere RW um 1, wenn IM SCHATTEN.",
-        ruleWithin: "<strong>Im Schatten:</strong> Innerhalb von 1\" um schweres Gelände, unter Aussichtspunkten oder nahe eines Schattenportalmarkers.",
+        ruleMarkerlights: "<strong>Zielmarker (Markerlights):</strong> Jeder Marker gibt kumulative Boni (z.B. 1: 1 wiederholen, 2: Deckung ignorieren, 3: BF verbessern).",
+        ruleSaviour: "<strong>Rettungsprotokolle:</strong> Drohnen können einen Angriff auf einen nahen SPÄHER abfangen.",
+        ruleBonded: "<strong>Verbündete Helden:</strong> SPÄHER arbeiten in perfekter Synchronisation.",
+
         rulesStrategy: "Strategielisten",
         stratCreeping: "<strong>Schleichender Schrecken:</strong> Kostenloses Sprinten, wenn IM SCHATTEN begonnen und beendet.",
         stratGloaming: "<strong>Zwielichtschleier:</strong> Behalte einen Verteidigungswürfel als normalen Erfolg, wenn IM SCHATTEN.",

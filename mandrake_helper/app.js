@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Document title
         document.title = translations[currentLang].title + " | Datapad";
 
+        renderPloys();
         // Re-render builder using new DB language
         renderBuilder();
         
@@ -357,5 +358,92 @@ document.addEventListener('DOMContentLoaded', () => {
     addTokenBtn.addEventListener('click', () => createTokenItem("Tracker"));
 
     // Init translations
+    
+    // --- CP & PLOYS LOGIC ---
+    let globalCP = 3;
+    const cpCountEl = document.getElementById('global-cp-count');
+    const cpDecBtn = document.querySelector('.cp-btn.decrease');
+    const cpIncBtn = document.querySelector('.cp-btn.increase');
+    
+    if (cpCountEl) {
+        cpDecBtn.addEventListener('click', () => {
+            if (globalCP > 0) {
+                globalCP--;
+                cpCountEl.textContent = globalCP;
+            }
+        });
+        cpIncBtn.addEventListener('click', () => {
+            globalCP++;
+            cpCountEl.textContent = globalCP;
+        });
+    }
+
+    function renderPloys() {
+        const stratContainer = document.getElementById('strategy-ploys-container');
+        const fireContainer = document.getElementById('firefight-ploys-container');
+        if (!stratContainer || !fireContainer) return;
+
+        stratContainer.innerHTML = '';
+        fireContainer.innerHTML = '';
+
+        const db = typeof PLOYS_DB !== 'undefined' ? PLOYS_DB[currentLang] : null;
+        if (!db) return;
+
+        const createPloyCard = (ploy, type) => {
+            const card = document.createElement('div');
+            card.className = 'ploy-card';
+            
+            const cost = ploy.cost !== undefined ? ploy.cost : 1;
+            
+            card.innerHTML = `
+                <div class="ploy-header">
+                    <span class="ploy-title">${ploy.name}</span>
+                    <span class="ploy-cost">${cost} CP</span>
+                </div>
+                <div class="ploy-desc">${ploy.desc}</div>
+                <button class="use-ploy-btn">USE PLOY (-${cost} CP)</button>
+            `;
+
+            const btn = card.querySelector('.use-ploy-btn');
+            btn.addEventListener('click', () => {
+                if (globalCP >= cost) {
+                    globalCP -= cost;
+                    cpCountEl.textContent = globalCP;
+                    card.classList.add('used');
+                    btn.textContent = 'USED';
+                    btn.disabled = true;
+                }
+            });
+
+            return card;
+        };
+
+        if (db.strategy) db.strategy.forEach(p => stratContainer.appendChild(createPloyCard(p, 'strat')));
+        if (db.firefight) db.firefight.forEach(p => fireContainer.appendChild(createPloyCard(p, 'fire')));
+
+        const resetBtn = document.getElementById('reset-ploys-btn');
+        if (resetBtn) {
+            // Remove old listeners to avoid duplicates if renderPloys is called multiple times
+            const newResetBtn = resetBtn.cloneNode(true);
+            resetBtn.parentNode.replaceChild(newResetBtn, resetBtn);
+            
+            newResetBtn.addEventListener('click', () => {
+                document.querySelectorAll('.ploy-card').forEach(card => {
+                    card.classList.remove('used');
+                    const btn = card.querySelector('.use-ploy-btn');
+                    if (btn) {
+                        // Extract original cost from the header to reset text
+                        const costText = card.querySelector('.ploy-cost').textContent; // e.g. "1 CP"
+                        const costMatch = costText.match(/\d+/);
+                        const cost = costMatch ? parseInt(costMatch[0]) : 1;
+                        btn.textContent = `USE PLOY (-${cost} CP)`;
+                        btn.disabled = false;
+                    }
+                });
+            });
+        }
+    
+    }
+
     applyTranslations();
 });

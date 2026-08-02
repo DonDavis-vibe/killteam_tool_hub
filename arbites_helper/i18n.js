@@ -1,3 +1,35 @@
+
+const PLOYS_DB = {
+    en: {
+        strategy: [
+            { name: "Exact Punishment", desc: "Add 1 to normal damage when fighting/shooting an enemy with Ruthless Efficiency." },
+            { name: "Subdue", desc: "Melee weapons gain Stun." },
+            { name: "Execution Order", desc: "Re-roll 1s to hit against the enemy Leader." },
+            { name: "Dispense Justice", desc: "Free Dash towards the closest enemy." }
+        ],
+        firefight: [
+            { name: "Repress", desc: "When defending in combat, parries discard two successful hits instead of one." },
+            { name: "Apprehend", desc: "Prevent an enemy from falling back if a Mastiff is engaged." },
+            { name: "Clear the Area", desc: "Push enemies away 1\" after combat." },
+            { name: "Voice of the Law", desc: "Leader can issue a free action to a nearby Arbites." }
+        ]
+    },
+    de: {
+        strategy: [
+            { name: "Strafe vollstrecken", desc: "Füge 1 zu normalem Schaden hinzu gegen Feinde mit Skrupellose Effizienz." },
+            { name: "Unterwerfen", desc: "Nahkampfwaffen erhalten Betäuben." },
+            { name: "Exekutionsbefehl", desc: "Wiederhole 1er gegen den feindlichen Anführer." },
+            { name: "Gerechtigkeit üben", desc: "Kostenloses Sprinten zum nächsten Feind." }
+        ],
+        firefight: [
+            { name: "Unterdrücken", desc: "Beim Verteidigen im Nahkampf entfernen Paraden zwei Erfolge statt einem." },
+            { name: "Festnehmen", desc: "Verhindere Feindrückzug, wenn Mastiff gebunden ist." },
+            { name: "Bereich sichern", desc: "Dränge Feinde nach dem Kampf 1\" zurück." },
+            { name: "Stimme des Gesetzes", desc: "Anführer gibt nahem Arbites eine kostenlose Aktion." }
+        ]
+    }
+};
+
 const translations = {
     en: {
         legalDisclaimer: "This is an unofficial fan-made utility. Warhammer 40,000, Kill Team, and all associated logos, names, and statistics are © Copyright Games Workshop Limited. This tool is provided for free and is not affiliated with, or endorsed by, Games Workshop in any way.",
@@ -6,6 +38,7 @@ const translations = {
         tabMatch: "MATCH TRACKER",
         tabTokens: "TOKENS / JUSTICE",
         tabRules: "RULES",
+        resetPloysBtn: "RESET PLOYS",
         builderDesc: "Select 1 Proctor-exactant and 10 other operatives. (Max 2 Gunners, Max 4 Subductors)",
         selectedText: "Selected:",
         startMatchBtn: "START MATCH <i class=\"fa-solid fa-arrow-right\"></i>",
@@ -15,10 +48,11 @@ const translations = {
         tokensDesc: "Track Marked for Justice targets, Apprehend targets, and other tactical tokens.",
         newTargetBtn: "New Target",
         rulesFaction: "Faction Rules",
-        ruleEfficiency: "<strong>Ruthless Efficiency:</strong> When shooting (excluding frag/krak), having other friendly EXACTION SQUAD operatives within an enemy's control range doesn't prevent that enemy from being selected as a target.",
-        ruleMarked: "<strong>Marked for Justice:</strong> STRATEGIC GAMBIT. Select one enemy to be your mark. Weapons gain Punishing against them. When they die, select a new mark.",
-        ruleRepress: "<strong>Repress:</strong> When using this weapon, each block can block 2 unresolved successes. When retaliating, resolve the first attack dice (defender strikes first).",
-        rulesStrategy: "Strategy Ploys",
+        ruleEfficiency: "<strong>Ruthless Efficiency:</strong> When shooting (excluding frag/krak), having other friendly EXACTION SQUAD operatives within an enemy's control range doesn't prevent targeting.",
+        ruleMarked: "<strong>Marked for Justice:</strong> Select one enemy to be your mark. Weapons gain Punishing against them. When they die, select a new mark.",
+        ruleRepress: "<strong>Repress:</strong> When defending in combat, parries discard two successful hits instead of one.",
+
+rulesStrategy: "Strategy Ploys",
         stratGuilt: "<strong>Guilt Reveals Itself:</strong> Enemy operatives within 4\" cannot be in cover (instead of 2\"). Cover save is retained unless within 2\".",
         stratInviolate: "<strong>Inviolate Jurisdiction:</strong> When shooting a friendly within 2\" of an objective or enemy, you can re-roll one defence dice.",
         stratDispense: "<strong>Dispense Justice:</strong> If an operative hasn't moved more than its Move stat during the activation, its melee weapons have Ceaseless.",
@@ -41,6 +75,7 @@ const translations = {
         tabMatch: "MATCH TRACKER",
         tabTokens: "MARKER / GERECHTIGKEIT",
         tabRules: "REGELN",
+        resetPloysBtn: "PLOYS ZURÜCKSETZEN",
         builderDesc: "Wähle 1 Proctor-exactant und 10 weitere Kämpfer. (Max 2 Schützen, Max 4 Subductoren)",
         selectedText: "Ausgewählt:",
         startMatchBtn: "MATCH STARTEN <i class=\"fa-solid fa-arrow-right\"></i>",
@@ -50,10 +85,11 @@ const translations = {
         tokensDesc: "Verfolge Ziele für Gerechtigkeit (Marked for Justice), Festnahmen (Apprehend) und andere Marker.",
         newTargetBtn: "Neues Ziel",
         rulesFaction: "Fraktionsregeln",
-        ruleEfficiency: "<strong>Skrupellose Effizienz:</strong> Beim Schießen (außer Spreng/Fragment) verhindern eigene Kämpfer in Kontrollreichweite des Feindes nicht, dass dieser als Ziel gewählt wird.",
-        ruleMarked: "<strong>Für die Gerechtigkeit markiert:</strong> STRATEGISCHES WAGNIS. Wähle ein feindliches Ziel. Waffen erhalten Strafend gegen es. Wenn es stirbt, wähle ein neues Ziel.",
-        ruleRepress: "<strong>Unterdrücken (Repress):</strong> Blocken blockt 2 Erfolge. Beim Gegenschlag schlägt der Verteidiger zuerst zu.",
-        rulesStrategy: "Strategielisten (Ploys)",
+        ruleEfficiency: "<strong>Skrupellose Effizienz:</strong> Beim Schießen (außer Spreng/Fragment) verhindern eigene Kämpfer in Kontrollreichweite des Feindes nicht die Zielerfassung.",
+        ruleMarked: "<strong>Für die Gerechtigkeit markiert:</strong> Wähle ein feindliches Ziel. Waffen erhalten Strafend gegen es. Wenn es stirbt, wähle ein neues Ziel.",
+        ruleRepress: "<strong>Unterdrücken (Repress):</strong> Beim Verteidigen im Nahkampf entfernen Paraden zwei Erfolge statt einem.",
+
+rulesStrategy: "Strategielisten (Ploys)",
         stratGuilt: "<strong>Schuld offenbart sich:</strong> Feinde in 4\" können nicht in Deckung sein (statt 2\"). Deckungswurf bleibt erhalten, außer in 2\".",
         stratInviolate: "<strong>Unantastbare Gerichtsbarkeit:</strong> Beim Beschuss eines eigenen Kämpfers innerhalb von 2\" zu einem Missionsziel/Feind darf 1 Verteidigungswürfel wiederholt werden.",
         stratDispense: "<strong>Gerechtigkeit üben:</strong> Wenn sich der Kämpfer nicht weiter als sein B-Wert bewegt hat, erhalten Nahkampfwaffen Unaufhaltsam (Ceaseless).",

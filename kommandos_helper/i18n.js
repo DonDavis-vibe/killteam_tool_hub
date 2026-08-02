@@ -1,3 +1,35 @@
+
+const PLOYS_DB = {
+    en: {
+        strategy: [
+            { name: "Dakka Dakka Dakka", desc: "Re-roll any attack dice of 1 when shooting with a dakka weapon." },
+            { name: "Waaagh!", desc: "Add 1 to the Attacks stat of melee weapons for all friendly KOMMANDO operatives." },
+            { name: "Sssshhhh!", desc: "Friendly operatives can perform a free Dash during the Strategy phase." },
+            { name: "Kunnin' Infiltrators", desc: "Change the order of one friendly operative before the firefight phase." }
+        ],
+        firefight: [
+            { name: "Just a Scratch", desc: "Ignore all damage from one attack dice." },
+            { name: "Krump 'Em", desc: "Fight twice in a row if you incapacitate an enemy." },
+            { name: "Sneaky Git", desc: "Retain one successful cover save as a critical instead of normal." },
+            { name: "Get 'Em Boss", desc: "Nob allows nearby boyz to re-roll attack dice." }
+        ]
+    },
+    de: {
+        strategy: [
+            { name: "Dakka Dakka Dakka", desc: "Wiederhole 1er beim Schießen mit Dakka-Waffen." },
+            { name: "Waaagh!", desc: "Füge 1 zu den Attacken von Nahkampfwaffen aller KOMMANDO Kämpfer hinzu." },
+            { name: "Pssst!", desc: "Kämpfer können in der Strategiephase ein kostenloses Sprinten durchführen." },
+            { name: "Raffinierte Infiltratoren", desc: "Ändere den Befehl eines Kämpfers vor der Gefechtsphase." }
+        ],
+        firefight: [
+            { name: "Nur ein Kratzer", desc: "Ignoriere den gesamten Schaden eines Attackenwürfels." },
+            { name: "Mosch sie wech", desc: "Kämpfe zweimal, wenn du einen Feind abschaltest." },
+            { name: "Hinterhältig", desc: "Behalte einen erfolgreichen Deckungswurf als kritischen." },
+            { name: "Schnappt sie euch, Boss", desc: "Boss erlaubt nahen Boyz Attacken zu wiederholen." }
+        ]
+    }
+};
+
 const translations = {
     en: {
         legalDisclaimer: "This is an unofficial fan-made utility. Warhammer 40,000, Kill Team, and all associated logos, names, and statistics are © Copyright Games Workshop Limited. This tool is provided for free and is not affiliated with, or endorsed by, Games Workshop in any way.",
@@ -6,6 +38,7 @@ const translations = {
         tabMatch: "MATCH TRACKER",
         tabTokens: "WAAAGH! & TOKENS",
         tabRules: "RULES",
+        resetPloysBtn: "RESET PLOYS",
         builderDesc: "Select 1 Boss Nob and 9 other operatives.",
         selectedText: "Selected:",
         startMatchBtn: "START MATCH <i class=\"fa-solid fa-arrow-right\"></i>",
@@ -15,10 +48,10 @@ const translations = {
         tokensDesc: "Track your Soul Harvest points (Chooser of the Flesh) and other markers (Balefire, Oubliex, etc.).",
         newTokenBtn: "New Tracker",
         rulesFaction: "Faction Rules",
-        ruleSoulstrike: "<strong>Soulstrike:</strong> Defence dice ≤ APL is a success. Defence dice > APL is a fail. 1 is always critical success. 6 is always fail.",
-        ruleShadowPassage: "<strong>Shadow Passage:</strong> 1/TP, one operative WITHIN SHADOW can perform Reposition by teleporting to another shadow.",
-        ruleUmbral: "<strong>Umbral Entities:</strong> Ignore Piercing against Kommandos. Improve Save stat by 1 when WITHIN SHADOW.",
-        ruleWithin: "<strong>Within Shadow:</strong> Within 1\" of Heavy terrain, underneath Vantage terrain, or near Shadow Portal marker.",
+        ruleThroatSlittas: "<strong>Throat Slittas:</strong> KOMMANDOS gain bonuses when attacking from concealment or charging unseen.",
+        ruleWaaagh: "<strong>Waaagh!:</strong> The more Boyz fighting, the more ferocious they become.",
+        ruleKunnin: "<strong>Kunnin' but Brutal:</strong> Unpredictable tactics allow them to outmaneuver the enemy.",
+
         rulesStrategy: "Strategy Ploys",
         stratCreeping: "<strong>Creeping Horror:</strong> Free Dash if starting and ending WITHIN SHADOW.",
         stratGloaming: "<strong>Gloaming Shroud:</strong> Retain one defence dice as normal success when WITHIN SHADOW.",
@@ -42,6 +75,7 @@ const translations = {
         tabMatch: "MATCH TRACKER",
         tabTokens: "WAAAGH! & MARKER",
         tabRules: "REGELN",
+        resetPloysBtn: "PLOYS ZURÜCKSETZEN",
         builderDesc: "Wähle 1 Boss und 9 andere Kämpfer aus.",
         selectedText: "Ausgewählt:",
         startMatchBtn: "MATCH STARTEN <i class=\"fa-solid fa-arrow-right\"></i>",
@@ -51,10 +85,10 @@ const translations = {
         tokensDesc: "Verfolge deine Seelenernte-Punkte (Fleischsammler) und andere Marker (Kaltes Feuer, Oubliex, etc.).",
         newTokenBtn: "Neuer Marker",
         rulesFaction: "Fraktionsregeln",
-        ruleSoulstrike: "<strong>Seelenschlag:</strong> Verteidigungswürfel ≤ APG ist ein Erfolg. > APG ist ein Fehlschlag. 1 ist immer kritisch. 6 ist immer Fehlschlag.",
-        ruleShadowPassage: "<strong>Schattenwandeln:</strong> 1x pro Wendepunkt kann ein Kämpfer IM SCHATTEN per Positionswechsel zu einem anderen Schatten teleportieren.",
-        ruleUmbral: "<strong>Schattenwesen:</strong> Ignoriere Durchdringend gegen Kommandos. Verbessere RW um 1, wenn IM SCHATTEN.",
-        ruleWithin: "<strong>Im Schatten:</strong> Innerhalb von 1\" um schweres Gelände, unter Aussichtspunkten oder nahe eines Schattenportalmarkers.",
+        ruleThroatSlittas: "<strong>Kehlenschlitza:</strong> KOMMANDOS erhalten Boni bei Angriffen aus der Deckung oder ungesehenen Sturmangriffen.",
+        ruleWaaagh: "<strong>Waaagh!:</strong> Je mehr Boyz kämpfen, desto wilder werden sie.",
+        ruleKunnin: "<strong>Raffiniert, aber Brutal:</strong> Unberechenbare Taktiken erlauben es ihnen, den Feind auszumanövrieren.",
+
         rulesStrategy: "Strategielisten",
         stratCreeping: "<strong>Schleichender Schrecken:</strong> Kostenloses Sprinten, wenn IM SCHATTEN begonnen und beendet.",
         stratGloaming: "<strong>Zwielichtschleier:</strong> Behalte einen Verteidigungswürfel als normalen Erfolg, wenn IM SCHATTEN.",

@@ -1,3 +1,35 @@
+
+const PLOYS_DB = {
+    en: {
+        strategy: [
+            { name: "Blood for the Blood God", desc: "Khorne: +1 Dmg to both stats. Others: First strike inflicts +1 Dmg." },
+            { name: "Implacable", desc: "Enemy Piercing 1 becomes Piercing Crits 1. Nurgle ignores injured stats." },
+            { name: "Quicksilver Speed", desc: "Worsen enemy melee Hit stat by 1 if moved. Slaanesh worsens ranged Hit stat." },
+            { name: "Fickle Fates", desc: "Ranged weapons gain Balanced. Tzeentch: retain 1 fail as normal if retaining a crit." }
+        ],
+        firefight: [
+            { name: "Unending Bloodshed", desc: "Khorne: When dying in combat, strike with one unresolved success before removal." },
+            { name: "Mutability and Change", desc: "Tzeentch: +1 APL, but cannot repeat actions." },
+            { name: "Malignant Aura", desc: "Nurgle: Ranged weapons gain Piercing 1 against targets within 3\"." },
+            { name: "Dark Favor", desc: "Select one operative to temporarily gain a Chaos Mark bonus." }
+        ]
+    },
+    de: {
+        strategy: [
+            { name: "Blut für den Blutgott", desc: "Khorne: +1 Schaden auf beide Werte. Andere: Erster Schlag fügt +1 Schaden zu." },
+            { name: "Unverrückbar", desc: "Feindliches Durchdringend 1 wird zu Krit. Durchdringend 1. Nurgle ignoriert Verletzungs-Abzüge." },
+            { name: "Widernatürliche Schnelligkeit", desc: "Verschlechtere Nahkampf-Trefferwert des Feindes um 1, wenn bewegt. Slaanesh Fernkampf." },
+            { name: "Wankelmütiges Schicksal", desc: "Fernkampfwaffen erhalten Ausgewogen. Tzeentch: Behalte 1 Fehlschlag als normal." }
+        ],
+        firefight: [
+            { name: "Endloses Blutvergießen", desc: "Khorne: Wenn im Nahkampf kampfunfähig, darfst du zuschlagen, bevor du entfernt wirst." },
+            { name: "Mutabilität und Wandel", desc: "Tzeentch: +1 APG, aber keine Aktion wiederholen." },
+            { name: "Böse Aura", desc: "Nurgle: Fernkampfwaffen erhalten Durchdringend 1 gegen Ziele in 3\"." },
+            { name: "Dunkle Gunst", desc: "Ein Kämpfer erhält temporär einen Mal des Chaos-Bonus." }
+        ]
+    }
+};
+
 const translations = {
         en: {
             legalDisclaimer: "This is an unofficial fan-made utility. Warhammer 40,000, Kill Team, and all associated logos, names, and statistics are © Copyright Games Workshop Limited. This tool is provided for free and is not affiliated with, or endorsed by, Games Workshop in any way.",
@@ -6,6 +38,7 @@ const translations = {
             tabMatch: "MATCH TRACKER",
             tabTokens: "TOKENS / TRACKERS",
             tabRules: "RULES",
+        resetPloysBtn: "RESET PLOYS",
             builderDesc: "Select 1 Leader (Aspiring Champion or Chosen) and 5 other operatives. (Max 1 each, except Warrior)",
             selectedText: "Selected:",
             startMatchBtn: "START MATCH <i class=\"fa-solid fa-arrow-right\"></i>",
@@ -15,7 +48,11 @@ const translations = {
             tokensDesc: "Track Marks of Chaos, Unleash Daemon, Tainted Rounds, and other effects.",
             newTargetBtn: "New Tracker",
             rulesFaction: "Faction Rules",
-            rulesStrategy: "Strategy Ploys",
+        ruleChaosMarks: "<strong>Marks of Chaos:</strong> Operatives dedicate themselves to Khorne (melee), Nurgle (defense), Tzeentch (shooting), or Slaanesh (speed).",
+        ruleVeterans: "<strong>Veterans of the Long War:</strong> Highly skilled Chaos Space Marines with centuries of combat experience.",
+        ruleHateful: "<strong>Hateful Assault:</strong> Fight twice if an enemy was incapacitated.",
+
+rulesStrategy: "Strategy Ploys",
             rulesFirefight: "Firefight Ploys",
             ruleAstartes: "<strong>Astartes:</strong> Perform either 2 Shoot actions or 2 Fight actions. If 2 Shoots, at least one must be a bolt pistol, boltgun, or tainted bolt pistol. Can counteract regardless of order.",
             ruleMarks: "<strong>Marks of Chaos:</strong> Give each operative a keyword: KHORNE (Severe melee), NURGLE (On Normal Dmg 3+, roll D6: 5+ reduce by 1), SLAANESH (+1\" Move), TZEENTCH (Severe ranged), UNDIVIDED (Ceaseless within 6\").",
@@ -40,6 +77,7 @@ const translations = {
             tabMatch: "MATCH TRACKER",
             tabTokens: "MARKER / TRACKER",
             tabRules: "REGELN",
+        resetPloysBtn: "PLOYS ZURÜCKSETZEN",
             builderDesc: "Wähle 1 Anführer (Aufstrebender Champion oder Auserkorener) und 5 weitere Kämpfer. (Max 1 von jedem, außer Krieger)",
             selectedText: "Ausgewählt:",
             startMatchBtn: "MATCH STARTEN <i class=\"fa-solid fa-arrow-right\"></i>",
@@ -49,6 +87,10 @@ const translations = {
             tokensDesc: "Verfolge Male des Chaos, Dämon entfesseln, Verderbte Geschosse und andere Effekte.",
             newTargetBtn: "Neuer Tracker",
             rulesFaction: "Fraktionsregeln",
+        ruleChaosMarks: "<strong>Male des Chaos:</strong> Kämpfer weihen sich Khorne (Nahkampf), Nurgle (Verteidigung), Tzeentch (Schießen) oder Slaanesh (Geschwindigkeit).",
+        ruleVeterans: "<strong>Veteranen des Langen Krieges:</strong> Hochqualifizierte Chaos Space Marines mit jahrhundertelanger Kampferfahrung.",
+        ruleHateful: "<strong>Hasserfüllter Angriff:</strong> Kämpfe zweimal, wenn ein Feind ausgeschaltet wurde.",
+
             rulesStrategy: "Strategielisten (Ploys)",
             rulesFirefight: "Gefechtslisten (Tactical)",
             ruleAstartes: "<strong>Astartes:</strong> Kann zwei Aktionen Kämpfen oder Schießen ausführen (bei 2x Schießen muss eines Bolter/Boltpistole sein). Kann immer Gegenmaßnahmen ausführen.",

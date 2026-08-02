@@ -1,3 +1,35 @@
+
+const PLOYS_DB = {
+    en: {
+        strategy: [
+            { name: "Cloud of Flies", desc: "Place a marker. Operatives wholly within 1\" of it are obscured from shooters >3\" away." },
+            { name: "Nurglings", desc: "Subtract 1 from an enemy's APL." },
+            { name: "Contagion", desc: "Subtract 2\" from Move and worsen Hit stat by 1 for an enemy.", cost: 0 },
+            { name: "Lumbering Death", desc: "Weapons gain Ceaseless if operative hasn't moved more than 3\"." }
+        ],
+        firefight: [
+            { name: "Sickening Resilience", desc: "Disgustingly Resilient rule always subtracts 1 from damage inflicted." },
+            { name: "Curse of Rot", desc: "Inflict 1 damage for each 3 the enemy rolls. They cannot retain or re-roll it." },
+            { name: "Virulent Poison", desc: "Give an enemy operative a Poison token." },
+            { name: "Poisonous Demise", desc: "When incapacitated, give nearby enemies Poison tokens or inflict damage." }
+        ]
+    },
+    de: {
+        strategy: [
+            { name: "Fliegenschwarm", desc: "Platziere Marker. Kämpfer in 1\" sind für Schützen >3\" verdeckt." },
+            { name: "Nurglings", desc: "Subtrahiere 1 vom APG eines Feindes." },
+            { name: "Kontagion", desc: "Subtrahiere 2\" von Bewegung und verschlechtere Trefferwert eines Feindes um 1.", cost: 0 },
+            { name: "Schwerfälliger Tod", desc: "Waffen erhalten Unablässig, wenn sich der Kämpfer nicht mehr als 3\" bewegt." }
+        ],
+        firefight: [
+            { name: "Widerwärtige Zähigkeit", desc: "Die Regel Widerwärtig zäh zieht immer 1 vom zugefügten Schaden ab." },
+            { name: "Fluch der Fäulnis", desc: "Füge 1 Schaden für jede feindliche 3 zu. Kann nicht behalten/wiederholt werden." },
+            { name: "Virulentes Gift", desc: "Gib einem feindlichen Kämpfer einen Gift-Marker." },
+            { name: "Giftiger Tod", desc: "Beim Ausschalten: Gib nahen Feinden Gift-Marker oder Schaden." }
+        ]
+    }
+};
+
 const translations = {
     en: {
         legalDisclaimer: "This is an unofficial fan-made utility. Warhammer 40,000, Kill Team, and all associated logos, names, and statistics are © Copyright Games Workshop Limited. This tool is provided for free and is not affiliated with, or endorsed by, Games Workshop in any way.",
@@ -6,6 +38,7 @@ const translations = {
         tabMatch: "MATCH TRACKER",
         tabTokens: "POISON TOKENS",
         tabRules: "RULES",
+        resetPloysBtn: "RESET PLOYS",
         builderDesc: "Select 1 Champion and 5 other operatives.",
         selectedText: "Selected:",
         startMatchBtn: "START MATCH <i class=\"fa-solid fa-arrow-right\"></i>",
@@ -15,11 +48,11 @@ const translations = {
         tokensDesc: "Track your Poison tokens on enemy operatives.",
         newTokenBtn: "New Tracker",
         rulesFaction: "Faction Rules",
-        ruleSoulstrike: "<strong>Disgustingly Resilient:</strong> Whenever an attack dice inflicts damage of 3 or more on a friendly PLAGUE MARINE operative, roll one D6: on a 4+, subtract 1 from that inflicted damage.",
-        ruleShadowPassage: "<strong>Poison:</strong> In the Resolve Attack Dice step, if you inflict damage with any successes, the operative this weapon is being used against gains one of your Poison tokens. Whenever an operative that has one of your Poison tokens is activated, inflict 1 damage on it.",
-        ruleUmbral: "<strong>Astartes:</strong> Can perform two Shoot actions (one must be bolt/psychic, psychic once) or two Fight actions. Can counteract regardless of order.",
-        ruleWithin: "<strong>Toxic:</strong> Add 1 to both Dmg stats if target has Poison token.",
-        rulesStrategy: "Strategy Ploys",
+        ruleDisgustingly: "<strong>Disgustingly Resilient:</strong> Roll a D6 for each wound lost; on a 5+, that wound is not lost.",
+        ruleContagions: "<strong>Contagions of Nurgle:</strong> Enemies near DEATH GUARD operatives suffer penalties to their stats.",
+        ruleInexorable: "<strong>Inexorable Advance:</strong> Plague Marines never falter, ignoring modifiers to their movement.",
+
+rulesStrategy: "Strategy Ploys",
         stratCreeping: "<strong>Cloud of Flies:</strong> Target obscured if within 1\" of marker and shooter > 3\" away.",
         stratGloaming: "<strong>Nurglings:</strong> Target within 3\" or with Poison token within 7\" gets -1 APL.",
         stratBlade: "<strong>Contagion:</strong> Enemy -2\" Move and -1 Hit if near operative with Poison token, or near Icon Bearer.",
@@ -42,6 +75,7 @@ const translations = {
         tabMatch: "MATCH TRACKER",
         tabTokens: "GIFTMARKER",
         tabRules: "REGELN",
+        resetPloysBtn: "PLOYS ZURÜCKSETZEN",
         builderDesc: "Wähle 1 Champion und 5 andere Kämpfer aus.",
         selectedText: "Ausgewählt:",
         startMatchBtn: "MATCH STARTEN <i class=\"fa-solid fa-arrow-right\"></i>",
@@ -51,11 +85,11 @@ const translations = {
         tokensDesc: "Verfolge deine Giftmarker auf feindlichen Kämpfern.",
         newTokenBtn: "Neuer Marker",
         rulesFaction: "Fraktionsregeln",
-        ruleSoulstrike: "<strong>Widerwärtig Zäh:</strong> Wenn ein Attackenwürfel 3+ Schaden zufügt, wirf W6: Bei 4+ subtrahiere 1 vom Schaden.",
-        ruleShadowPassage: "<strong>Gift:</strong> Ziel erhält Giftmarker bei Schaden. Wenn Kämpfer mit Giftmarker aktiviert wird, erleidet er 1 Schaden.",
-        ruleUmbral: "<strong>Astartes:</strong> Kann 2x Schießen (eine muss Bolt/Psionisch sein, Psionisch 1x) oder 2x Kämpfen. Kann immer Gegenmaßnahmen ausführen.",
-        ruleWithin: "<strong>Toxisch:</strong> +1 Schaden, wenn das Ziel einen Giftmarker hat.",
-        rulesStrategy: "Strategielisten",
+        ruleDisgustingly: "<strong>Widerwärtig Zäh:</strong> Wirf einen W6 für jede verlorene Wunde; bei 5+ geht diese Wunde nicht verloren.",
+        ruleContagions: "<strong>Ansteckungen des Nurgle:</strong> Feinde nahe DEATH GUARD Kämpfern erleiden Abzüge auf ihre Werte.",
+        ruleInexorable: "<strong>Unaufhaltsamer Vormarsch:</strong> Plague Marines wanken nie und ignorieren Modifikatoren für ihre Bewegung.",
+
+rulesStrategy: "Strategielisten",
         stratCreeping: "<strong>Fliegenwolke:</strong> Ziel verdeckt, wenn innerhalb 1\" von Marker und Schütze > 3\" entfernt.",
         stratGloaming: "<strong>Nurglinge:</strong> Ziel innerhalb 3\" oder mit Giftmarker innerhalb 7\" verliert 1 APG.",
         stratBlade: "<strong>Infektion:</strong> Feind -2\" B und -1 TW wenn nahe Kämpfer (mit Giftmarker) oder naher Ikonenträger.",

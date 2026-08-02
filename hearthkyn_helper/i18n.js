@@ -1,3 +1,35 @@
+
+const PLOYS_DB = {
+    en: {
+        strategy: [
+            { name: "Need Keeps", desc: "Select one objective marker or one of your mission markers. Whenever determining control, treat total APL of friendly HEARTHKYN SALVAGER operatives that contest it as 1 higher if at least one friendly contests. Whenever a friendly is within 3\" of that marker, add 1 to the Atk stat of its melee weapons (to a maximum of 4); if already 4, it has Balanced." },
+            { name: "Toil Earns", desc: "Select one objective marker or one of your mission markers. Whenever an enemy operative is within 3\" of that marker, treat it as having one additional Grudge token." },
+            { name: "Wrought Defence", desc: "Whenever an operative is shooting a friendly HEARTHKYN SALVAGER operative, if you rolled one or less successes (including re-rolls), you can retain one of your fails as a normal success instead of discarding it." },
+            { name: "Proximate Firepower", desc: "Whenever a friendly HEARTHKYN SALVAGER operative is shooting an enemy operative within 6\" of it, improve the Hit stat of that friendly operative's ranged weapons by 1 (to a maximum of 3+)." }
+        ],
+        firefight: [
+            { name: "The Ancestors Are Watching", desc: "Use during a friendly HEARTHKYN SALVAGER operative's activation. Until end of activation, operative can perform either a free Shoot or a free Fight action and you can ignore any changes to that operative's weapon stats from being injured." },
+            { name: "Worth It", desc: "Use when a friendly HEARTHKYN SALVAGER operative is incapacitated. It can perform a free mission action before it's removed from the killzone." },
+            { name: "Sturdy", desc: "Use when an operative is shooting a friendly HEARTHKYN SALVAGER operative, when you collect your defence dice. Change the attacker's retained critical successes to normal successes (any weapon rules already resolved aren't affected)." },
+            { name: "Engage to Acquire", desc: "Use after rolling your attack dice for a friendly HEARTHKYN SALVAGER operative, if shooting against or fighting against an enemy operative that controls an objective marker or one of your mission markers. You can re-roll any of your attack dice." }
+        ]
+    },
+    de: {
+        strategy: [
+            { name: "Not Verlangt", desc: "Wähle einen Zielmarker oder einen deiner Missionsmarker. Bei der Bestimmung der Kontrolle gilt der APL-Wert befreundeter Kämpfer als um 1 höher. Wenn ein befreundeter Kämpfer innerhalb von 3\" ist, addiere 1 auf den Attacken-Wert seiner Nahkampfwaffen (max. 4); falls bereits 4, erhält sie 'Ausgewogen'." },
+            { name: "Mühe Lohnt Sich", desc: "Wähle einen Zielmarker oder einen deiner Missionsmarker. Feindliche Kämpfer innerhalb von 3\" um diesen Marker erhalten einen zusätzlichen Groll-Marker." },
+            { name: "Geschmiedete Verteidigung", desc: "Wenn auf einen befreundeten Kämpfer geschossen wird und du einen oder weniger Erfolge gewürfelt hast, darfst du einen Fehlschlag als normalen Erfolg behalten." },
+            { name: "Nahdistanz-Feuerkraft", desc: "Wenn ein befreundeter Kämpfer auf einen Feind innerhalb von 6\" schießt, verbessere den Treffer-Wert seiner Fernkampfwaffe um 1 (bis maximal 3+)." }
+        ],
+        firefight: [
+            { name: "Die Ahnen Wachen", desc: "Nutze dies während der Aktivierung eines befreundeten Kämpfers. Bis zum Ende der Aktivierung kann er eine kostenlose Schießen- oder Kämpfen-Aktion ausführen und ignoriert Abzüge durch Verletzungen." },
+            { name: "Es Ist Es Wert", desc: "Nutze dies, wenn ein befreundeter Kämpfer ausgeschaltet wird. Er kann eine kostenlose Missionsaktion durchführen, bevor er entfernt wird." },
+            { name: "Standhaft", desc: "Nutze dies, wenn auf einen befreundeten Kämpfer geschossen wird, beim Sammeln der Verteidigungswürfel. Wandle die kritischen Erfolge des Angreifers in normale Erfolge um." },
+            { name: "Angreifen Um Zu Erlangen", desc: "Nutze dies nach dem Würfeln der Attackenwürfel für einen befreundeten Kämpfer, der gegen einen Feind kämpft, welcher einen Zielmarker kontrolliert. Du darfst beliebige Attackenwürfel wiederholen." }
+        ]
+    }
+};
+
 const translations = {
     en: {
         legalDisclaimer: "This is an unofficial fan-made utility. Warhammer 40,000, Kill Team, and all associated logos, names, and statistics are © Copyright Games Workshop Limited. This tool is provided for free and is not affiliated with, or endorsed by, Games Workshop in any way.",
@@ -6,6 +38,7 @@ const translations = {
         tabMatch: "MATCH TRACKER",
         tabTokens: "GRUDGE TOKENS & TRACKERS",
         tabRules: "RULES",
+        resetPloysBtn: "RESET PLOYS",
         builderDesc: "Select 1 Theyn and 9 other operatives.",
         selectedText: "Selected:",
         startMatchBtn: "START MATCH <i class=\"fa-solid fa-arrow-right\"></i>",
@@ -15,10 +48,10 @@ const translations = {
         tokensDesc: "Track your Soul Harvest points (Chooser of the Flesh) and other markers (Balefire, Oubliex, etc.).",
         newTokenBtn: "New Tracker",
         rulesFaction: "Faction Rules",
-        ruleSoulstrike: "<strong>Soulstrike:</strong> Defence dice ≤ APL is a success. Defence dice > APL is a fail. 1 is always critical success. 6 is always fail.",
-        ruleShadowPassage: "<strong>Shadow Passage:</strong> 1/TP, one operative WITHIN SHADOW can perform Reposition by teleporting to another shadow.",
-        ruleUmbral: "<strong>Umbral Entities:</strong> Ignore Piercing against Pathfinders. Improve Save stat by 1 when WITHIN SHADOW.",
-        ruleWithin: "<strong>Within Shadow:</strong> Within 1\" of Heavy terrain, underneath Vantage terrain, or near Shadow Portal marker.",
+        ruleGrudgeTokens: "<strong>Grudge Tokens:</strong> Placed on enemies who kill kin or control objectives. Attacks against them gain bonuses.",
+        ruleSteady: "<strong>Steady Advance:</strong> HEARTHKYN move deliberately and ignore some movement penalties.",
+        ruleVoidArmour: "<strong>Void Armour:</strong> Highly resilient armor that ignores some piercing attacks.",
+
         rulesStrategy: "Strategy Ploys",
         stratCreeping: "<strong>Creeping Horror:</strong> Free Dash if starting and ending WITHIN SHADOW.",
         stratGloaming: "<strong>Gloaming Shroud:</strong> Retain one defence dice as normal success when WITHIN SHADOW.",
@@ -42,6 +75,7 @@ const translations = {
         tabMatch: "MATCH TRACKER",
         tabTokens: "ZIELMARKER & MARKER",
         tabRules: "REGELN",
+        resetPloysBtn: "PLOYS ZURÜCKSETZEN",
         builderDesc: "Wähle 1 Shas'ui und 11 andere Kämpfer aus.",
         selectedText: "Ausgewählt:",
         startMatchBtn: "MATCH STARTEN <i class=\"fa-solid fa-arrow-right\"></i>",
@@ -51,10 +85,10 @@ const translations = {
         tokensDesc: "Verfolge deine Seelenernte-Punkte (Fleischsammler) und andere Marker (Kaltes Feuer, Oubliex, etc.).",
         newTokenBtn: "Neuer Marker",
         rulesFaction: "Fraktionsregeln",
-        ruleSoulstrike: "<strong>Seelenschlag:</strong> Verteidigungswürfel ≤ APG ist ein Erfolg. > APG ist ein Fehlschlag. 1 ist immer kritisch. 6 ist immer Fehlschlag.",
-        ruleShadowPassage: "<strong>Schattenwandeln:</strong> 1x pro Wendepunkt kann ein Kämpfer IM SCHATTEN per Positionswechsel zu einem anderen Schatten teleportieren.",
-        ruleUmbral: "<strong>Schattenwesen:</strong> Ignoriere Durchdringend gegen Spähers. Verbessere RW um 1, wenn IM SCHATTEN.",
-        ruleWithin: "<strong>Im Schatten:</strong> Innerhalb von 1\" um schweres Gelände, unter Aussichtspunkten oder nahe eines Schattenportalmarkers.",
+        ruleGrudgeTokens: "<strong>Groll-Marker (Grudge Tokens):</strong> Werden auf Feinde gelegt, die Kin töten oder Ziele kontrollieren. Angriffe gegen sie erhalten Boni.",
+        ruleSteady: "<strong>Stetiger Vormarsch:</strong> HEARTHKYN bewegen sich bedächtig und ignorieren einige Bewegungsabzüge.",
+        ruleVoidArmour: "<strong>Leerenrüstung:</strong> Sehr widerstandsfähige Rüstung, die durchschlagende Angriffe mindert.",
+
         rulesStrategy: "Strategielisten",
         stratCreeping: "<strong>Schleichender Schrecken:</strong> Kostenloses Sprinten, wenn IM SCHATTEN begonnen und beendet.",
         stratGloaming: "<strong>Zwielichtschleier:</strong> Behalte einen Verteidigungswürfel als normalen Erfolg, wenn IM SCHATTEN.",
