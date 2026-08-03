@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateBuilderState() {
         const count = Object.keys(selectedOperatives).length;
-        document.getElementById('roster-count').innerText = `${count}/10`;
+        document.getElementById('roster-count').innerText = count;
 
         let hasSuperior = false;
         let purgatusCount = 0;
