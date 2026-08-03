@@ -232,6 +232,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    const template = document.getElementById('operative-card-template');
+    const matchRoster = document.getElementById('match-roster');
+    
     function buildMatchRoster() {
         matchRoster.innerHTML = '';
         const opKeys = Object.keys(selectedOperatives);
