@@ -12,6 +12,8 @@ const hubTranslations = {
                 aodDesc: "For the Emperor! Track your Space Marines, Oath of Moment, and manage your tactical strikes.",
         aquilonsTitle: "Tempestus Aquilons",
         aquilonsDesc: "Drop from the sky! Track your Grav-chutes, tactical insertions, and heavy airborne firepower.",
+        novitiatesTitle: "Novitiates (Adepta Sororitas)",
+        novitiatesDesc: "Cleanse the impure! Manage Acts of Faith, blessings, and fanatical devotion in battle.",
         hearthDesc: "Specialized tracking tools tailored for your Hearthkyn Salvager Kill Team rules and abilities.",
         mandrakeTitle: "Mandrake Helper",
         mandrakeDesc: "Specialized tracking tools tailored for your Mandrake Kill Team rules and abilities.",

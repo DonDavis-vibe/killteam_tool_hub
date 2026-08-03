@@ -96,6 +96,11 @@ A highly disciplined datapad to manage your orbital drop troopers.
 - **Ploys & CP Tracker:** Interactive Strategy and Firefight Ploys with an integrated Command Point tracker to manage your CP economy.
 - **Rules Reference:** Quick access to your Faction Rules.
 
+### 10. ⚜️ Novitiates Helper
+Specialized tracking tools for the Adepta Sororitas Novitiates.
+- **Team Builder:** Construct a valid 10-operative roster including your Novitiate Superior.
+- **Match Tracker:** Track Wounds, Faith points, and manage Acts of Faith dynamically.
+
 
 ---
 
