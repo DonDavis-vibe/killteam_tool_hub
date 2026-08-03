@@ -1,7 +1,12 @@
 <div align="center">
-  <img src="assets/banner.png" alt="Kill Team Tracker Hub Banner" width="100%" />
-  <h1>Kill Team Tracker Hub</h1>
-  <p><strong>Unofficial, community-driven web tools for Warhammer 40,000: Kill Team (3rd Edition / Approved Ops 2025).</strong></p>
+  <h1>🎲 Warhammer 40,000: Kill Team Hub</h1>
+  <p><strong>A bilingual (EN/DE) portal for tabletop utilities, trackers, and datapad apps.</strong></p>
+  
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+  [![Status](https://img.shields.io/badge/Status-Active-success.svg)]()
+  [![Language](https://img.shields.io/badge/Language-EN%20%7C%20DE-blue)]()
+  
+  ### [🔴 Play Live Demo on Cloudflare Pages](https://killteam-tool-hub.pages.dev/)
 </div>
 
 ---
