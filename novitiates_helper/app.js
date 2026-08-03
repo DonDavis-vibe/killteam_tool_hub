@@ -140,6 +140,98 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    
+    function renderBuilder() {
+        builderGrid.innerHTML = '';
+        OPERATIVES_DB[currentLang].forEach(op => {
+            const card = document.createElement('div');
+            card.className = 'selection-card';
+            card.id = `build-card-${op.id}`;
+            if (selectedOperatives[op.id]) card.classList.add('selected');
+            
+            const header = document.createElement('div');
+            header.className = 'selection-header';
+            header.innerHTML = `<h3>${op.name}</h3><div class="checkbox-custom"></div>`;
+            card.appendChild(header);
+
+            let sel1, sel2;
+            if (op.weaponSelect1) {
+                sel1 = document.createElement('select');
+                sel1.className = 'weapon-select';
+                sel1.disabled = !selectedOperatives[op.id];
+                op.weaponSelect1.forEach(w => {
+                    const opt = document.createElement('option');
+                    opt.value = w;
+                    opt.textContent = w;
+                    if (selectedOperatives[op.id] && selectedOperatives[op.id].w1 === w) opt.selected = true;
+                    sel1.appendChild(opt);
+                });
+                card.appendChild(sel1);
+            }
+            if (op.weaponSelect2) {
+                sel2 = document.createElement('select');
+                sel2.className = 'weapon-select';
+                sel2.disabled = !selectedOperatives[op.id];
+                op.weaponSelect2.forEach(w => {
+                    const opt = document.createElement('option');
+                    opt.value = w;
+                    opt.textContent = w;
+                    if (selectedOperatives[op.id] && selectedOperatives[op.id].w2 === w) opt.selected = true;
+                    sel2.appendChild(opt);
+                });
+                card.appendChild(sel2);
+            }
+
+            if (op.fixedWeapons) {
+                const fixed = document.createElement('div');
+                fixed.style.fontSize = '0.8rem';
+                fixed.style.color = 'var(--text-muted)';
+                fixed.textContent = op.fixedWeapons.join(' | ');
+                card.appendChild(fixed);
+            }
+
+            header.addEventListener('click', () => {
+                if (selectedOperatives[op.id]) {
+                    delete selectedOperatives[op.id];
+                    card.classList.remove('selected');
+                    if (sel1) sel1.disabled = true;
+                    if (sel2) sel2.disabled = true;
+                } else {
+                    selectedOperatives[op.id] = {
+                        opData: op,
+                        w1: sel1 ? sel1.value : null,
+                        w2: sel2 ? sel2.value : null,
+                        currentLp: op.stats.lp,
+                        isDead: false
+                    };
+                    card.classList.add('selected');
+                    if (sel1) sel1.disabled = false;
+                    if (sel2) sel2.disabled = false;
+                }
+                updateBuilderState();
+            });
+
+            if (sel1) {
+                sel1.addEventListener('change', () => {
+                    if (selectedOperatives[op.id]) {
+                        selectedOperatives[op.id].w1 = sel1.value;
+                        updateBuilderState();
+                    }
+                });
+            }
+            if (sel2) {
+                sel2.addEventListener('change', () => {
+                    if (selectedOperatives[op.id]) {
+                        selectedOperatives[op.id].w2 = sel2.value;
+                        updateBuilderState();
+                    }
+                });
+            }
+
+            builderGrid.appendChild(card);
+        });
+    }
+
     function buildMatchRoster() {
         matchRoster.innerHTML = '';
         const opKeys = Object.keys(selectedOperatives);
