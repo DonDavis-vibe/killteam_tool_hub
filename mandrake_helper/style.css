@@ -20,7 +20,7 @@
 body {
     font-family: 'Inter', sans-serif;
     background-color: var(--bg-dark);
-    background-image: url('../assets/bg.jpg');
+    background-image: url('../assets/bg_mandrake.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;

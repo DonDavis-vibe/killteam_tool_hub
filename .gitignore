@@ -26,3 +26,7 @@ yarn-error.log*
 scratch/
 TEAM_BUILDER_TEMPLATE.md
 official_rules_pdfs/
+
+# Agent Configs and Todos
+.agents/
+TODO.md
