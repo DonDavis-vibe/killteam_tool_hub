@@ -1,112 +1,64 @@
 <div align="center">
-  <h1>🎲 Warhammer 40,000: Kill Team Hub</h1>
-  <p><strong>A bilingual (EN/DE) portal for tabletop utilities, trackers, and datapad apps.</strong></p>
-  
-  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-  [![Status](https://img.shields.io/badge/Status-Active-success.svg)]()
-  [![Language](https://img.shields.io/badge/Language-EN%20%7C%20DE-blue)]()
-  
-  ### [🔴 Play Live Demo on Cloudflare Pages](https://killteam-tool-hub.pages.dev/)
+  <img src="assets/banner.png" alt="Kill Team Tracker Hub Banner" width="100%" />
+  <h1>Kill Team Tracker Hub</h1>
+  <p><strong>Unofficial, community-driven web tools for Warhammer 40,000: Kill Team (3rd Edition / Approved Ops 2025).</strong></p>
 </div>
 
 ---
 
 > [!WARNING]
 > **Community-Driven & Unofficial**
-> This repository is a fan-made, community-driven project. It is **not** affiliated with, endorsed, or sponsored by Games Workshop. 
-> While we strive for accuracy regarding the *Kill Team 3rd Edition (Approved Ops 2025)* ruleset, this tool is maintained by volunteers. **Rules, stats, and text may contain inaccuracies or become outdated.** Always defer to your official rulebooks and errata during matched play!
+> This repository is a fan-made, community-driven project. It is **not** affiliated with, endorsed, or sponsored by Games Workshop. While we strive for accuracy regarding the ruleset, this tool is maintained by volunteers. Always defer to your official rulebooks and errata during matched play!
 
-## 🌟 Overview
+## ⚙️ Overview
+Welcome to the **Kill Team Hub**! This repository aggregates specialized, interactive datapads designed to streamline your tabletop experience. 
 
-Welcome to the **Kill Team Hub**! This repository aggregates multiple specialized web applications into a single, accessible portal designed to streamline your tabletop experience. 
-
-🌍 **Fully Bilingual:** The Hub landing page and all included tools automatically sync your preference between **English** and **German**.
-⚡ **Zero Backend:** All applications run entirely locally in your browser. No servers, no lag, fully portable.
-💾 **Persistent Rosters:** Save your team compositions directly to your browser's local cache or export them as portable `.json` files to easily resume your session!
+- 🌍 **Fully Bilingual:** The Hub and all included tools automatically sync your preference between **English** and **German**.
+- 🚀 **Zero Backend:** All applications run entirely locally in your browser. No servers, no lag, fully portable.
+- 💾 **Persistent Rosters:** Save your team compositions to your browser's cache or export them as portable `.json` files!
 
 ---
 
-## 🛠️ Included Applications
+## 🎲 Core Applications
 
-### 1. 🗺️ Mission Generator & General Tools
-A massive, comprehensive utility suite for managing the core rules of a match.
-- 🎲 **Mission Generator:** Randomly generates a matched play setup, including 1 of 9 Critical Operations and 1 of 6 official map layouts.
-- 📐 **Interactive Line of Sight (LoS) Sandbox:** A drag-and-drop tool to resolve LoS arguments! Drag a shooter, a target, and terrain pieces around to automatically calculate cover and obscuring.
-- 🏆 **N-Player VP Tracker:** An extremely robust Victory Point tracker that supports anywhere from 2 to 6+ players! Track Crit Ops, Kill Ops, Tac Ops, CP, and Primary Bonuses dynamically.
-- 📖 **Tac Ops Reference:** A filterable database of all universal Tac Ops (Infiltration, Recon, Security, Seek & Destroy).
-- ✅ **Pre-game Checklist:** An interactive step-by-step checklist to guide you through the setup of a 3rd Edition match.
-- 💀 **Kill Grade Calculator:** Automatically calculates Kill Grades based on the number of enemy operatives you are facing.
+### 🛠️ Mission Generator & General Tools
+A massive utility suite for managing the core rules of a match.
+- **Mission Generator:** Randomly generates a matched play setup (Critical Operations and official map layouts).
+- **Interactive Line of Sight Sandbox:** Drag-and-drop tool to resolve LoS arguments (cover and obscuring).
+- **N-Player VP Tracker:** Robust Victory Point tracker supporting 2 to 6+ players!
+- **Tac Ops Reference:** Filterable database of all universal Tac Ops.
+- **Pre-game Checklist & Kill Grade Calculator:** Step-by-step match setup guides.
 
-### 2. 🦅 Exaction Squad (Arbites) Helper
-Specialized tracking tools for the Adeptus Arbites Exaction Squad.
-- **Team Builder:** Construct a valid 11-operative roster (1 Proctor-exactant and 10 others).
-- **Match Tracker:** Track the Wounds and operational status of your Arbitrators mid-game.
-- **Tokens & Justice Tracker:** Keep a log of your "Marked for Justice" targets, Cyber-Mastiff "Apprehend" targets, and Nuncio-aquila markers.
-- **Ploys & CP Tracker:** Interactive Strategy and Firefight Ploys with an integrated Command Point tracker to manage your CP economy.
-- **Rules Reference:** Quick access to Faction Rules (Ruthless Efficiency, Repress).
-
-### 3. 🛡️ Hearthkyn Salvagers (Flammkyn) Helper
-A comprehensive datapad designed specifically for Hearthkyn Salvager Kill Teams.
-- **Team Builder:** Construct a legal 10-operative roster (validates limits and Heavy weapons).
-- **Match Tracker:** A live dashboard to track Wounds (LP) and Status.
-- **Grudge Tracker:** A dedicated system for managing your Grudge Tokens and keeping track of who owes the Kin a blood debt.
-- **Ploys & CP Tracker:** Interactive Strategy and Firefight Ploys with an integrated Command Point tracker to manage your CP economy.
-- **Rules Reference:** Quick, organized access to your Faction Rules.
-
-### 4. 💀 Mandrake Helper
-Specialized tracking tools tailored specifically for the Mandrake Kill Team.
-- **Team Builder:** Construct a valid 9-operative roster, ensuring your Nightfiend leader is selected.
-- **Match Tracker:** Track the Wounds and operational status of your slippery shadow-dwellers.
-- **Token & Soul Harvest Tracker:** Manage Soul Harvest Points, Balefire Tokens, and Shadow Portals.
-- **Ploys & CP Tracker:** Interactive Strategy and Firefight Ploys with an integrated Command Point tracker to manage your CP economy.
-- **Rules Reference:** Quick access to the complex Faction Rules.
-
-### 5. 🎯 Pathfinders Helper
-Specialized tracking tools tailored specifically for the T'au Empire Pathfinders.
-- **Team Builder:** Construct a valid roster with all your drones and specialists.
-- **Markerlight Tracker:** Keep track of your Markerlight tokens to boost your shooting accuracy.
-- **Ploys & CP Tracker:** Interactive Strategy and Firefight Ploys with an integrated Command Point tracker to manage your CP economy.
-- **Rules Reference:** Quick access to Faction Rules (Markerlights, Saviour Protocols).
-
-### 6. ⚔️ Legionaries Helper
-A robust datapad for the Chaos Space Marine Legionaries Kill Team.
-- **Team Builder:** Construct a valid 6-operative roster with complex weapon options.
-- **Chaos Mark Tracker:** Track the blessings of the Chaos Gods for your operatives.
-- **Ploys & CP Tracker:** Interactive Strategy and Firefight Ploys with an integrated Command Point tracker to manage your CP economy.
-- **Rules Reference:** Easy access to your Chaos marks.
-
-### 7. 🍄 Kommandos Helper
-Da sneakiest Ork datapad around! 
-- **Team Builder:** Construct a valid 10-operative roster of specialized Boyz.
-- **Tracker:** Track Throat Slittas, Waagh! energy, and wounds.
-- **Ploys & CP Tracker:** Interactive Strategy and Firefight Ploys with an integrated Command Point tracker to manage your CP economy.
-- **Rules Reference:** Quick access to kunnin' but brutal faction rules.
-
-### 8. ☣️ Plague Marines (Death Guard) Helper
-A putrid, rotting datapad to manage Nurgle's finest.
-- **Team Builder:** Build a legal 6-operative roster, properly validating Gunner/Fighter limits.
-- **Poison Tracker:** Keep a tally of Poison Tokens to track the debilitation of your enemies.
-- **Ploys & CP Tracker:** Interactive Strategy and Firefight Ploys with an integrated Command Point tracker to manage your CP economy.
-- **Rules Reference:** Easy access to Disgustingly Resilient rules and Contagions.
-
-### 9. 🪂 Tempestus Aquilons Helper
-A highly disciplined datapad to manage your orbital drop troopers.
-- **Team Builder:** Construct a valid 10-operative roster including your Tempestor and Gunners.
-- **Drop Operations Tracker:** A tracker to manage your Drop Markers and orbital strikes.
-- **Ploys & CP Tracker:** Interactive Strategy and Firefight Ploys with an integrated Command Point tracker to manage your CP economy.
-- **Rules Reference:** Quick access to your Faction Rules.
-
-### 10. ⚜️ Novitiates Helper
-Specialized tracking tools for the Adepta Sororitas Novitiates.
-- **Team Builder:** Construct a valid 10-operative roster including your Novitiate Superior.
-- **Match Tracker:** Track Wounds, Faith points, and manage Acts of Faith dynamically.
-
+### 🛡️ Universal Team Helper Features
+Every Kill Team helper application in this Hub comes equipped with the following core features:
+- **Team Builder:** Construct a valid roster with automated weapon constraints and operative limits.
+- **Match Tracker:** A live dashboard to track Wounds (LP) and operative status mid-game.
+- **Ploys & CP Tracker:** Interactive Strategy and Firefight Ploys integrated with a Command Point economy tracker.
+- **Rules Reference:** Quick, organized access to your specific Faction Rules.
 
 ---
 
-## 🚀 Running Locally
+## ⚔️ Supported Kill Teams
 
-To run this project locally, simply clone the repository and open `index.html` in any modern web browser. 
+In addition to the core features above, each faction Datapad includes **customized trackers** specifically tailored to their unique mechanics:
+
+1. **Exaction Squad (Arbites):** Justice Tracker (Marked for Justice, Apprehend targets).
+2. **Hearthkyn Salvagers (Flammkyn):** Grudge Tracker.
+3. **Mandrake:** Soul Harvest Points & Shadow Portals Tracker.
+4. **Pathfinders:** Markerlight tokens and Saviour Protocols.
+5. **Legionaries:** Chaos Mark blessings tracker.
+6. **Kommandos:** Throat Slittas & Waagh! energy tracker.
+7. **Plague Marines (Death Guard):** Poison Tokens tracker.
+8. **Tempestus Aquilons:** Drop Operations & orbital strikes tracker.
+9. **Novitiates (Adepta Sororitas):** Faith Points & Acts of Faith manager.
+10. **Angels of Death:** Astartes heroics and discipline tracker.
+11. **Exodite Dragon Masters:** Draconic Cavalry & Mercurial Speed tracker.
+
+---
+
+## 🛠️ Running Locally
+
+Simply clone the repository and open `index.html` in any modern web browser. 
 
 ```bash
 git clone https://github.com/DonDavis-vibe/killteam_tool_hub.git
@@ -115,18 +67,15 @@ cd killteam_tool_hub
 ```
 
 ## 🌐 Deployment
-
-This project is built using static HTML, CSS, and vanilla JavaScript. It is perfectly suited for free static hosting platforms like **GitHub Pages** or **Cloudflare Pages**.
+This project is perfectly suited for free static hosting platforms like **GitHub Pages** or **Cloudflare Pages**.
 
 To deploy via GitHub Pages:
-1. Go to your repository settings on GitHub.
-2. Navigate to **Pages** in the left sidebar.
-3. Under "Build and deployment", set the source to **Deploy from a branch**.
-4. Select the `main` branch and `/ (root)` folder, then save.
-5. Your hub will be live within a few minutes!
+1. Go to your repository settings on GitHub -> **Pages**.
+2. Set the source to **Deploy from a branch**.
+3. Select the `main` branch and `/ (root)` folder, then save.
+4. Your hub will be live within a few minutes!
 
 ---
 
 ## ⚖️ Legal Disclaimer
-
 This is an unofficial, fan-made utility. Warhammer 40,000, Kill Team, and all associated logos, names, and statistics are © Copyright Games Workshop Limited. This tool is provided for free and is not affiliated with, or endorsed by, Games Workshop in any way. All tabletop game simulation mechanics and references are intended for ease of play and referencing rules owned by Games Workshop.
