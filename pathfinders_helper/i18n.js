@@ -110,7 +110,17 @@ const translations = {
 const OPERATIVES_DB = {
     en: [
         { id: 'shasui', name: "PATHFINDER SHAS'UI", limit: 1, isLeader: true, stats: { apg: 2, b: '6"', rw: '5+', lp: 8 }, abilities: ["<strong>Target Acquired:</strong> Add 1 Markerlight."], fixedWeapons: ["Pulse carbine", "Fists"] },
-        { id: 'shasla', name: "PATHFINDER SHAS'LA", limit: 11, stats: { apg: 2, b: '6"', rw: '5+', lp: 7 }, abilities: ["<strong>Markerlight:</strong> Add 1 Markerlight."], fixedWeapons: ["Pulse carbine", "Fists"] },
+        { id: 'shasla_1', name: "PATHFINDER SHAS (1)'LA", limit: 1, stats: { apg: 2, b: '6"', rw: '5+', lp: 7 }, abilities: ["<strong>Markerlight:</strong> Add 1 Markerlight."], fixedWeapons: ["Pulse carbine", "Fists"] },
+        { id: 'shasla_2', name: "PATHFINDER SHAS (2)'LA", limit: 1, stats: { apg: 2, b: '6"', rw: '5+', lp: 7 }, abilities: ["<strong>Markerlight:</strong> Add 1 Markerlight."], fixedWeapons: ["Pulse carbine", "Fists"] },
+        { id: 'shasla_3', name: "PATHFINDER SHAS (3)'LA", limit: 1, stats: { apg: 2, b: '6"', rw: '5+', lp: 7 }, abilities: ["<strong>Markerlight:</strong> Add 1 Markerlight."], fixedWeapons: ["Pulse carbine", "Fists"] },
+        { id: 'shasla_4', name: "PATHFINDER SHAS (4)'LA", limit: 1, stats: { apg: 2, b: '6"', rw: '5+', lp: 7 }, abilities: ["<strong>Markerlight:</strong> Add 1 Markerlight."], fixedWeapons: ["Pulse carbine", "Fists"] },
+        { id: 'shasla_5', name: "PATHFINDER SHAS (5)'LA", limit: 1, stats: { apg: 2, b: '6"', rw: '5+', lp: 7 }, abilities: ["<strong>Markerlight:</strong> Add 1 Markerlight."], fixedWeapons: ["Pulse carbine", "Fists"] },
+        { id: 'shasla_6', name: "PATHFINDER SHAS (6)'LA", limit: 1, stats: { apg: 2, b: '6"', rw: '5+', lp: 7 }, abilities: ["<strong>Markerlight:</strong> Add 1 Markerlight."], fixedWeapons: ["Pulse carbine", "Fists"] },
+        { id: 'shasla_7', name: "PATHFINDER SHAS (7)'LA", limit: 1, stats: { apg: 2, b: '6"', rw: '5+', lp: 7 }, abilities: ["<strong>Markerlight:</strong> Add 1 Markerlight."], fixedWeapons: ["Pulse carbine", "Fists"] },
+        { id: 'shasla_8', name: "PATHFINDER SHAS (8)'LA", limit: 1, stats: { apg: 2, b: '6"', rw: '5+', lp: 7 }, abilities: ["<strong>Markerlight:</strong> Add 1 Markerlight."], fixedWeapons: ["Pulse carbine", "Fists"] },
+        { id: 'shasla_9', name: "PATHFINDER SHAS (9)'LA", limit: 1, stats: { apg: 2, b: '6"', rw: '5+', lp: 7 }, abilities: ["<strong>Markerlight:</strong> Add 1 Markerlight."], fixedWeapons: ["Pulse carbine", "Fists"] },
+        { id: 'shasla_10', name: "PATHFINDER SHAS (10)'LA", limit: 1, stats: { apg: 2, b: '6"', rw: '5+', lp: 7 }, abilities: ["<strong>Markerlight:</strong> Add 1 Markerlight."], fixedWeapons: ["Pulse carbine", "Fists"] },
+        { id: 'shasla_11', name: "PATHFINDER SHAS (11)'LA", limit: 1, stats: { apg: 2, b: '6"', rw: '5+', lp: 7 }, abilities: ["<strong>Markerlight:</strong> Add 1 Markerlight."], fixedWeapons: ["Pulse carbine", "Fists"] },
         { id: 'blooded', name: 'BLOODED PATHFINDER', limit: 1, stats: { apg: 2, b: '6"', rw: '5+', lp: 8 }, abilities: ["<strong>Bionic Arm:</strong> Ignore modifiers to hit.", "<strong>Markerlight:</strong> Add 1 Markerlight."], fixedWeapons: ["Suppressed pulse carbine", "Fists"] },
         { id: 'drone_cont', name: 'DRONE CONTROLLER PATHFINDER', limit: 1, stats: { apg: 2, b: '6"', rw: '5+', lp: 7 }, abilities: ["<strong>Control Drone:</strong> Free action for friendly drone."], fixedWeapons: ["Pulse carbine", "Fists"] },
         { id: 'grenadier', name: 'ASSAULT GRENADIER PATHFINDER', limit: 1, stats: { apg: 2, b: '6"', rw: '5+', lp: 7 }, abilities: ["<strong>Grenadier:</strong> Free grenade actions."], fixedWeapons: ["Pulse carbine", "EMP grenades", "Fusion grenade", "Fists"] },
@@ -126,7 +136,17 @@ const OPERATIVES_DB = {
     ],
     de: [
         { id: 'shasui', name: "SPÄHER-SHAS'UI", limit: 1, isLeader: true, stats: { apg: 2, b: '6"', rw: '5+', lp: 8 }, abilities: ["<strong>Zielerfassung:</strong> Füge 1 Zielmarker hinzu."], fixedWeapons: ["Puls-Karabiner", "Fäuste"] },
-        { id: 'shasla', name: "SPÄHER-SHAS'LA", limit: 11, stats: { apg: 2, b: '6"', rw: '5+', lp: 7 }, abilities: ["<strong>Zielmarker:</strong> Füge 1 Zielmarker hinzu."], fixedWeapons: ["Puls-Karabiner", "Fäuste"] },
+        { id: 'shasla_1', name: "SPÄHER-SHAS (1)'LA", limit: 1, stats: { apg: 2, b: '6"', rw: '5+', lp: 7 }, abilities: ["<strong>Zielmarker:</strong> Füge 1 Zielmarker hinzu."], fixedWeapons: ["Puls-Karabiner", "Fäuste"] },
+        { id: 'shasla_2', name: "SPÄHER-SHAS (2)'LA", limit: 1, stats: { apg: 2, b: '6"', rw: '5+', lp: 7 }, abilities: ["<strong>Zielmarker:</strong> Füge 1 Zielmarker hinzu."], fixedWeapons: ["Puls-Karabiner", "Fäuste"] },
+        { id: 'shasla_3', name: "SPÄHER-SHAS (3)'LA", limit: 1, stats: { apg: 2, b: '6"', rw: '5+', lp: 7 }, abilities: ["<strong>Zielmarker:</strong> Füge 1 Zielmarker hinzu."], fixedWeapons: ["Puls-Karabiner", "Fäuste"] },
+        { id: 'shasla_4', name: "SPÄHER-SHAS (4)'LA", limit: 1, stats: { apg: 2, b: '6"', rw: '5+', lp: 7 }, abilities: ["<strong>Zielmarker:</strong> Füge 1 Zielmarker hinzu."], fixedWeapons: ["Puls-Karabiner", "Fäuste"] },
+        { id: 'shasla_5', name: "SPÄHER-SHAS (5)'LA", limit: 1, stats: { apg: 2, b: '6"', rw: '5+', lp: 7 }, abilities: ["<strong>Zielmarker:</strong> Füge 1 Zielmarker hinzu."], fixedWeapons: ["Puls-Karabiner", "Fäuste"] },
+        { id: 'shasla_6', name: "SPÄHER-SHAS (6)'LA", limit: 1, stats: { apg: 2, b: '6"', rw: '5+', lp: 7 }, abilities: ["<strong>Zielmarker:</strong> Füge 1 Zielmarker hinzu."], fixedWeapons: ["Puls-Karabiner", "Fäuste"] },
+        { id: 'shasla_7', name: "SPÄHER-SHAS (7)'LA", limit: 1, stats: { apg: 2, b: '6"', rw: '5+', lp: 7 }, abilities: ["<strong>Zielmarker:</strong> Füge 1 Zielmarker hinzu."], fixedWeapons: ["Puls-Karabiner", "Fäuste"] },
+        { id: 'shasla_8', name: "SPÄHER-SHAS (8)'LA", limit: 1, stats: { apg: 2, b: '6"', rw: '5+', lp: 7 }, abilities: ["<strong>Zielmarker:</strong> Füge 1 Zielmarker hinzu."], fixedWeapons: ["Puls-Karabiner", "Fäuste"] },
+        { id: 'shasla_9', name: "SPÄHER-SHAS (9)'LA", limit: 1, stats: { apg: 2, b: '6"', rw: '5+', lp: 7 }, abilities: ["<strong>Zielmarker:</strong> Füge 1 Zielmarker hinzu."], fixedWeapons: ["Puls-Karabiner", "Fäuste"] },
+        { id: 'shasla_10', name: "SPÄHER-SHAS (10)'LA", limit: 1, stats: { apg: 2, b: '6"', rw: '5+', lp: 7 }, abilities: ["<strong>Zielmarker:</strong> Füge 1 Zielmarker hinzu."], fixedWeapons: ["Puls-Karabiner", "Fäuste"] },
+        { id: 'shasla_11', name: "SPÄHER-SHAS (11)'LA", limit: 1, stats: { apg: 2, b: '6"', rw: '5+', lp: 7 }, abilities: ["<strong>Zielmarker:</strong> Füge 1 Zielmarker hinzu."], fixedWeapons: ["Puls-Karabiner", "Fäuste"] },
         { id: 'blooded', name: 'ERFAHRENER SPÄHER', limit: 1, stats: { apg: 2, b: '6"', rw: '5+', lp: 8 }, abilities: ["<strong>Bionischer Arm:</strong> Ignoriere Treffermodifikatoren.", "<strong>Zielmarker:</strong> Füge 1 Zielmarker hinzu."], fixedWeapons: ["Schallgedämpfter Puls-Karabiner", "Fäuste"] },
         { id: 'drone_cont', name: 'DROHNENKONTROLLE-SPÄHER', limit: 1, stats: { apg: 2, b: '6"', rw: '5+', lp: 7 }, abilities: ["<strong>Drohne steuern:</strong> Kostenlose Aktion für Drohne."], fixedWeapons: ["Puls-Karabiner", "Fäuste"] },
         { id: 'grenadier', name: 'STURMGRENADIER-SPÄHER', limit: 1, stats: { apg: 2, b: '6"', rw: '5+', lp: 7 }, abilities: ["<strong>Grenadier:</strong> Kostenlose Granaten-Aktionen."], fixedWeapons: ["Puls-Karabiner", "EMP-Granaten", "Fusionsgranate", "Fäuste"] },
@@ -140,4 +160,167 @@ const OPERATIVES_DB = {
         { id: 'shield_drone', name: 'MV4 SCHILDDROHNE', limit: 1, stats: { apg: 2, b: '6"', rw: '4+', lp: 7 }, abilities: ["<strong>Drohne:</strong> Kann keine Türen öffnen.", "<strong>Schildgenerator:</strong> 4+ Rettungswurf."], fixedWeapons: ["Fäuste"] },
         { id: 'recon_drone', name: 'MB3 AUFKLÄRUNGSDROHNE', limit: 1, stats: { apg: 3, b: '6"', rw: '4+', lp: 12 }, abilities: ["<strong>Drohne:</strong> Kann keine Türen öffnen.", "<strong>Analysieren:</strong> Verbündeter ignoriert Verdeckt."], fixedWeapons: ["Bündelkanone"] },
     ]
+};
+
+const WEAPONS_DB = {
+    en: {
+    "Fusion grenade": {
+        "a": "4",
+        "h": "3+",
+        "d": "4/3",
+        "wr": "Range 6\", Devastating 2, Limited 1, Piercing 2, Saturate"
+    },
+    "Pulse carbine": {
+        "a": "4",
+        "h": "4+",
+        "d": "4/5",
+        "wr": "-"
+    },
+    "Gun butt": {
+        "a": "3",
+        "h": "5+",
+        "d": "2/3",
+        "wr": "-"
+    },
+    "Fists": {
+        "a": "3",
+        "h": "5+",
+        "d": "2/3",
+        "wr": "-"
+    },
+    "Suppressed pulse carbine": {
+        "a": "4",
+        "h": "3+",
+        "d": "4/5",
+        "wr": "Silent"
+    },
+    "Bionic arm": {
+        "a": "3",
+        "h": "4+",
+        "d": "3/4",
+        "wr": "-"
+    },
+    "Marksman rail rifle (standard)": {
+        "a": "4",
+        "h": "3+",
+        "d": "4/4",
+        "wr": "Devastating 2, Lethal 5+, Piercing 1 Marksman rail rifle (dart round) 4 3+ 3/4"
+    },
+    "Ion rifle (standard)": {
+        "a": "5",
+        "h": "4+",
+        "d": "4/5",
+        "wr": "Piercing Crits 1"
+    },
+    "Ion rifle (overcharge)": {
+        "a": "5",
+        "h": "4+",
+        "d": "4/5",
+        "wr": "Hot, Lethal 5+, Piercing 1"
+    },
+    "Rail rifle": {
+        "a": "4",
+        "h": "4+",
+        "d": "4/4",
+        "wr": "Devastating 2, Lethal 5+, Piercing 1"
+    },
+    "Twin pulse carbine": {
+        "a": "4",
+        "h": "4+",
+        "d": "4/5",
+        "wr": "Ceaseless"
+    },
+    "Ram": {
+        "a": "3",
+        "h": "5+",
+        "d": "2/3",
+        "wr": "-"
+    },
+    "Burst cannon (focused)": {
+        "a": "5",
+        "h": "4+",
+        "d": "3/4",
+        "wr": "Ceaseless,  Heavy (Reposition only), Punishing"
+    },
+    "Burst cannon (sweeping)": {
+        "a": "4",
+        "h": "4+",
+        "d": "3/4",
+        "wr": "Ceaseless, Heavy (Reposition only), Punishing, Torrent 1\""
+    }
+},
+    de: {
+    "Fusionsgranate": {
+        "a": "4",
+        "h": "3+",
+        "d": "4/3",
+        "wr": "Reichweite 6 Zoll, Beschränkt 1, Durchdringend 2, Hagel, Verheerend 2"
+    },
+    "Pulskarabiner": {
+        "a": "4",
+        "h": "4+",
+        "d": "4/5",
+        "wr": "-"
+    },
+    "Gewehrkolben": {
+        "a": "3",
+        "h": "5+",
+        "d": "2/3",
+        "wr": "-"
+    },
+    "Fäuste": {
+        "a": "3",
+        "h": "5+",
+        "d": "2/3",
+        "wr": "-"
+    },
+    "Schallgedämpfter Pulskarabiner": {
+        "a": "4",
+        "h": "3+",
+        "d": "4/5",
+        "wr": "Schalldämpfer"
+    },
+    "Bionischer Arm": {
+        "a": "3",
+        "h": "4+",
+        "d": "3/4",
+        "wr": "-"
+    },
+    "Schützen-Massebeschleunigergewehr": {
+        "a": "4",
+        "h": "3+",
+        "d": "3/4",
+        "wr": "Durchdringend 1, Schalldämpfer (Pfeilgeschoss)"
+    },
+    "Ionengewehr (Standard)": {
+        "a": "5",
+        "h": "4+",
+        "d": "4/5",
+        "wr": "Krit. durchdringend 1"
+    },
+    "Ionengewehr (Überladung)": {
+        "a": "5",
+        "h": "4+",
+        "d": "4/5",
+        "wr": "Heiß, Durchdringend 1, Tödlich 5+"
+    },
+    "Massebeschleunigergewehr": {
+        "a": "4",
+        "h": "4+",
+        "d": "4/4",
+        "wr": "Durchdringend 1, Tödlich 5+, Verheerend 2"
+    },
+    "Zwillingspulskarabiner": {
+        "a": "4",
+        "h": "4+",
+        "d": "4/5",
+        "wr": "Unablässig"
+    },
+    "Rammen": {
+        "a": "3",
+        "h": "5+",
+        "d": "2/3",
+        "wr": "-"
+    }
+}
 };

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="title">Plague Marines (Death Guard) | Datapad</title>
+    <title data-i18n="title">Pathfinders | Datapad</title>
     <link rel="stylesheet" href="style.css?v=8">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -18,8 +18,8 @@
         <header class="app-header glass-panel" style="position: relative;">
             <a href="../index.html" class="back-btn" title="Back to Hub"><i class="fa-solid fa-house"></i></a>
             <div class="logo">
-                <img src="../assets/logos/logo_deathguard.jpg" class="team-logo header-logo" alt="Plague Marines (Death Guard) Logo">
-                <h1 data-i18n="title">PATHFINDERS KILL TEAM</h1>
+                <img src="../assets/logos/logo_angelsofdeath.jpg" class="team-logo header-logo" alt="Angels of Death Logo">
+                <h1 data-i18n="title">ANGELS OF DEATH</h1>
             </div>
             <nav class="tabs">
                 <button class="tab-btn active" data-tab="builder">
@@ -29,7 +29,7 @@
                     <i class="fa-solid fa-crosshairs"></i> <span data-i18n="tabMatch">MATCH TRACKER</span>
                 </button>
                 <button class="tab-btn" data-tab="tokens">
-                    <i class="fa-solid fa-ghost"></i> <span data-i18n="tabTokens">SOUL HARVEST / TOKENS</span>
+                    <i class="fa-solid fa-ghost"></i> <span data-i18n="tabTokens">TOKENS / TRACKERS</span>
                 </button>
                 <button class="tab-btn" data-tab="rules">
                     <i class="fa-solid fa-book-skull"></i> <span data-i18n="tabRules">RULES</span>
@@ -42,7 +42,7 @@
             <section id="builder" class="tab-pane active glass-panel">
                 <div class="builder-header">
                     <h2 data-i18n="tabAssemble">ASSEMBLE TEAM</h2>
-                    <p data-i18n="builderDesc">Select 1 Nightfiend and 8 other operatives.</p>
+                    <p data-i18n="builderDesc">Select 1 Leader and 5 other operatives. (Max 1 of each specialist, Warriors are unlimited)</p>
                     <div class="counter-box">
                         <span data-i18n="selectedText">Selected:</span> <span id="roster-count">0</span> / 6
                     </div>
@@ -74,8 +74,8 @@
             <!-- TOKENS TAB -->
             <section id="tokens" class="tab-pane glass-panel">
                 <div class="tokens-header">
-                    <h2 data-i18n="tokensTitle">SOUL HARVEST & TOKENS</h2>
-                    <p data-i18n="tokensDesc">Track your Soul Harvest points (Chooser of the Flesh) and other markers (Balefire, Oubliex, etc.).</p>
+                    <h2 data-i18n="tokensTitle">TOKENS & TRACKERS</h2>
+                    <p data-i18n="tokensDesc">Track Chapter Tactics, Doctrines, and other effects.</p>
                     <button id="add-token-btn" class="secondary-btn"><i class="fa-solid fa-plus"></i> <span data-i18n="newTokenBtn">New Tracker</span></button>
                 </div>
                 
@@ -93,9 +93,9 @@
                 <div class="rules-container">
                     <div class="rule-card faction-rules">
                         <div class="rules-section-divider"><h3><i class="fa-solid fa-cloud-moon"></i> <span data-i18n="rulesFaction">Faction Rules</span></h3></div>
-                        <p data-i18n="ruleDisgustingly"><strong>Disgustingly Resilient:</strong> Roll a D6 for each wound lost; on a 5+, that wound is not lost.</p>
-                        <p data-i18n="ruleContagions"><strong>Contagions of Nurgle:</strong> Enemies near DEATH GUARD operatives suffer penalties to their stats.</p>
-                        <p data-i18n="ruleInexorable"><strong>Inexorable Advance:</strong> Plague Marines never falter, ignoring modifiers to their movement.</p>
+                        <p data-i18n="ruleChaosMarks"><strong>Chapter Tactics:</strong> Select a primary and secondary Chapter Tactic for the battle.</p>
+                        <p data-i18n="ruleVeterans"><strong>Astartes:</strong> Perform either 2 Shoot or 2 Fight actions. (If 2 Shoots, at least one must be a bolt weapon). Can always counteract.</p>
+                        <p data-i18n="ruleHateful"><strong>Purity Seals:</strong> Once per turning point, discard a fail to retain another as normal success.</p>
                     </div>
 
                     <div class="cp-tracker-container">

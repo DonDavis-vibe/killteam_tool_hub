@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     
     // --- I18N LOGIC ---
-    let currentLang = localStorage.getItem('mandrake_lang') || 'en';
+    let currentLang = localStorage.getItem('pathfinder_lang') || 'en';
 
     function applyTranslations() {
         // Update static HTML text
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     selectedOperatives[opId].opData = newOpData;
                     
                     // We also need to map weapon strings if they change between languages.
-                    // For simplicity, Mandrakes have fixed weapons mostly. Abyssal has weaponSelect1.
+                    // For simplicity, Pathfinders have fixed weapons mostly. Abyssal has weaponSelect1.
                     // If they selected a weapon in EN and switch to DE, the exact string changes.
                     // We could try to map by index.
                     const oldOpData = OPERATIVES_DB[currentLang === 'de' ? 'en' : 'de'].find(o => o.id === opId);
@@ -62,13 +62,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.getElementById('lang-en').addEventListener('click', () => {
         currentLang = 'en';
-        localStorage.setItem('mandrake_lang', 'en');
+        localStorage.setItem('pathfinder_lang', 'en');
         applyTranslations();
     });
 
     document.getElementById('lang-de').addEventListener('click', () => {
         currentLang = 'de';
-        localStorage.setItem('mandrake_lang', 'de');
+        localStorage.setItem('pathfinder_lang', 'de');
         applyTranslations();
     });
 
@@ -100,11 +100,16 @@ document.addEventListener('DOMContentLoaded', () => {
     let selectedOperatives = {}; // { id: { opData, w1, w2, currentLp, isDead } }
 
     function updateBuilderState() {
-        const count = Object.keys(selectedOperatives).length;
+        let count = Object.keys(selectedOperatives).length;
         rosterCountSpan.textContent = count;
         
-        let isValid = count === 9;
-        if (!selectedOperatives['nightfiend']) isValid = false;
+        let isValid = count === 6;
+        let leaderCount = 0;
+        if (selectedOperatives['leader_cap']) leaderCount++;
+        if (selectedOperatives['leader_ais']) leaderCount++;
+        if (selectedOperatives['leader_is']) leaderCount++;
+        
+        if (leaderCount !== 1) isValid = false;
 
         if (isValid) {
             startMatchBtn.disabled = false;
@@ -171,9 +176,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (sel1) sel1.disabled = true;
                     if (sel2) sel2.disabled = true;
                 } else {
-                    if (Object.keys(selectedOperatives).length >= 9) return; 
-                    
-                    
+                    let currentCount = Object.keys(selectedOperatives).length;
+                    if (currentCount >= 6) return; 
+
                     if (op.isLeader) {
                         let hasLeader = false;
                         for (let key in selectedOperatives) {
@@ -184,6 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             return;
                         }
                     }
+                    
                     selectedOperatives[op.id] = {
                         opData: op,
                         w1: sel1 ? sel1.value : null,
@@ -390,9 +396,9 @@ document.addEventListener('DOMContentLoaded', () => {
         tokenList.appendChild(newEl);
     }
 
-    createTokenItem("Soul Harvest / Seelenernte");
-    createTokenItem("Balefire / Kaltes Feuer");
-    createTokenItem("Shadow Portals / Schattenportale");
+    createTokenItem("Command Points");
+    createTokenItem("Victory Points");
+    createTokenItem("Chapter Tactic Tokens");
 
     addTokenBtn.addEventListener('click', () => createTokenItem("Tracker"));
 

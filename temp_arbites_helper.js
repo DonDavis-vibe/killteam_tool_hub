@@ -1,12 +1,6 @@
 
 const PLOYS_DB = {
     en: {
-    "Shock maul": {
-        "a": "4",
-        "h": "3+",
-        "d": "4/4",
-        "wr": "Shock, Repress"
-    },
     "Dominator maul": {
         "a": "4",
         "h": "3+",
@@ -27,12 +21,6 @@ const PLOYS_DB = {
         ]
     },
     de: {
-    "Schockmaul": {
-        "a": "4",
-        "h": "3+",
-        "d": "4/4",
-        "wr": "Schock, Unterdrücken"
-    },
     "Dominator-Energiehammer": {
         "a": "4",
         "h": "3+",
@@ -56,12 +44,6 @@ const PLOYS_DB = {
 
 const translations = {
     en: {
-    "Shock maul": {
-        "a": "4",
-        "h": "3+",
-        "d": "4/4",
-        "wr": "Shock, Repress"
-    },
     "Dominator maul": {
         "a": "4",
         "h": "3+",
@@ -105,12 +87,6 @@ rulesStrategy: "Strategy Ploys",
         abilitiesHeader: "Abilities"
     },
     de: {
-    "Schockmaul": {
-        "a": "4",
-        "h": "3+",
-        "d": "4/4",
-        "wr": "Schock, Unterdrücken"
-    },
     "Dominator-Energiehammer": {
         "a": "4",
         "h": "3+",
@@ -169,16 +145,7 @@ const OPERATIVES_DB = {
         { id: 'subductor2', name: 'ARBITES SUBDUCTOR (2)', limit: 4, stats: { apg: 2, b: '6"', rw: '3+', lp: 8 }, abilities: ['<strong>Stubborn Subjugator:</strong> Ignore changes to Hit stat of melee weapons.'], fixedWeapons: ['Shotpistol', 'Shock maul'] },
         { id: 'subductor3', name: 'ARBITES SUBDUCTOR (3)', limit: 4, stats: { apg: 2, b: '6"', rw: '3+', lp: 8 }, abilities: ['<strong>Stubborn Subjugator:</strong> Ignore changes to Hit stat of melee weapons.'], fixedWeapons: ['Shotpistol', 'Shock maul'] },
         { id: 'subductor4', name: 'ARBITES SUBDUCTOR (4)', limit: 4, stats: { apg: 2, b: '6"', rw: '3+', lp: 8 }, abilities: ['<strong>Stubborn Subjugator:</strong> Ignore changes to Hit stat of melee weapons.'], fixedWeapons: ['Shotpistol', 'Shock maul'] },
-        { id: 'vigilant1', name: 'ARBITES VIGILANT (1)', limit: 10, stats: { apg: 2, b: '6"', rw: '4+', lp: 8 }, abilities: ['<strong>Close Quarters Vigilance:</strong> Can Shoot while in control range of enemy (if it hasn\'t Charged).'], fixedWeapons: ['Combat shotgun', 'Repression baton'] },
-        { id: 'vigilant2', name: 'ARBITES VIGILANT (2)', limit: 10, stats: { apg: 2, b: '6"', rw: '4+', lp: 8 }, abilities: ['<strong>Close Quarters Vigilance:</strong> Can Shoot while in control range of enemy (if it hasn\'t Charged).'], fixedWeapons: ['Combat shotgun', 'Repression baton'] },
-        { id: 'vigilant3', name: 'ARBITES VIGILANT (3)', limit: 10, stats: { apg: 2, b: '6"', rw: '4+', lp: 8 }, abilities: ['<strong>Close Quarters Vigilance:</strong> Can Shoot while in control range of enemy (if it hasn\'t Charged).'], fixedWeapons: ['Combat shotgun', 'Repression baton'] },
-        { id: 'vigilant4', name: 'ARBITES VIGILANT (4)', limit: 10, stats: { apg: 2, b: '6"', rw: '4+', lp: 8 }, abilities: ['<strong>Close Quarters Vigilance:</strong> Can Shoot while in control range of enemy (if it hasn\'t Charged).'], fixedWeapons: ['Combat shotgun', 'Repression baton'] },
-        { id: 'vigilant5', name: 'ARBITES VIGILANT (5)', limit: 10, stats: { apg: 2, b: '6"', rw: '4+', lp: 8 }, abilities: ['<strong>Close Quarters Vigilance:</strong> Can Shoot while in control range of enemy (if it hasn\'t Charged).'], fixedWeapons: ['Combat shotgun', 'Repression baton'] },
-        { id: 'vigilant6', name: 'ARBITES VIGILANT (6)', limit: 10, stats: { apg: 2, b: '6"', rw: '4+', lp: 8 }, abilities: ['<strong>Close Quarters Vigilance:</strong> Can Shoot while in control range of enemy (if it hasn\'t Charged).'], fixedWeapons: ['Combat shotgun', 'Repression baton'] },
-        { id: 'vigilant7', name: 'ARBITES VIGILANT (7)', limit: 10, stats: { apg: 2, b: '6"', rw: '4+', lp: 8 }, abilities: ['<strong>Close Quarters Vigilance:</strong> Can Shoot while in control range of enemy (if it hasn\'t Charged).'], fixedWeapons: ['Combat shotgun', 'Repression baton'] },
-        { id: 'vigilant8', name: 'ARBITES VIGILANT (8)', limit: 10, stats: { apg: 2, b: '6"', rw: '4+', lp: 8 }, abilities: ['<strong>Close Quarters Vigilance:</strong> Can Shoot while in control range of enemy (if it hasn\'t Charged).'], fixedWeapons: ['Combat shotgun', 'Repression baton'] },
-        { id: 'vigilant9', name: 'ARBITES VIGILANT (9)', limit: 10, stats: { apg: 2, b: '6"', rw: '4+', lp: 8 }, abilities: ['<strong>Close Quarters Vigilance:</strong> Can Shoot while in control range of enemy (if it hasn\'t Charged).'], fixedWeapons: ['Combat shotgun', 'Repression baton'] },
-        { id: 'vigilant10', name: 'ARBITES VIGILANT (10)', limit: 10, stats: { apg: 2, b: '6"', rw: '4+', lp: 8 }, abilities: ['<strong>Close Quarters Vigilance:</strong> Can Shoot while in control range of enemy (if it hasn\'t Charged).'], fixedWeapons: ['Combat shotgun', 'Repression baton'] },
+        { id: 'vigilant', name: 'ARBITES VIGILANT', limit: 10, stats: { apg: 2, b: '6"', rw: '4+', lp: 8 }, abilities: ['<strong>Close Quarters Vigilance:</strong> Can Shoot while in control range of enemy (if it hasn\'t Charged).'], fixedWeapons: ['Combat shotgun', 'Repression baton'] },
         { id: 'vox', name: 'ARBITES VOX-SIGNIFIER', limit: 1, stats: { apg: 2, b: '6"', rw: '4+', lp: 8 }, abilities: ['<strong>Signal (1 AP):</strong> Select another friendly visible operative. Add 1 to its APL until end of next activation.'], weaponSelect1: ['Combat shotgun; Repression baton', 'Shotpistol; Shock maul'] },
         { id: 'gunner1', name: 'ARBITES GUNNER (A)', limit: 2, stats: { apg: 2, b: '6"', rw: '4+', lp: 8 }, abilities: ['<strong>Specialist Weapon:</strong> Equipped with heavy firepower.'], weaponSelect1: ['Grenade launcher; Repression baton', 'Heavy stubber; Repression baton', 'Webber; Repression baton'] },
         { id: 'gunner2', name: 'ARBITES GUNNER (B)', limit: 2, stats: { apg: 2, b: '6"', rw: '4+', lp: 8 }, abilities: ['<strong>Specialist Weapon:</strong> Equipped with heavy firepower.'], weaponSelect1: ['Grenade launcher; Repression baton', 'Heavy stubber; Repression baton', 'Webber; Repression baton'] }
@@ -196,16 +163,7 @@ const OPERATIVES_DB = {
         { id: 'subductor2', name: 'ARBITES-SUBDUCTOR (2)', limit: 4, stats: { apg: 2, b: '6"', rw: '3+', lp: 8 }, abilities: ['<strong>Hartnäckiger Unterwerfer:</strong> Ignoriert Änderungen am Trefferwert von Nahkampfwaffen.'], fixedWeapons: ['Schrotpistole', 'Schockstab & Schutzschild'] },
         { id: 'subductor3', name: 'ARBITES-SUBDUCTOR (3)', limit: 4, stats: { apg: 2, b: '6"', rw: '3+', lp: 8 }, abilities: ['<strong>Hartnäckiger Unterwerfer:</strong> Ignoriert Änderungen am Trefferwert von Nahkampfwaffen.'], fixedWeapons: ['Schrotpistole', 'Schockstab & Schutzschild'] },
         { id: 'subductor4', name: 'ARBITES-SUBDUCTOR (4)', limit: 4, stats: { apg: 2, b: '6"', rw: '3+', lp: 8 }, abilities: ['<strong>Hartnäckiger Unterwerfer:</strong> Ignoriert Änderungen am Trefferwert von Nahkampfwaffen.'], fixedWeapons: ['Schrotpistole', 'Schockstab & Schutzschild'] },
-        { id: 'vigilant1', name: 'ARBITES-VIGILANT (1)', limit: 10, stats: { apg: 2, b: '6"', rw: '4+', lp: 8 }, abilities: ['<strong>Wachsamkeit auf engem Raum:</strong> Kann in KontrollRW eines Feindes Schießen (wenn nicht Angegriffen).'], fixedWeapons: ['Sturmschrotflinte', 'Repressor-Schlagstock'] },
-        { id: 'vigilant2', name: 'ARBITES-VIGILANT (2)', limit: 10, stats: { apg: 2, b: '6"', rw: '4+', lp: 8 }, abilities: ['<strong>Wachsamkeit auf engem Raum:</strong> Kann in KontrollRW eines Feindes Schießen (wenn nicht Angegriffen).'], fixedWeapons: ['Sturmschrotflinte', 'Repressor-Schlagstock'] },
-        { id: 'vigilant3', name: 'ARBITES-VIGILANT (3)', limit: 10, stats: { apg: 2, b: '6"', rw: '4+', lp: 8 }, abilities: ['<strong>Wachsamkeit auf engem Raum:</strong> Kann in KontrollRW eines Feindes Schießen (wenn nicht Angegriffen).'], fixedWeapons: ['Sturmschrotflinte', 'Repressor-Schlagstock'] },
-        { id: 'vigilant4', name: 'ARBITES-VIGILANT (4)', limit: 10, stats: { apg: 2, b: '6"', rw: '4+', lp: 8 }, abilities: ['<strong>Wachsamkeit auf engem Raum:</strong> Kann in KontrollRW eines Feindes Schießen (wenn nicht Angegriffen).'], fixedWeapons: ['Sturmschrotflinte', 'Repressor-Schlagstock'] },
-        { id: 'vigilant5', name: 'ARBITES-VIGILANT (5)', limit: 10, stats: { apg: 2, b: '6"', rw: '4+', lp: 8 }, abilities: ['<strong>Wachsamkeit auf engem Raum:</strong> Kann in KontrollRW eines Feindes Schießen (wenn nicht Angegriffen).'], fixedWeapons: ['Sturmschrotflinte', 'Repressor-Schlagstock'] },
-        { id: 'vigilant6', name: 'ARBITES-VIGILANT (6)', limit: 10, stats: { apg: 2, b: '6"', rw: '4+', lp: 8 }, abilities: ['<strong>Wachsamkeit auf engem Raum:</strong> Kann in KontrollRW eines Feindes Schießen (wenn nicht Angegriffen).'], fixedWeapons: ['Sturmschrotflinte', 'Repressor-Schlagstock'] },
-        { id: 'vigilant7', name: 'ARBITES-VIGILANT (7)', limit: 10, stats: { apg: 2, b: '6"', rw: '4+', lp: 8 }, abilities: ['<strong>Wachsamkeit auf engem Raum:</strong> Kann in KontrollRW eines Feindes Schießen (wenn nicht Angegriffen).'], fixedWeapons: ['Sturmschrotflinte', 'Repressor-Schlagstock'] },
-        { id: 'vigilant8', name: 'ARBITES-VIGILANT (8)', limit: 10, stats: { apg: 2, b: '6"', rw: '4+', lp: 8 }, abilities: ['<strong>Wachsamkeit auf engem Raum:</strong> Kann in KontrollRW eines Feindes Schießen (wenn nicht Angegriffen).'], fixedWeapons: ['Sturmschrotflinte', 'Repressor-Schlagstock'] },
-        { id: 'vigilant9', name: 'ARBITES-VIGILANT (9)', limit: 10, stats: { apg: 2, b: '6"', rw: '4+', lp: 8 }, abilities: ['<strong>Wachsamkeit auf engem Raum:</strong> Kann in KontrollRW eines Feindes Schießen (wenn nicht Angegriffen).'], fixedWeapons: ['Sturmschrotflinte', 'Repressor-Schlagstock'] },
-        { id: 'vigilant10', name: 'ARBITES-VIGILANT (10)', limit: 10, stats: { apg: 2, b: '6"', rw: '4+', lp: 8 }, abilities: ['<strong>Wachsamkeit auf engem Raum:</strong> Kann in KontrollRW eines Feindes Schießen (wenn nicht Angegriffen).'], fixedWeapons: ['Sturmschrotflinte', 'Repressor-Schlagstock'] },
+        { id: 'vigilant', name: 'ARBITES-VIGILANT', limit: 10, stats: { apg: 2, b: '6"', rw: '4+', lp: 8 }, abilities: ['<strong>Wachsamkeit auf engem Raum:</strong> Kann in KontrollRW eines Feindes Schießen (wenn nicht Angegriffen).'], fixedWeapons: ['Sturmschrotflinte', 'Repressor-Schlagstock'] },
         { id: 'vox', name: 'ARBITES-VOX-SIGNIFIER', limit: 1, stats: { apg: 2, b: '6"', rw: '4+', lp: 8 }, abilities: ['<strong>Signal (1 AP):</strong> Wähle sichtbaren eigenen Kämpfer. APL +1 bis Ende seiner nächsten Aktivierung.'], weaponSelect1: ['Sturmschrotflinte; Repressor-Schlagstock', 'Schrotpistole; Schockstab & Schutzschild'] },
         { id: 'gunner1', name: 'ARBITES-SCHÜTZE (A)', limit: 2, stats: { apg: 2, b: '6"', rw: '4+', lp: 8 }, abilities: ['<strong>Spezialwaffe:</strong> Ausgerüstet mit schwerer Feuerkraft.'], weaponSelect1: ['Granatwerfer; Repressor-Schlagstock', 'Maschinengewehr; Repressor-Schlagstock', 'Netzwerfer; Repressor-Schlagstock'] },
         { id: 'gunner2', name: 'ARBITES-SCHÜTZE (B)', limit: 2, stats: { apg: 2, b: '6"', rw: '4+', lp: 8 }, abilities: ['<strong>Spezialwaffe:</strong> Ausgerüstet mit schwerer Feuerkraft.'], weaponSelect1: ['Granatwerfer; Repressor-Schlagstock', 'Maschinengewehr; Repressor-Schlagstock', 'Netzwerfer; Repressor-Schlagstock'] }
@@ -214,12 +172,6 @@ const OPERATIVES_DB = {
 
 const WEAPONS_DB = {
     en: {
-    "Shock maul": {
-        "a": "4",
-        "h": "3+",
-        "d": "4/4",
-        "wr": "Shock, Repress"
-    },
     "Dominator maul": {
         "a": "4",
         "h": "3+",
@@ -306,12 +258,6 @@ const WEAPONS_DB = {
     }
 },
     de: {
-    "Schockmaul": {
-        "a": "4",
-        "h": "3+",
-        "d": "4/4",
-        "wr": "Schock, Unterdrücken"
-    },
     "Dominator-Energiehammer": {
         "a": "4",
         "h": "3+",
@@ -416,3 +362,5 @@ const WEAPONS_DB = {
     }
 }
 };
+
+module.exports = { OPERATIVES_DB, WEAPONS_DB };

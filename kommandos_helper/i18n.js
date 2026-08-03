@@ -110,7 +110,15 @@ const translations = {
 const OPERATIVES_DB = {
     en: [
         { id: 'boss', name: 'KOMMANDO BOSS NOB', limit: 1, isLeader: true, stats: { apg: 3, b: '6"', rw: '5+', lp: 14 }, abilities: ["<strong>Get It Dun:</strong> Support an ally."], fixedWeapons: ["Slugga"], weaponSelect1: ["Power klaw", "Big choppa"] },
-        { id: 'boy', name: 'KOMMANDO BOY', limit: 9, stats: { apg: 2, b: '6"', rw: '5+', lp: 10 }, abilities: [], fixedWeapons: ["Slugga", "Choppa"] },
+        { id: 'boy_1', name: 'KOMMANDO BOY (1)', limit: 1, stats: { apg: 2, b: '6"', rw: '5+', lp: 10 }, abilities: [], fixedWeapons: ["Slugga", "Choppa"] },
+        { id: 'boy_2', name: 'KOMMANDO BOY (2)', limit: 1, stats: { apg: 2, b: '6"', rw: '5+', lp: 10 }, abilities: [], fixedWeapons: ["Slugga", "Choppa"] },
+        { id: 'boy_3', name: 'KOMMANDO BOY (3)', limit: 1, stats: { apg: 2, b: '6"', rw: '5+', lp: 10 }, abilities: [], fixedWeapons: ["Slugga", "Choppa"] },
+        { id: 'boy_4', name: 'KOMMANDO BOY (4)', limit: 1, stats: { apg: 2, b: '6"', rw: '5+', lp: 10 }, abilities: [], fixedWeapons: ["Slugga", "Choppa"] },
+        { id: 'boy_5', name: 'KOMMANDO BOY (5)', limit: 1, stats: { apg: 2, b: '6"', rw: '5+', lp: 10 }, abilities: [], fixedWeapons: ["Slugga", "Choppa"] },
+        { id: 'boy_6', name: 'KOMMANDO BOY (6)', limit: 1, stats: { apg: 2, b: '6"', rw: '5+', lp: 10 }, abilities: [], fixedWeapons: ["Slugga", "Choppa"] },
+        { id: 'boy_7', name: 'KOMMANDO BOY (7)', limit: 1, stats: { apg: 2, b: '6"', rw: '5+', lp: 10 }, abilities: [], fixedWeapons: ["Slugga", "Choppa"] },
+        { id: 'boy_8', name: 'KOMMANDO BOY (8)', limit: 1, stats: { apg: 2, b: '6"', rw: '5+', lp: 10 }, abilities: [], fixedWeapons: ["Slugga", "Choppa"] },
+        { id: 'boy_9', name: 'KOMMANDO BOY (9)', limit: 1, stats: { apg: 2, b: '6"', rw: '5+', lp: 10 }, abilities: [], fixedWeapons: ["Slugga", "Choppa"] },
         { id: 'slitta', name: 'KOMMANDO SLASHA BOY', limit: 1, stats: { apg: 2, b: '6"', rw: '5+', lp: 10 }, abilities: ["<strong>Throat Slittas:</strong> Free charge/dash."], fixedWeapons: ["Twin choppas", "Throwing knives"] },
         { id: 'snipa', name: 'KOMMANDO SNIPA', limit: 1, stats: { apg: 2, b: '6"', rw: '5+', lp: 10 }, abilities: ["<strong>Snipa:</strong> Ignore Obscured."], fixedWeapons: ["Shokka pistol", "Scoped big shoota", "Fists"] },
         { id: 'dakka', name: 'KOMMANDO DAKKA BOY', limit: 1, stats: { apg: 2, b: '6"', rw: '5+', lp: 10 }, abilities: ["<strong>Dakka Dash:</strong> Free Dash and Shoot."], fixedWeapons: ["Dakka shoota", "Fists"] },
@@ -123,7 +131,15 @@ const OPERATIVES_DB = {
     ],
     de: [
         { id: 'boss', name: 'KOMMANDO-BOSS', limit: 1, isLeader: true, stats: { apg: 3, b: '6"', rw: '5+', lp: 14 }, abilities: ['<strong>Mach\'s fertig:</strong> Unterstütze einen Verbündeten.'], fixedWeapons: ["Knarre"], weaponSelect1: ["Energiekralle", "Fetter Spalta"] },
-        { id: 'boy', name: 'KOMMANDO-BOY', limit: 9, stats: { apg: 2, b: '6"', rw: '5+', lp: 10 }, abilities: [], fixedWeapons: ["Knarre", "Spalta"] },
+        { id: 'boy_1', name: 'KOMMANDO-BOY (1)', limit: 1, stats: { apg: 2, b: '6"', rw: '5+', lp: 10 }, abilities: [], fixedWeapons: ["Knarre", "Spalta"] },
+        { id: 'boy_2', name: 'KOMMANDO-BOY (2)', limit: 1, stats: { apg: 2, b: '6"', rw: '5+', lp: 10 }, abilities: [], fixedWeapons: ["Knarre", "Spalta"] },
+        { id: 'boy_3', name: 'KOMMANDO-BOY (3)', limit: 1, stats: { apg: 2, b: '6"', rw: '5+', lp: 10 }, abilities: [], fixedWeapons: ["Knarre", "Spalta"] },
+        { id: 'boy_4', name: 'KOMMANDO-BOY (4)', limit: 1, stats: { apg: 2, b: '6"', rw: '5+', lp: 10 }, abilities: [], fixedWeapons: ["Knarre", "Spalta"] },
+        { id: 'boy_5', name: 'KOMMANDO-BOY (5)', limit: 1, stats: { apg: 2, b: '6"', rw: '5+', lp: 10 }, abilities: [], fixedWeapons: ["Knarre", "Spalta"] },
+        { id: 'boy_6', name: 'KOMMANDO-BOY (6)', limit: 1, stats: { apg: 2, b: '6"', rw: '5+', lp: 10 }, abilities: [], fixedWeapons: ["Knarre", "Spalta"] },
+        { id: 'boy_7', name: 'KOMMANDO-BOY (7)', limit: 1, stats: { apg: 2, b: '6"', rw: '5+', lp: 10 }, abilities: [], fixedWeapons: ["Knarre", "Spalta"] },
+        { id: 'boy_8', name: 'KOMMANDO-BOY (8)', limit: 1, stats: { apg: 2, b: '6"', rw: '5+', lp: 10 }, abilities: [], fixedWeapons: ["Knarre", "Spalta"] },
+        { id: 'boy_9', name: 'KOMMANDO-BOY (9)', limit: 1, stats: { apg: 2, b: '6"', rw: '5+', lp: 10 }, abilities: [], fixedWeapons: ["Knarre", "Spalta"] },
         { id: 'slitta', name: 'KOMMANDO-SCHLITZA-BOY', limit: 1, stats: { apg: 2, b: '6"', rw: '5+', lp: 10 }, abilities: ["<strong>Kehlenschlitza:</strong> Kostenloser Spurt/Angriff."], fixedWeapons: ["Zwillingsspaltaz", "Wurfmesser"] },
         { id: 'snipa', name: 'KOMMANDO-SCHAFSCHÜTZA', limit: 1, stats: { apg: 2, b: '6"', rw: '5+', lp: 10 }, abilities: ["<strong>Schafschütza:</strong> Ignoriert Verdeckt."], fixedWeapons: ["Schocka-Pistole", "Fette Wumme mit Zielfernrohr", "Fäuste"] },
         { id: 'dakka', name: 'KOMMANDO-DAKKA-BOY', limit: 1, stats: { apg: 2, b: '6"', rw: '5+', lp: 10 }, abilities: ["<strong>Dakka-Spurt:</strong> Kostenloser Spurt und Schießen."], fixedWeapons: ["Dakka-Wumme", "Fäuste"] },
@@ -134,4 +150,275 @@ const OPERATIVES_DB = {
         { id: 'grot', name: 'BOMBENSQUIG', limit: 1, stats: { apg: 2, b: '6"', rw: '6+', lp: 8 }, abilities: ["<strong>Bumm:</strong> Explodiert beim Tod oder auf Befehl."], fixedWeapons: ["Sprengstoffe"] },
         { id: 'squig', name: 'KOMMANDO-GROT', limit: 1, stats: { apg: 2, b: '6"', rw: '6+', lp: 5 }, abilities: ["<strong>Wurfhaken:</strong> Fliegen-Schlüsselwort.", "<strong>Listig:</strong> Super versteckt."], fixedWeapons: ["Grotblasta", "Grotspalta"] },
     ]
+};
+
+const WEAPONS_DB = {
+    en: {
+    "Explosives": {
+        "a": "6",
+        "h": "4+",
+        "d": "4/5",
+        "wr": "Blast 1\", Limited 1, Explosive*"
+    },
+    "Bite": {
+        "a": "3",
+        "h": "4+",
+        "d": "4/5",
+        "wr": "-"
+    },
+    "Slugga": {
+        "a": "4",
+        "h": "4+",
+        "d": "3/4",
+        "wr": "Range 8\""
+    },
+    "Choppa": {
+        "a": "3",
+        "h": "3+",
+        "d": "4/5",
+        "wr": "KOMMANDO FIREFIGHT PLOY KRUMP ’EM! Whilst they are far more crafty than your average Ork,"
+    },
+    "Big choppa": {
+        "a": "5",
+        "h": "3+",
+        "d": "5/6",
+        "wr": "-"
+    },
+    "Power klaw": {
+        "a": "4",
+        "h": "3+",
+        "d": "5/7",
+        "wr": "Brutal, Shock Krumpin’ Time: This operative can perform two Fight actions during its activation. GET IT DUN! 1AP"
+    },
+    "Burna (standard)": {
+        "a": "4",
+        "h": "2+",
+        "d": "3/3",
+        "wr": "Range 8\", Saturate, Torrent 2\""
+    },
+    "Burna (deluge)": {
+        "a": "4",
+        "h": "2+",
+        "d": "3/3",
+        "wr": "Range 4\", Saturate, Seek, Torrent 0\"*"
+    },
+    "Fists": {
+        "a": "3",
+        "h": "3+",
+        "d": "3/4",
+        "wr": "-"
+    },
+    "Dakka shoota (short range)": {
+        "a": "5",
+        "h": "4+",
+        "d": "3/4",
+        "wr": "Range 9\", Ceaseless"
+    },
+    "Dakka shoota (long range)": {
+        "a": "5",
+        "h": "4+",
+        "d": "3/4",
+        "wr": "-"
+    },
+    "Breacha ram": {
+        "a": "4",
+        "h": "4+",
+        "d": "5/5",
+        "wr": "Brutal, Severe, Shock BREACH 1AP Place one of your Breach markers within this operative’s control range as close as possible to a terrain feature within control"
+    },
+    "Shokka pistol": {
+        "a": "6",
+        "h": "4+",
+        "d": "1/0",
+        "wr": "Range 8\", Devastating 2, Severe, Stun"
+    },
+    "Rokkit launcha (aimed)": {
+        "a": "6",
+        "h": "4+",
+        "d": "4/5",
+        "wr": "Blast 1\", Ceaseless, Heavy (Dash only)"
+    },
+    "Rokkit launcha (mobile)": {
+        "a": "6",
+        "h": "4+",
+        "d": "4/5",
+        "wr": "Blast 1\""
+    },
+    "Scoped big shoota (concealed)": {
+        "a": "5",
+        "h": "3+",
+        "d": "3/3",
+        "wr": "Devastating 2, Heavy, Silent, Concealed Position*"
+    },
+    "Scoped big shoota (stationary)": {
+        "a": "5",
+        "h": "3+",
+        "d": "3/3",
+        "wr": "Devastating 2, Heavy"
+    },
+    "Scoped big shoota (sweeping)": {
+        "a": "5",
+        "h": "3+",
+        "d": "3/4",
+        "wr": "Heavy (Dash only), Torrent 1\""
+    },
+    "Grot choppa": {
+        "a": "3",
+        "h": "5+",
+        "d": "1/4",
+        "wr": "-"
+    },
+    "Throwing knives": {
+        "a": "4",
+        "h": "3+",
+        "d": "2/5",
+        "wr": "Range 6\", Silent"
+    },
+    "Twin choppas": {
+        "a": "4",
+        "h": "3+",
+        "d": "4/5",
+        "wr": "Ceaseless, Lethal 5+ Dat All You Got?: After this operative fights or retaliates, if it wasn’t incapacitated, you can inflict D3 damage on the enemy operative in that sequence."
+    },
+    "Dynamite": {
+        "a": "5",
+        "h": "4+",
+        "d": "4/5",
+        "wr": "WR Range 4\", Blast 1\", Heavy (Reposition only), Saturate KOMMANDO"
+    },
+    "Harpoon": {
+        "a": "4",
+        "h": "4+",
+        "d": "4/5",
+        "wr": "WR Range 8\", Lethal 5+, Stun KOMMANDOS: UPDATE LOG \b Rules will be periodically updated to maintain fair balance and interact more smoothly with the game. Rules changes"
+    }
+},
+    de: {
+    "Sprengsatz": {
+        "a": "6",
+        "h": "4+",
+        "d": "4/5",
+        "wr": "Explosiv 1 Zoll, Beschränkt 1, Explosion*"
+    },
+    "Biss": {
+        "a": "3",
+        "h": "4+",
+        "d": "4/5",
+        "wr": "-"
+    },
+    "Knarre": {
+        "a": "4",
+        "h": "4+",
+        "d": "3/4",
+        "wr": "Reichweite 8 Zoll"
+    },
+    "Spalta": {
+        "a": "3",
+        "h": "3+",
+        "d": "4/5",
+        "wr": "KOMMANDO GEFECHTSLIST ZERQUETSCHT SE! Kommandos sind zwar deutlich schlauer als durchschnitt-"
+    },
+    "Fetter Spalta": {
+        "a": "5",
+        "h": "3+",
+        "d": "5/6",
+        "wr": "-"
+    },
+    "Energiekralle": {
+        "a": "4",
+        "h": "3+",
+        "d": "5/7",
+        "wr": "Brutal, Schock Jetz’ gibt’s Dresche: Dieser Kämpfer kann während seiner Aktivierung zwei Aktionen Kämpfen ausführen. AN DIE ARBEIT! 1 AP"
+    },
+    "Brenna (Flut)": {
+        "a": "4",
+        "h": "2+",
+        "d": "3/3",
+        "wr": "Reichweite 4 Zoll, Hagel, Zielsucher, Schwall 0 Zoll*"
+    },
+    "Brenna (Standard)": {
+        "a": "4",
+        "h": "2+",
+        "d": "3/3",
+        "wr": "Reichweite 8 Zoll, Hagel, Schwall 2 Zoll"
+    },
+    "Fäuste": {
+        "a": "3",
+        "h": "3+",
+        "d": "3/4",
+        "wr": "-"
+    },
+    "Dakkawumme (lange Reichweite)": {
+        "a": "5",
+        "h": "4+",
+        "d": "3/4",
+        "wr": "-"
+    },
+    "Dakkawumme (kurze Reichweite)": {
+        "a": "5",
+        "h": "4+",
+        "d": "3/4",
+        "wr": "Reichweite 9 Zoll, Unablässig"
+    },
+    "Rammbock": {
+        "a": "4",
+        "h": "4+",
+        "d": "5/5",
+        "wr": "Brutal, Heftig, Schock BRESCHE 1 AP Platziere einen deiner Breschenmarker innerhalb der Kontrollreichweite dieses Kämp-"
+    },
+    "Schockapistole": {
+        "a": "6",
+        "h": "4+",
+        "d": "1/0",
+        "wr": "Reichweite 8 Zoll, Verheerend 2, Heftig, Betäuben"
+    },
+    "Bazzukka (gezielt)": {
+        "a": "6",
+        "h": "4+",
+        "d": "4/5",
+        "wr": "Explosiv 1 Zoll, Unablässig, Schwer (nur Sprinten)"
+    },
+    "Bazzukka (in Bewegung)": {
+        "a": "6",
+        "h": "4+",
+        "d": "4/5",
+        "wr": "Explosiv 1 Zoll"
+    },
+    "Fette Wumme mit Zieloptik": {
+        "a": "5",
+        "h": "3+",
+        "d": "3/4",
+        "wr": "Schwer (nur Sprinten), Schwall 1 Zoll (gestreut)"
+    },
+    "Grotspalta": {
+        "a": "3",
+        "h": "5+",
+        "d": "1/4",
+        "wr": "-"
+    },
+    "Wurfmesser": {
+        "a": "4",
+        "h": "3+",
+        "d": "2/5",
+        "wr": "Reichweite 6 Zoll, Schalldämpfer"
+    },
+    "Paar Spalta": {
+        "a": "4",
+        "h": "3+",
+        "d": "4/5",
+        "wr": "Unablässig, Tödlich 5+ Is dat alles? Nachdem dieser Kämpfer gekämpft oder zurückgeschla- gen hat, kannst du, sofern er nicht kampfunfähig ist, dem feindlichen Kämpfer in jener Abfolge W3 Schaden zufügen."
+    },
+    "Dynamit": {
+        "a": "5",
+        "h": "4+",
+        "d": "4/5",
+        "wr": "WR Reichweite 4 Zoll, Explosiv 1 Zoll, Schwer (nur Positionswechsel), Hagel KOMMANDO"
+    },
+    "Harpune": {
+        "a": "4",
+        "h": "4+",
+        "d": "4/5",
+        "wr": "WR Reichweite 8 Zoll, Tödlich 5+, Betäuben KOMMANDOS: UPDATE-LOG \b Zur Verbesserung des Spielflusses und der Ausgewogenheit überarbeiten wir regelmäßig die Regeln des Spiels. Nötige Än-"
+    }
+}
 };

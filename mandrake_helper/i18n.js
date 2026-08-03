@@ -137,3 +137,106 @@ const OPERATIVES_DB = {
         { id: 'warrior8', name: 'MANDRAK-KRIEGER (8)', limit: 1, stats: { apg: 2, b: '7"', rw: '5+', lp: 8 }, abilities: ['<strong>Schattenkrieger:</strong> +1 kritischer Schaden für Flimmerstahlklinge, wenn IM SCHATTEN.'], fixedWeapons: ['Frostschlag', 'Flimmerstahlklinge'] }
     ]
 };
+
+const WEAPONS_DB = {
+    en: {
+    "Balesurge (blast)": {
+        "a": "5",
+        "h": "3+",
+        "d": "3/4",
+        "wr": "Blast 2\", Soulstrike*"
+    },
+    "Balesurge (burn)": {
+        "a": "5",
+        "h": "3+",
+        "d": "3/4",
+        "wr": "Lethal 5+, Soulstrike*"
+    },
+    "Glimmersteel blade": {
+        "a": "4",
+        "h": "3+",
+        "d": "4/5",
+        "wr": "Lethal 5+ Shadow Warrior: Whenever this operative is WITHIN SHADOW, add 1 to the Critical Dmg stat of its glimmersteel blade."
+    },
+    "Baleblast": {
+        "a": "4",
+        "h": "3+",
+        "d": "3/4",
+        "wr": "Soulstrike*"
+    },
+    "Baleblade": {
+        "a": "4",
+        "h": "3+",
+        "d": "5/6",
+        "wr": "Brutal, Lethal 5+ Soul Harvest: Whenever an enemy operative is incapacitated as a result of this operative’s Part Collector rule or baleblade, you gain 1 Soul Harvest point, or two if that enemy operative had an APL stat of 3 or more. Whenever a friendly MANDRAKE"
+    },
+    "Huskblade": {
+        "a": "5",
+        "h": "3+",
+        "d": "4/6",
+        "wr": "Lethal 5+, Shock Harrowing Whispers: Whenever your opponent would activate an enemy operative within 6\" of this operative, you can roll one D6 (you cannot do so if you already interrupted that operative’s"
+    },
+    "Horrifying scream": {
+        "a": "5",
+        "h": "2+",
+        "d": "2/2",
+        "wr": "Range 6\", Devastating 2, Seek Light, Stun, Soulstrike*"
+    },
+    "Bone dart": {
+        "a": "4",
+        "h": "3+",
+        "d": "2/4",
+        "wr": "WR Range 6\", Rending, Silent MANDRAKES: UPDATE LOG\b Rules will be periodically updated to maintain fair balance and interact more smoothly with the game. Rules changes"
+    }
+},
+    de: {
+    "Frostwoge": {
+        "a": "5",
+        "h": "3+",
+        "d": "3/4",
+        "wr": "Explosiv 2 Zoll, Seelenschlag*"
+    },
+    "Frostwoge (Brand)": {
+        "a": "5",
+        "h": "3+",
+        "d": "3/4",
+        "wr": "Tödlich 5+, Seelenschlag*"
+    },
+    "Flimmerstahlklinge": {
+        "a": "4",
+        "h": "3+",
+        "d": "4/5",
+        "wr": "Tödlich 5+ Schattenkrieger: Solange sich dieser Kämpfer IM SCHATTEN be- findet, addiere 1 auf den kritischen Schadenswert seiner Flimmer- stahlklinge."
+    },
+    "Frostschlag": {
+        "a": "4",
+        "h": "3+",
+        "d": "3/4",
+        "wr": "Seelenschlag*"
+    },
+    "Froststahlklinge": {
+        "a": "4",
+        "h": "3+",
+        "d": "5/6",
+        "wr": "Brutal, Tödlich 5+ Seelenernte: Jedes Mal, wenn ein feindlicher Kämpfer durch die Regel Teilesammler dieses Kämpfer oder seiner Froststahlklinge kampfunfähig gemacht wird, erhältst du 1 Seelenernte- punkt, oder 2, wenn der APG-Wert jenes feindlichen Kämpfers 3 oder höher war. Jedes Mal,"
+    },
+    "Staubklinge": {
+        "a": "5",
+        "h": "3+",
+        "d": "4/6",
+        "wr": "Tödlich 5+, Schock Quälendes Flüstern: Jedes Mal, wenn dein Gegner einen feindlichen Kämpfer innerhalb von 6 Zoll um diesen Kämpfer aktivieren würde, kannst du einen W6 werfen (du kannst dies nicht tun, wenn du die"
+    },
+    "Entsetzlicher Schrei": {
+        "a": "5",
+        "h": "2+",
+        "d": "2/2",
+        "wr": "Reichweite 6 Zoll, Verheerend 2, Zielsucher leicht, Betäuben, Seelenschlag*"
+    },
+    "Knochenpfeil": {
+        "a": "4",
+        "h": "3+",
+        "d": "2/4",
+        "wr": "WR Reichweite 6 Zoll, Rüstungsbrechend, Schalldämpfer MANDRAKS: UPDATE-LOG\b"
+    }
+}
+};

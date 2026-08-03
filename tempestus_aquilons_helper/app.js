@@ -1,10 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     
     // --- I18N LOGIC ---
-    let currentLang = localStorage.getItem('mandrake_lang') || 'en';
+    let currentLang = localStorage.getItem('tempestus_lang') || 'en';
 
     function applyTranslations() {
-        // Update static HTML text
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
             if (translations[currentLang] && translations[currentLang][key]) {
@@ -12,45 +11,27 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Update active language button
         document.querySelectorAll('.lang-btn').forEach(btn => {
             btn.classList.toggle('active', btn.id === `lang-${currentLang}`);
         });
 
-        // Document title
         document.title = translations[currentLang].title + " | Datapad";
 
         renderPloys();
-        // Re-render builder using new DB language
         renderBuilder();
         
-        // Re-render match roster using new DB language
         if (!document.getElementById('start-match-btn').disabled || Object.keys(selectedOperatives).length > 0) {
-            // Need to update the existing selectedOperatives to match the new language DB data
-            // We just swap the opData reference
             Object.keys(selectedOperatives).forEach(opId => {
                 const newOpData = OPERATIVES_DB[currentLang].find(o => o.id === opId);
                 if (newOpData) {
                     selectedOperatives[opId].opData = newOpData;
                     
-                    // We also need to map weapon strings if they change between languages.
-                    // For simplicity, Mandrakes have fixed weapons mostly. Abyssal has weaponSelect1.
-                    // If they selected a weapon in EN and switch to DE, the exact string changes.
-                    // We could try to map by index.
                     const oldOpData = OPERATIVES_DB[currentLang === 'de' ? 'en' : 'de'].find(o => o.id === opId);
                     if (oldOpData && newOpData.weaponSelect1) {
                         if (selectedOperatives[opId].w1) {
                             const wIdx = oldOpData.weaponSelect1.indexOf(selectedOperatives[opId].w1);
                             if (wIdx !== -1) {
                                 selectedOperatives[opId].w1 = newOpData.weaponSelect1[wIdx];
-                            }
-                        }
-                    }
-                    if (oldOpData && newOpData.weaponSelect2) {
-                        if (selectedOperatives[opId].w2) {
-                            const wIdx = oldOpData.weaponSelect2.indexOf(selectedOperatives[opId].w2);
-                            if (wIdx !== -1) {
-                                selectedOperatives[opId].w2 = newOpData.weaponSelect2[wIdx];
                             }
                         }
                     }
@@ -62,13 +43,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.getElementById('lang-en').addEventListener('click', () => {
         currentLang = 'en';
-        localStorage.setItem('mandrake_lang', 'en');
+        localStorage.setItem('tempestus_lang', 'en');
         applyTranslations();
     });
 
     document.getElementById('lang-de').addEventListener('click', () => {
         currentLang = 'de';
-        localStorage.setItem('mandrake_lang', 'de');
+        localStorage.setItem('tempestus_lang', 'de');
         applyTranslations();
     });
 
@@ -99,12 +80,20 @@ document.addEventListener('DOMContentLoaded', () => {
     
     let selectedOperatives = {}; // { id: { opData, w1, w2, currentLp, isDead } }
 
-    function updateBuilderState() {
+        function updateBuilderState() {
         const count = Object.keys(selectedOperatives).length;
         rosterCountSpan.textContent = count;
         
-        let isValid = count === 9;
-        if (!selectedOperatives['nightfiend']) isValid = false;
+        let isValid = count === 10;
+        
+        // 1. Must have leader
+        let hasLeader = false;
+        for (let key in selectedOperatives) {
+            if (selectedOperatives[key].opData && selectedOperatives[key].opData.isLeader) {
+                hasLeader = true;
+            }
+        }
+        if (!hasLeader) isValid = false;
 
         if (isValid) {
             startMatchBtn.disabled = false;
@@ -128,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
             header.innerHTML = `<h3>${op.name}</h3><div class="checkbox-custom"></div>`;
             card.appendChild(header);
 
-            let sel1, sel2;
+            let sel1;
             if (op.weaponSelect1) {
                 sel1 = document.createElement('select');
                 sel1.className = 'weapon-select';
@@ -141,19 +130,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     sel1.appendChild(opt);
                 });
                 card.appendChild(sel1);
-            }
-            if (op.weaponSelect2) {
-                sel2 = document.createElement('select');
-                sel2.className = 'weapon-select';
-                sel2.disabled = !selectedOperatives[op.id];
-                op.weaponSelect2.forEach(w => {
-                    const opt = document.createElement('option');
-                    opt.value = w;
-                    opt.textContent = w;
-                    if (selectedOperatives[op.id] && selectedOperatives[op.id].w2 === w) opt.selected = true;
-                    sel2.appendChild(opt);
-                });
-                card.appendChild(sel2);
             }
 
             if (op.fixedWeapons) {
@@ -169,9 +145,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     delete selectedOperatives[op.id];
                     card.classList.remove('selected');
                     if (sel1) sel1.disabled = true;
-                    if (sel2) sel2.disabled = true;
                 } else {
-                    if (Object.keys(selectedOperatives).length >= 9) return; 
+                    if (Object.keys(selectedOperatives).length >= 11) return; 
                     
                     
                     if (op.isLeader) {
@@ -187,13 +162,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     selectedOperatives[op.id] = {
                         opData: op,
                         w1: sel1 ? sel1.value : null,
-                        w2: sel2 ? sel2.value : null,
+                        w2: null,
                         currentLp: op.stats.lp,
                         isDead: false
                     };
                     card.classList.add('selected');
                     if (sel1) sel1.disabled = false;
-                    if (sel2) sel2.disabled = false;
                 }
                 updateBuilderState();
             });
@@ -203,13 +177,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (selectedOperatives[op.id]) {
                         selectedOperatives[op.id].w1 = sel1.value;
                         updateBuilderState();
-                    }
-                });
-            }
-            if (sel2) {
-                sel2.addEventListener('change', () => {
-                    if (selectedOperatives[op.id]) {
-                        selectedOperatives[op.id].w2 = sel2.value;
                     }
                 });
             }
@@ -239,7 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const lpValue = clone.querySelector('.op-lp');
             lpValue.textContent = data.currentLp;
 
-            // Re-apply translated labels from i18n
+            // Apply translated labels
             clone.querySelectorAll('[data-i18n]').forEach(el => {
                 const i18nKey = el.getAttribute('data-i18n');
                 if (translations[currentLang] && translations[currentLang][i18nKey]) {
@@ -249,7 +216,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const wCont = clone.querySelector('.weapons-container');
             let weaponsHTML = '';
-            
+
             function renderWeapon(wNameRaw) {
                 const parts = wNameRaw.split(';');
                 parts.forEach(p => {
@@ -258,22 +225,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (typeof WEAPONS_DB !== 'undefined' && WEAPONS_DB[currentLang]) {
                         Object.keys(WEAPONS_DB[currentLang]).forEach(dbKey => {
                             if (dbKey === wName || dbKey.startsWith(wName + ' (') || dbKey.startsWith(wName + ' –')) {
-                                const stats = WEAPONS_DB[currentLang][dbKey];
+                                const st = WEAPONS_DB[currentLang][dbKey];
                                 statsHTML += `
-                                    <div class="weapon-sub-name" style="font-size: 0.75rem; color: var(--accent-color); margin-top: 5px;">${dbKey}</div>
-                                    <table class="weapon-stats-table">
-                                        <tr><th>ATK</th><th>HIT</th><th>DMG</th><th>WR</th></tr>
-                                        <tr><td>${stats.a}</td><td>${stats.h}</td><td>${stats.d}</td><td>${stats.wr}</td></tr>
-                                    </table>
-                                `;
+                                <table class="weapon-stats-table">
+                                    <tr><th>A</th><th>H</th><th>D</th></tr>
+                                    <tr><td>${st.a}</td><td>${st.h}</td><td>${st.d}</td></tr>
+                                    <tr><td colspan="3" class="weapon-rules">${st.wr}</td></tr>
+                                </table>`;
                             }
                         });
                     }
-                    weaponsHTML += `
-                        <div class="weapon-item">
-                            <span class="weapon-name" style="font-weight: bold;">${wName}</span>
-                            ${statsHTML}
-                        </div>`;
+                    weaponsHTML += `<div class="weapon-item"><span class="weapon-name">${wName}</span>${statsHTML}</div>`;
                 });
             }
 
@@ -352,22 +314,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- TOKENS TRACKER LOGIC ---
-    const addTokenBtn = document.getElementById('add-token-btn');
-    const tokenList = document.getElementById('token-list');
-    
-    function createTokenItem(initialName = "") {
+    const addTargetBtn = document.getElementById('add-token-btn');
+    const grudgeList = document.getElementById('token-list');
+
+    function createTokenItem(initialText) {
         const targetId = `token-${Date.now()}-${Math.floor(Math.random() * 1000)}`;
         
         const itemHtml = `
-            <div class="token-item" id="${targetId}">
-                <div class="token-info">
-                    <input type="text" class="target-name" value="${initialName}" placeholder="...">
+            <div class="grudge-item" id="${targetId}">
+                <div class="grudge-info">
+                    <input type="text" class="target-name" value="${initialText}" placeholder="...">
                 </div>
                 <div class="grudge-controls">
-                    <button class="counter-btn decrease" aria-label="-">-</button>
+                    <button class="counter-btn decrease" aria-label="Verringern">-</button>
                     <span class="token-count">0</span>
-                    <button class="counter-btn increase" aria-label="+">+</button>
-                    <button class="delete-btn" aria-label="Del"><i class="fa-solid fa-trash"></i></button>
+                    <button class="counter-btn increase" aria-label="Erhöhen">+</button>
+                    <button class="delete-btn" aria-label="Entfernen"><i class="fa-solid fa-trash"></i></button>
                 </div>
             </div>
         `;
@@ -387,14 +349,14 @@ document.addEventListener('DOMContentLoaded', () => {
         decreaseBtn.addEventListener('click', () => { if (count > 0) { count--; countSpan.textContent = count; } });
         deleteBtn.addEventListener('click', () => { newEl.remove(); });
 
-        tokenList.appendChild(newEl);
+        grudgeList.appendChild(newEl);
     }
 
-    createTokenItem("Soul Harvest / Seelenernte");
-    createTokenItem("Balefire / Kaltes Feuer");
-    createTokenItem("Shadow Portals / Schattenportale");
+    createTokenItem("Marked for Justice / Für Gerechtigkeit markiert");
+    createTokenItem("Apprehend Target / Festnahme-Ziel");
+    createTokenItem("Nuncio-Aquila");
 
-    addTokenBtn.addEventListener('click', () => createTokenItem("Tracker"));
+    addTargetBtn.addEventListener('click', () => createTokenItem("Tracker"));
 
     // Init translations
     
@@ -425,7 +387,7 @@ document.addEventListener('DOMContentLoaded', () => {
         stratContainer.innerHTML = '';
         fireContainer.innerHTML = '';
 
-        const db = typeof PLOYS_DB !== 'undefined' ? PLOYS_DB[currentLang] : null;
+        const db = translations[currentLang].ploys_data;
         if (!db) return;
 
         const createPloyCard = (ploy, type) => {

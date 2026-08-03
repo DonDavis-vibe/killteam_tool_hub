@@ -380,3 +380,5 @@ const WEAPONS_DB = {
     }
 }
 };
+
+module.exports = { OPERATIVES_DB, WEAPONS_DB };

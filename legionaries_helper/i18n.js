@@ -122,7 +122,11 @@ rulesStrategy: "Strategy Ploys",
             { id: 'heavy', name: 'HEAVY GUNNER', limit: 1, stats: { apg: 3, b: '6"', rw: '3+', lp: 14 }, abilities: [], weaponSelect1: ['Heavy bolter', 'Missile launcher', 'Reaper chaincannon'], fixedWeapons: ['Bolt pistol', 'Fists'] },
             { id: 'icon', name: 'ICON BEARER', limit: 1, stats: { apg: 3, b: '6"', rw: '3+', lp: 14 }, abilities: ['<strong>Icon Bearer:</strong> +1 APL for controlling markers.', '<strong>Favoured of the Dark Gods:</strong> Taint an objective for 1CP.'], weaponSelect1: ['Boltgun; fists', 'Bolt pistol; chainsword'] },
             { id: 'shrivetalon', name: 'SHRIVETALON', limit: 1, stats: { apg: 3, b: '6"', rw: '3+', lp: 14 }, abilities: ['<strong>Grisly Mark (2 AP):</strong> Place marker. Enemies pay +1 AP for mission actions in 3". -1 APL to control.', '<strong>Vicious Reflexes:</strong> Defender strikes first in retaliation.', '<strong>Horrifying Dismemberment:</strong> -1 APL to nearby enemy on kill.'], fixedWeapons: ['Bolt pistol', 'Flensing blades'] },
-            { id: 'warrior1', name: 'WARRIOR (1)', limit: 1, stats: { apg: 3, b: '6"', rw: '3+', lp: 14 }, abilities: ['<strong>Infernal Pact:</strong> Once per battle, change Mark.'], weaponSelect1: ['Boltgun; fists', 'Bolt pistol; chainsword'] },
+            { id: 'warrior1_1', name: 'WARRIOR (1) (1)', limit: 1, stats: { apg: 3, b: '6"', rw: '3+', lp: 14 }, abilities: ['<strong>Infernal Pact:</strong> Once per battle, change Mark.'], weaponSelect1: ['Boltgun; fists', 'Bolt pistol; chainsword'] },
+            { id: 'warrior1_2', name: 'WARRIOR (1) (2)', limit: 1, stats: { apg: 3, b: '6"', rw: '3+', lp: 14 }, abilities: ['<strong>Infernal Pact:</strong> Once per battle, change Mark.'], weaponSelect1: ['Boltgun; fists', 'Bolt pistol; chainsword'] },
+            { id: 'warrior1_3', name: 'WARRIOR (1) (3)', limit: 1, stats: { apg: 3, b: '6"', rw: '3+', lp: 14 }, abilities: ['<strong>Infernal Pact:</strong> Once per battle, change Mark.'], weaponSelect1: ['Boltgun; fists', 'Bolt pistol; chainsword'] },
+            { id: 'warrior1_4', name: 'WARRIOR (1) (4)', limit: 1, stats: { apg: 3, b: '6"', rw: '3+', lp: 14 }, abilities: ['<strong>Infernal Pact:</strong> Once per battle, change Mark.'], weaponSelect1: ['Boltgun; fists', 'Bolt pistol; chainsword'] },
+            { id: 'warrior1_5', name: 'WARRIOR (1) (5)', limit: 1, stats: { apg: 3, b: '6"', rw: '3+', lp: 14 }, abilities: ['<strong>Infernal Pact:</strong> Once per battle, change Mark.'], weaponSelect1: ['Boltgun; fists', 'Bolt pistol; chainsword'] },
             { id: 'warrior2', name: 'WARRIOR (2)', limit: 1, stats: { apg: 3, b: '6"', rw: '3+', lp: 14 }, abilities: ['<strong>Infernal Pact:</strong> Once per battle, change Mark.'], weaponSelect1: ['Boltgun; fists', 'Bolt pistol; chainsword'] }
         ],
         de: [
@@ -135,9 +139,355 @@ rulesStrategy: "Strategy Ploys",
             { id: 'heavy', name: 'SCHWERER SCHÜTZE', limit: 1, stats: { apg: 3, b: '6"', rw: '3+', lp: 14 }, abilities: [], weaponSelect1: ['Schwerer Bolter', 'Raketenwerfer', 'Schnitter-Gatlingkanone'], fixedWeapons: ['Boltpistole', 'Fäuste'] },
             { id: 'icon', name: 'IKONENTRÄGER', limit: 1, stats: { apg: 3, b: '6"', rw: '3+', lp: 14 }, abilities: ['<strong>Ikonenträger:</strong> +1 APG für Kontrolle von Markern.', '<strong>Gunst der Dunklen Götter:</strong> Verderbe ein Missionsziel für 1 BP.'], weaponSelect1: ['Bolter; Fäuste', 'Boltpistole; Kettenschwert'] },
             { id: 'shrivetalon', name: 'MARTERKRALLE', limit: 1, stats: { apg: 3, b: '6"', rw: '3+', lp: 14 }, abilities: ['<strong>Grausiges Zeichen (2 AP):</strong> Marker platzieren. Feinde in 3" zahlen +1 AP für Missionsaktionen. -1 APG für Kontrolle.', '<strong>Wilde Reflexe:</strong> Verteidiger schlägt zuerst zurück.', '<strong>Entsetzliche Zerstückelung:</strong> -1 APG für Feind in Nähe nach Kill.'], fixedWeapons: ['Boltpistole', 'Häuterklingen'] },
-            { id: 'warrior1', name: 'KRIEGER (1)', limit: 1, stats: { apg: 3, b: '6"', rw: '3+', lp: 14 }, abilities: ['<strong>Finsterer Pakt:</strong> 1x pro Gefecht Mal ändern.'], weaponSelect1: ['Bolter; Fäuste', 'Boltpistole; Kettenschwert'] },
+            { id: 'warrior1_1', name: 'KRIEGER (1) (1)', limit: 1, stats: { apg: 3, b: '6"', rw: '3+', lp: 14 }, abilities: ['<strong>Finsterer Pakt:</strong> 1x pro Gefecht Mal ändern.'], weaponSelect1: ['Bolter; Fäuste', 'Boltpistole; Kettenschwert'] },
+            { id: 'warrior1_2', name: 'KRIEGER (1) (2)', limit: 1, stats: { apg: 3, b: '6"', rw: '3+', lp: 14 }, abilities: ['<strong>Finsterer Pakt:</strong> 1x pro Gefecht Mal ändern.'], weaponSelect1: ['Bolter; Fäuste', 'Boltpistole; Kettenschwert'] },
+            { id: 'warrior1_3', name: 'KRIEGER (1) (3)', limit: 1, stats: { apg: 3, b: '6"', rw: '3+', lp: 14 }, abilities: ['<strong>Finsterer Pakt:</strong> 1x pro Gefecht Mal ändern.'], weaponSelect1: ['Bolter; Fäuste', 'Boltpistole; Kettenschwert'] },
+            { id: 'warrior1_4', name: 'KRIEGER (1) (4)', limit: 1, stats: { apg: 3, b: '6"', rw: '3+', lp: 14 }, abilities: ['<strong>Finsterer Pakt:</strong> 1x pro Gefecht Mal ändern.'], weaponSelect1: ['Bolter; Fäuste', 'Boltpistole; Kettenschwert'] },
+            { id: 'warrior1_5', name: 'KRIEGER (1) (5)', limit: 1, stats: { apg: 3, b: '6"', rw: '3+', lp: 14 }, abilities: ['<strong>Finsterer Pakt:</strong> 1x pro Gefecht Mal ändern.'], weaponSelect1: ['Bolter; Fäuste', 'Boltpistole; Kettenschwert'] },
             { id: 'warrior2', name: 'KRIEGER (2)', limit: 1, stats: { apg: 3, b: '6"', rw: '3+', lp: 14 }, abilities: ['<strong>Finsterer Pakt:</strong> 1x pro Gefecht Mal ändern.'], weaponSelect1: ['Bolter; Fäuste', 'Boltpistole; Kettenschwert'] }
         ]
     };
 
     
+const WEAPONS_DB = {
+    en: {
+    "Plasma pistol (standard)": {
+        "a": "4",
+        "h": "3+",
+        "d": "3/5",
+        "wr": "Range 8\", Piercing 1"
+    },
+    "Plasma pistol (supercharge)": {
+        "a": "4",
+        "h": "3+",
+        "d": "4/5",
+        "wr": "Range 8\", Hot, Lethal 5+, Piercing 1"
+    },
+    "Tainted bolt pistol": {
+        "a": "4",
+        "h": "3+",
+        "d": "3/5",
+        "wr": "Range 8\", Rending"
+    },
+    "Daemon blade": {
+        "a": "5",
+        "h": "3+",
+        "d": "4/7",
+        "wr": "Lethal 5+ Daemonic Aura: Whenever an enemy operative performs the Fall Back action while within control range of this operative, you can use this rule. If you do, roll one D6: on a 3+, that enemy"
+    },
+    "Bolt pistol": {
+        "a": "4",
+        "h": "3+",
+        "d": "3/4",
+        "wr": "Range 8\""
+    },
+    "Fireblast": {
+        "a": "4",
+        "h": "3+",
+        "d": "3/4",
+        "wr": "PSYCHIC , Blast 2\", 1\" Devastating 1, Saturate"
+    },
+    "Life siphon": {
+        "a": "5",
+        "h": "3+",
+        "d": "3/3",
+        "wr": "PSYCHIC ,  Saturate, Siphon Life*"
+    },
+    "Fell dagger": {
+        "a": "5",
+        "h": "3+",
+        "d": "3/4",
+        "wr": "PSYCHIC , Rending, Siphon Life* *Siphon Life: When you select this weapon, you can use this rule. If you do, at the start of the Resolve Attack Dice step, select one friendly LEGIONARY operative visible to and within 6\" of this operative. For each attack dice you resolve during that step that inflicts damage, that friendly operative regains 1 lost wound, or D3 lost wounds if it was a critical success. You cannot use this weapon"
+    },
+    "Power fist": {
+        "a": "5",
+        "h": "4+",
+        "d": "5/7",
+        "wr": "Brutal"
+    },
+    "Power maul": {
+        "a": "5",
+        "h": "3+",
+        "d": "4/6",
+        "wr": "Shock"
+    },
+    "Power weapon": {
+        "a": "5",
+        "h": "3+",
+        "d": "4/6",
+        "wr": "Lethal 5+"
+    },
+    "Tainted chainsword": {
+        "a": "5",
+        "h": "3+",
+        "d": "4/5",
+        "wr": "Rending In the Eyes of the Gods: Once during each of this operative’s activations, if it incapacitates an enemy operative, add 1 to its APL stat until the end of that activation. LEGIONARY , CHAOS, HERETIC ASTARTES, LEADER, ASPIRING CHAMPION"
+    },
+    "Daemonic claw": {
+        "a": "5",
+        "h": "3+",
+        "d": "4/5",
+        "wr": "Rending Unleash Daemon: Once per battle, when this operative is activated, you can use this rule. If you do, until the end of the battle: •  This operative cannot perform the Pick Up Marker or mission actions (excluding Operate Hatch). If it’s carrying a marker, it must immediately perform the Place Marker action for 0AP (this takes precedence over all other rules)."
+    },
+    "Flamer": {
+        "a": "4",
+        "h": "2+",
+        "d": "3/3",
+        "wr": "Range 8\", Saturate, Torrent 2\""
+    },
+    "Meltagun": {
+        "a": "4",
+        "h": "3+",
+        "d": "6/3",
+        "wr": "Range 6\", Devastating 4, Piercing 2"
+    },
+    "Plasma gun (standard)": {
+        "a": "4",
+        "h": "3+",
+        "d": "4/6",
+        "wr": "Piercing 1"
+    },
+    "Plasma gun (supercharge)": {
+        "a": "4",
+        "h": "3+",
+        "d": "5/6",
+        "wr": "Hot, Lethal 5+, Piercing 1"
+    },
+    "Fists": {
+        "a": "4",
+        "h": "3+",
+        "d": "3/4",
+        "wr": "-"
+    },
+    "Boltgun": {
+        "a": "4",
+        "h": "3+",
+        "d": "3/4",
+        "wr": "-"
+    },
+    "Chainsword": {
+        "a": "5",
+        "h": "3+",
+        "d": "4/5",
+        "wr": "-"
+    },
+    "Double-handed chainaxe": {
+        "a": "5",
+        "h": "4+",
+        "d": "5/7",
+        "wr": "Brutal Devastating Onslaught: •  Whenever this operative is fighting or retaliating, enemy operatives cannot assist."
+    },
+    "Heavy bolter (focused)": {
+        "a": "5",
+        "h": "3+",
+        "d": "4/5",
+        "wr": "Heavy (Reposition only), Piercing Crits 1"
+    },
+    "Heavy bolter (sweeping)": {
+        "a": "4",
+        "h": "3+",
+        "d": "4/5",
+        "wr": "Heavy (Reposition only), Piercing Crits 1, Torrent 1\""
+    },
+    "Missile launcher (frag)": {
+        "a": "4",
+        "h": "3+",
+        "d": "3/5",
+        "wr": "Blast 2\", Heavy (Reposition only)"
+    },
+    "Missile launcher (krak)": {
+        "a": "4",
+        "h": "3+",
+        "d": "5/7",
+        "wr": "Heavy (Reposition only), Piercing 1"
+    },
+    "Reaper chaincannon (focused)": {
+        "a": "5",
+        "h": "3+",
+        "d": "3/4",
+        "wr": "Ceaseless, Heavy (Reposition only), Punishing Reaper chaincannon (sweeping) 4 3+ 3/4"
+    },
+    "Flensing blades": {
+        "a": "5",
+        "h": "3+",
+        "d": "3/5",
+        "wr": "Lethal 5+ Vicious Reflexes: Whenever this operative is retaliating, you resolve the first attack dice (i.e. defender instead of attacker). Horrifying Dismemberment: Whenever this operative"
+    },
+    "Malefic blade": {
+        "a": "5",
+        "h": "3+",
+        "d": "3/4",
+        "wr": "LEGIONARIES: UPDATE LOG\b Rules will be periodically updated to maintain fair balance and interact more smoothly with the game. Rules changes will be updated directly into online documents and then listed below. Any minor changes to standardise wording that don’t have any practical impact on the rule will be updated directly into online documents but not be listed here."
+    }
+},
+    de: {
+    "Plasmapistole (Standard)": {
+        "a": "4",
+        "h": "3+",
+        "d": "3/5",
+        "wr": "Reichweite 8 Zoll, Durchdringend 1"
+    },
+    "Plasmapistole (Überladung)": {
+        "a": "4",
+        "h": "3+",
+        "d": "4/5",
+        "wr": "Reichweite 8 Zoll, Heiß, Durchdringend 1, Tödlich 5+"
+    },
+    "Verderbte Boltpistole": {
+        "a": "4",
+        "h": "3+",
+        "d": "3/5",
+        "wr": "Reichweite 8 Zoll, Rüstungsbrechend"
+    },
+    "Dämonenklinge": {
+        "a": "5",
+        "h": "3+",
+        "d": "4/7",
+        "wr": "Tödlich 5+ Dämonische Aura: Jedes Mal, wenn ein feindlicher Kämpfer die Ak- tion Zurückziehen ausführt, während er sich in Kontrollreichweite dieses Kämpfers befindet, kannst du diese Regel einsetzen. Wenn du"
+    },
+    "Boltpistole": {
+        "a": "4",
+        "h": "3+",
+        "d": "3/4",
+        "wr": "Reichweite 8 Zoll"
+    },
+    "Feuerball": {
+        "a": "4",
+        "h": "3+",
+        "d": "3/4",
+        "wr": "Explosiv 2 Zoll, Verheerend 1 (1 Zoll), Hagel, PSIONISCH"
+    },
+    "Lebenssauger": {
+        "a": "5",
+        "h": "3+",
+        "d": "3/3",
+        "wr": "Hagel, PSIONISCH, Lebenskraft absaugen*"
+    },
+    "Finsterer Dolch": {
+        "a": "5",
+        "h": "3+",
+        "d": "3/4",
+        "wr": "Rüstungsbrechend, PSIONISCH, Lebenskraft absaugen* *Lebenskraft absaugen: Wenn du diese Waffe wählst, kannst du diese Regel einsetzen. Wenn du dies tust, wähle zu Beginn des Schritts „Attacken würfel werfen“ einen für diesen Kämpfer sichtbaren, befreundeten LEGIONEN -Kämpfer innerhalb von 6 Zoll um diesen Kämp- fer. Für jeden Attackenwürfel, den du in jenem Schritt abhandelst und der Schaden zufügt, erhält jener befreundete Kämpfer 1 verlorenen Le-"
+    },
+    "Energiefaust": {
+        "a": "5",
+        "h": "4+",
+        "d": "5/7",
+        "wr": "Brutal"
+    },
+    "Energiestreitkolben": {
+        "a": "5",
+        "h": "3+",
+        "d": "4/6",
+        "wr": "Schock"
+    },
+    "Energiewaffe": {
+        "a": "5",
+        "h": "3+",
+        "d": "4/6",
+        "wr": "Tödlich 5+"
+    },
+    "Verderbtes Kettenschwert": {
+        "a": "5",
+        "h": "3+",
+        "d": "4/5",
+        "wr": "Rüstungsbrechend Im Blick der Götter: Einmal während jeder Aktivierung dieses Kämpfers, wenn er einen feindlichen Kämpfer kampfunfähig macht, addiere bis zum Ende jener Aktivierung 1 auf seinen APG-Wert. LEGIONEN , CHAOS, HÄRETIKER-ASTARTES, ANFÜHRER, AUFSTREBENDER CHAMPION"
+    },
+    "Dämonenklaue": {
+        "a": "5",
+        "h": "3+",
+        "d": "4/5",
+        "wr": "Rüstungsbrechend Dämon entfesseln: Einmal pro Gefecht, wenn dieser Kämpfer aktiviert wird, kannst du diese Regel einsetzen. Wenn du dies tust, gilt bis zum Ende des Gefechts: •  Dieser Kämpfer kann nicht die Aktion Marker aufsammeln"
+    },
+    "Flammenwerfer": {
+        "a": "4",
+        "h": "2+",
+        "d": "3/3",
+        "wr": "Reichweite 8 Zoll, Hagel, Schwall 2 Zoll"
+    },
+    "Melter": {
+        "a": "4",
+        "h": "3+",
+        "d": "6/3",
+        "wr": "Reichweite 6 Zoll, Durchdringend 2, Verheerend 4"
+    },
+    "Plasmawerfer (Standard)": {
+        "a": "4",
+        "h": "3+",
+        "d": "4/6",
+        "wr": "Durchdringend 1"
+    },
+    "Plasmawerfer (Überladung)": {
+        "a": "4",
+        "h": "3+",
+        "d": "5/6",
+        "wr": "Heiß, Durchdringend 1, Tödlich 5+"
+    },
+    "Fäuste": {
+        "a": "4",
+        "h": "3+",
+        "d": "3/4",
+        "wr": "-"
+    },
+    "Bolter": {
+        "a": "4",
+        "h": "3+",
+        "d": "3/4",
+        "wr": "-"
+    },
+    "Kettenschwert": {
+        "a": "5",
+        "h": "3+",
+        "d": "4/5",
+        "wr": "-"
+    },
+    "Zweihändige Kettenaxt": {
+        "a": "5",
+        "h": "4+",
+        "d": "5/7",
+        "wr": "Brutal Vernichtendes Gemetzel: •  Jedes Mal, wenn dieser Kämpfer kämpft oder zurückschlägt, kön- nen feindliche Kämpfer nicht unterstützen."
+    },
+    "Schwerer Bolter (gezielt)": {
+        "a": "5",
+        "h": "3+",
+        "d": "4/5",
+        "wr": "Schwer (nur Positionswechsel), Krit. durchdringend 1"
+    },
+    "Schwerer Bolter (wahllos)": {
+        "a": "4",
+        "h": "3+",
+        "d": "4/5",
+        "wr": "Schwer (nur Positionswechsel), Krit. durchdringend 1, Schwall 1 Zoll"
+    },
+    "Raketenwerfer (Fragment)": {
+        "a": "4",
+        "h": "3+",
+        "d": "3/5",
+        "wr": "Explosiv 2 Zoll, Schwer (nur Positionswechsel)"
+    },
+    "Raketenwerfer (Spreng)": {
+        "a": "4",
+        "h": "3+",
+        "d": "5/7",
+        "wr": "Schwer (nur Positionswechsel), Durchdringend 1"
+    },
+    "Schnitter-Gatlingkanone (gezielt)": {
+        "a": "5",
+        "h": "3+",
+        "d": "3/4",
+        "wr": "Unablässig, Schwer (nur Positionswechsel), Peinigend Schnitter-Gatlingkanone (wahllos) 4 3+ 3/4"
+    },
+    "Häuterklingen": {
+        "a": "5",
+        "h": "3+",
+        "d": "3/5",
+        "wr": "Tödlich 5+ Wilde Reflexe: Jedes Mal, wenn dieser Kämpfer zurückschlägt, handelst du den ersten Attackenwurf ab (also der Verteidiger statt der Attackierende)."
+    },
+    "Bösartige Klinge": {
+        "a": "5",
+        "h": "3+",
+        "d": "3/4",
+        "wr": "LEGIONEN: UPDATE-LOG\b Zur Verbesserung des Spielflusses und der Ausgewogenheit überarbeiten wir regelmäßig die Regeln des Spiels. Nötige Än- derungen werden unmittelbar in die Online-Dokumente übernommen und außerdem im Folgenden aufgeführt. Geringfügige Anpassungen von Formulierungen, die keine praktischen Auswirkungen auf die Funktionsweise einer Regel haben, werden"
+    }
+}
+};

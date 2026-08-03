@@ -175,6 +175,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (currentCount >= 6) return; 
                     
                     
+                    
+                    if (op.isLeader) {
+                        let hasLeader = false;
+                        for (let key in selectedOperatives) {
+                            if (selectedOperatives[key].opData && selectedOperatives[key].opData.isLeader) hasLeader = true;
+                        }
+                        if (hasLeader) {
+                            alert("You can only select 1 Leader!");
+                            return;
+                        }
+                    }
                     selectedOperatives[op.id] = {
                         opData: op,
                         w1: sel1 ? sel1.value : null,
@@ -240,14 +251,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const wCont = clone.querySelector('.weapons-container');
             let weaponsHTML = '';
+            
+            function renderWeapon(wNameRaw) {
+                const parts = wNameRaw.split(';');
+                parts.forEach(p => {
+                    const wName = p.trim();
+                    let statsHTML = '';
+                    if (typeof WEAPONS_DB !== 'undefined' && WEAPONS_DB[currentLang]) {
+                        Object.keys(WEAPONS_DB[currentLang]).forEach(dbKey => {
+                            if (dbKey === wName || dbKey.startsWith(wName + ' (') || dbKey.startsWith(wName + ' –')) {
+                                const stats = WEAPONS_DB[currentLang][dbKey];
+                                statsHTML += `
+                                    <div class="weapon-sub-name" style="font-size: 0.75rem; color: var(--accent-color); margin-top: 5px;">${dbKey}</div>
+                                    <table class="weapon-stats-table">
+                                        <tr><th>ATK</th><th>HIT</th><th>DMG</th><th>WR</th></tr>
+                                        <tr><td>${stats.a}</td><td>${stats.h}</td><td>${stats.d}</td><td>${stats.wr}</td></tr>
+                                    </table>
+                                `;
+                            }
+                        });
+                    }
+                    weaponsHTML += `
+                        <div class="weapon-item">
+                            <span class="weapon-name" style="font-weight: bold;">${wName}</span>
+                            ${statsHTML}
+                        </div>`;
+                });
+            }
+
             if (data.opData.fixedWeapons) {
-                data.opData.fixedWeapons.forEach(w => weaponsHTML += `<div class="weapon-item"><span class="weapon-name">${w}</span></div>`);
+                data.opData.fixedWeapons.forEach(w => renderWeapon(w));
             }
             if (data.w1) {
-                weaponsHTML += `<div class="weapon-item"><span class="weapon-name">${data.w1}</span></div>`;
+                renderWeapon(data.w1);
             }
             if (data.w2) {
-                weaponsHTML += `<div class="weapon-item"><span class="weapon-name">${data.w2}</span></div>`;
+                renderWeapon(data.w2);
             }
             wCont.innerHTML = weaponsHTML;
 

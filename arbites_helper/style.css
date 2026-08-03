@@ -958,3 +958,8 @@ h1, h2, h3, h4, h5, .op-name, .value {
     color: #888;
     cursor: not-allowed;
 }
+
+.weapon-stats-table { width: 100%; border-collapse: collapse; margin-top: 5px; font-size: 0.8rem; background: rgba(0, 0, 0, 0.3); border-radius: 4px; overflow: hidden; }
+.weapon-stats-table th, .weapon-stats-table td { padding: 4px 8px; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+.weapon-stats-table th { color: var(--accent-color); font-weight: bold; background: rgba(0, 0, 0, 0.5); }
+.weapon-stats-table td:last-child, .weapon-stats-table th:last-child { text-align: left; width: 50%; }

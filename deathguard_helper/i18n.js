@@ -114,7 +114,11 @@ const OPERATIVES_DB = {
         { id: 'heavy_gunner', name: "PLAGUE MARINE HEAVY GUNNER", limit: 1, stats: { apg: 3, b: '5"', rw: '3+', lp: 14 }, abilities: [], fixedWeapons: ["Bolt pistol", "Plague spewer", "Fists"] },
         { id: 'fighter', name: "PLAGUE MARINE FIGHTER", limit: 1, stats: { apg: 3, b: '5"', rw: '3+', lp: 14 }, abilities: ["<strong>Flail (1AP):</strong> D3+2 dmg to all within 2\"."], fixedWeapons: ["Bolt pistol", "Flail of Corruption"] },
         { id: 'plaguecaster', name: "MALIGNANT PLAGUECASTER", limit: 1, stats: { apg: 3, b: '5"', rw: '3+', lp: 14 }, abilities: ["<strong>Poisonous Miasma (1AP):</strong> Add Poison token or 3 dmg.", "<strong>Putrescent Vitality (1AP):</strong> Heal friendly."], fixedWeapons: ["Entropy", "Plague wind", "Corrupted staff"] },
-        { id: 'warrior', name: "PLAGUE MARINE WARRIOR", limit: 1, stats: { apg: 3, b: '5"', rw: '3+', lp: 14 }, abilities: ["<strong>Repulsive Fortitude:</strong> Defence dice 5+ are criticals."], fixedWeapons: ["Boltgun", "Plague knife"] },
+        { id: 'warrior_1', name: "PLAGUE MARINE WARRIOR (1)", limit: 1, stats: { apg: 3, b: '5"', rw: '3+', lp: 14 }, abilities: ["<strong>Repulsive Fortitude:</strong> Defence dice 5+ are criticals."], fixedWeapons: ["Boltgun", "Plague knife"] },
+        { id: 'warrior_2', name: "PLAGUE MARINE WARRIOR (2)", limit: 1, stats: { apg: 3, b: '5"', rw: '3+', lp: 14 }, abilities: ["<strong>Repulsive Fortitude:</strong> Defence dice 5+ are criticals."], fixedWeapons: ["Boltgun", "Plague knife"] },
+        { id: 'warrior_3', name: "PLAGUE MARINE WARRIOR (3)", limit: 1, stats: { apg: 3, b: '5"', rw: '3+', lp: 14 }, abilities: ["<strong>Repulsive Fortitude:</strong> Defence dice 5+ are criticals."], fixedWeapons: ["Boltgun", "Plague knife"] },
+        { id: 'warrior_4', name: "PLAGUE MARINE WARRIOR (4)", limit: 1, stats: { apg: 3, b: '5"', rw: '3+', lp: 14 }, abilities: ["<strong>Repulsive Fortitude:</strong> Defence dice 5+ are criticals."], fixedWeapons: ["Boltgun", "Plague knife"] },
+        { id: 'warrior_5', name: "PLAGUE MARINE WARRIOR (5)", limit: 1, stats: { apg: 3, b: '5"', rw: '3+', lp: 14 }, abilities: ["<strong>Repulsive Fortitude:</strong> Defence dice 5+ are criticals."], fixedWeapons: ["Boltgun", "Plague knife"] },
         { id: 'icon_bearer', name: "PLAGUE MARINE ICON BEARER", limit: 1, stats: { apg: 3, b: '5"', rw: '3+', lp: 14 }, abilities: ["<strong>Icon Bearer:</strong> +1 APL for control.", "<strong>Icon of Contagion:</strong> Contagion ploy 0CP."], fixedWeapons: ["Bolt pistol", "Plague knife"] }
     ],
     de: [
@@ -123,7 +127,174 @@ const OPERATIVES_DB = {
         { id: 'heavy_gunner', name: "SEUCHENMARINE-SCHWERER-SCHÜTZE", limit: 1, stats: { apg: 3, b: '5"', rw: '3+', lp: 14 }, abilities: [], fixedWeapons: ["Boltpistole", "Seuchenspeier", "Fäuste"] },
         { id: 'fighter', name: "SEUCHENMARINE-STREITER", limit: 1, stats: { apg: 3, b: '5"', rw: '3+', lp: 14 }, abilities: ["<strong>Fauliger Wirbel (1 AP):</strong> W3+2 Schaden an alle innerhalb 2\"."], fixedWeapons: ["Boltpistole", "Flegel des Verfalls"] },
         { id: 'plaguecaster', name: "BÖSARTIGER SEUCHENHEXER", limit: 1, stats: { apg: 3, b: '5"', rw: '3+', lp: 14 }, abilities: ["<strong>Giftschwaden (1 AP):</strong> Giftmarker oder 3 Schaden.", "<strong>Vitalität der Verwesung (1 AP):</strong> Heile Verbündeten."], fixedWeapons: ["Entropie", "Seuchenwind", "Korrumpierter Stab"] },
-        { id: 'warrior', name: "SEUCHENMARINE-KRIEGER", limit: 1, stats: { apg: 3, b: '5"', rw: '3+', lp: 14 }, abilities: ["<strong>Ekelhafte Fülle:</strong> Verteidigungswürfel 5+ sind kritisch."], fixedWeapons: ["Bolter", "Seuchenmesser"] },
+        { id: 'warrior_1', name: "SEUCHENMARINE-KRIEGER (1)", limit: 1, stats: { apg: 3, b: '5"', rw: '3+', lp: 14 }, abilities: ["<strong>Ekelhafte Fülle:</strong> Verteidigungswürfel 5+ sind kritisch."], fixedWeapons: ["Bolter", "Seuchenmesser"] },
+        { id: 'warrior_2', name: "SEUCHENMARINE-KRIEGER (2)", limit: 1, stats: { apg: 3, b: '5"', rw: '3+', lp: 14 }, abilities: ["<strong>Ekelhafte Fülle:</strong> Verteidigungswürfel 5+ sind kritisch."], fixedWeapons: ["Bolter", "Seuchenmesser"] },
+        { id: 'warrior_3', name: "SEUCHENMARINE-KRIEGER (3)", limit: 1, stats: { apg: 3, b: '5"', rw: '3+', lp: 14 }, abilities: ["<strong>Ekelhafte Fülle:</strong> Verteidigungswürfel 5+ sind kritisch."], fixedWeapons: ["Bolter", "Seuchenmesser"] },
+        { id: 'warrior_4', name: "SEUCHENMARINE-KRIEGER (4)", limit: 1, stats: { apg: 3, b: '5"', rw: '3+', lp: 14 }, abilities: ["<strong>Ekelhafte Fülle:</strong> Verteidigungswürfel 5+ sind kritisch."], fixedWeapons: ["Bolter", "Seuchenmesser"] },
+        { id: 'warrior_5', name: "SEUCHENMARINE-KRIEGER (5)", limit: 1, stats: { apg: 3, b: '5"', rw: '3+', lp: 14 }, abilities: ["<strong>Ekelhafte Fülle:</strong> Verteidigungswürfel 5+ sind kritisch."], fixedWeapons: ["Bolter", "Seuchenmesser"] },
         { id: 'icon_bearer', name: "SEUCHENMARINE-IKONENTRÄGER", limit: 1, stats: { apg: 3, b: '5"', rw: '3+', lp: 14 }, abilities: ["<strong>Ikonenträger:</strong> +1 APG für Kontrolle.", "<strong>Ikone der Infektion:</strong> Infektion List 0 BP."], fixedWeapons: ["Boltpistole", "Seuchenmesser"] }
     ]
+};
+
+const WEAPONS_DB = {
+    en: {
+    "Boltgun": {
+        "a": "4",
+        "h": "3+",
+        "d": "3/4",
+        "wr": "Toxic*"
+    },
+    "Fists": {
+        "a": "4",
+        "h": "3+",
+        "d": "3/4",
+        "wr": "-"
+    },
+    "Bolt pistol": {
+        "a": "4",
+        "h": "3+",
+        "d": "3/4",
+        "wr": "Range 8\""
+    },
+    "Plague spewer": {
+        "a": "5",
+        "h": "2+",
+        "d": "3/3",
+        "wr": "Range 7\", Saturate, Severe, Torrent 2\", Poison*"
+    },
+    "Plasma pistol (standard)": {
+        "a": "4",
+        "h": "3+",
+        "d": "3/5",
+        "wr": "Range 8\", Piercing 1"
+    },
+    "Plasma pistol (supercharge)": {
+        "a": "4",
+        "h": "3+",
+        "d": "4/5",
+        "wr": "Range 8\", Hot, Lethal 5+, Piercing 1"
+    },
+    "Plague sword": {
+        "a": "5",
+        "h": "3+",
+        "d": "4/5",
+        "wr": "Severe,  Poison*, Toxic* Grandfather’s Blessing: Whenever an enemy operative that has one of your Poison tokens loses one or more wounds within 7\" of this operative, this operative regains up to an equal number of"
+    },
+    "Flail of Corruption": {
+        "a": "5",
+        "h": "3+",
+        "d": "4/5",
+        "wr": "Brutal, Severe, Shock, Poison* FLAIL 1AP Inflict D3+2 damage on each other operative that’s both"
+    },
+    "Entropy": {
+        "a": "4",
+        "h": "3+",
+        "d": "3/7",
+        "wr": "PSYCHIC, Range 7\", Saturate, Severe, Poison*"
+    },
+    "Plague wind": {
+        "a": "6",
+        "h": "3+",
+        "d": "2/3",
+        "wr": "PSYCHIC, Saturate, Severe, Torrent 1\", Poison*"
+    },
+    "Corrupted staff": {
+        "a": "4",
+        "h": "3+",
+        "d": "3/4",
+        "wr": "PSYCHIC, Severe, Shock, Stun, Poison* PLAGUE MARINE , CHAOS, HERETIC ASTARTES, PSYKER, MALIGNANT PLAGUECASTER MALIGNANT PLAGUECASTER 3"
+    },
+    "Plague knife": {
+        "a": "5",
+        "h": "3+",
+        "d": "3/4",
+        "wr": "Severe, Poison* Icon Bearer: Whenever determining control of a marker, treat this operative’s APL stat as 1 higher. Note this isn’t a change to its APL stat, so any changes are cumulative with this."
+    },
+    "Blight grenade": {
+        "a": "4",
+        "h": "4+",
+        "d": "2/4",
+        "wr": "WR Range 6\", Blast 2\", Saturate, Severe, Poison* PLAGUE MARINES: UPDATE LOG\b Rules will be periodically updated to maintain fair balance and interact more smoothly with the game. Rules changes"
+    }
+},
+    de: {
+    "Bolter": {
+        "a": "4",
+        "h": "3+",
+        "d": "3/4",
+        "wr": "Toxisch*"
+    },
+    "Fäuste": {
+        "a": "4",
+        "h": "3+",
+        "d": "3/4",
+        "wr": "-"
+    },
+    "Boltpistole": {
+        "a": "4",
+        "h": "3+",
+        "d": "3/4",
+        "wr": "Reichweite 8 Zoll"
+    },
+    "Seuchenspeier": {
+        "a": "5",
+        "h": "2+",
+        "d": "3/3",
+        "wr": "Reichweite 7 Zoll, Hagel, Heftig, Schwall 2 Zoll, Gift*"
+    },
+    "Plasmapistole (Standard)": {
+        "a": "4",
+        "h": "3+",
+        "d": "3/5",
+        "wr": "Reichweite 8 Zoll, Durchdringend 1"
+    },
+    "Plasmapistole (Überladung)": {
+        "a": "4",
+        "h": "3+",
+        "d": "4/5",
+        "wr": "Reichweite 8 Zoll, Heiß, Durchdringend 1, Tödlich 5+"
+    },
+    "Seuchenschwert": {
+        "a": "5",
+        "h": "3+",
+        "d": "4/5",
+        "wr": "Heftig,  Gift*, Toxisch* Väterchens Segen: Jedes Mal, wenn ein feindlicher Kämpfer, der ei- nen deiner Giftmarker hat, innerhalb von 7 Zoll um diesen Kämpfer mindestens einen Lebenspunkt verliert, erhält dieser Kämpfer bis zur"
+    },
+    "Flegel des Verfalls": {
+        "a": "5",
+        "h": "3+",
+        "d": "4/5",
+        "wr": "Brutal, Heftig, Schock, Gift* FAULIGER WIRBEL 1 AP Füge jedem anderen sichtbaren Kämpfer innerhalb von 2 Zoll um"
+    },
+    "Entropie": {
+        "a": "4",
+        "h": "3+",
+        "d": "3/7",
+        "wr": "PSIONISCH, Reichweite 7 Zoll, Hagel, Heftig, Gift*"
+    },
+    "Seuchenwind": {
+        "a": "6",
+        "h": "3+",
+        "d": "2/3",
+        "wr": "PSIONISCH, Hagel, Heftig, Schwall 1, Gift*"
+    },
+    "Korrumpierter Stab": {
+        "a": "4",
+        "h": "3+",
+        "d": "3/4",
+        "wr": "PSIONISCH, Heftig, Schock, Betäuben, Gift* SEUCHENMARINE , CHAOS, HÄRETIKER-ASTARTES, PSIONIKER, BÖSARTIGER SEUCHENHEXER BÖSARTIGER SEUCHENHEXER 3"
+    },
+    "Seuchenmesser": {
+        "a": "5",
+        "h": "3+",
+        "d": "3/4",
+        "wr": "Heftig, Gift* Ikonenträger: Jedes Mal, wenn die Kontrolle über einen Marker er- mittelt wird, behandle den APG-Wert dieses Kämpfers, als wäre er 1 höher. Beachte, dass dies den APG-Wert nicht verändert, sodass"
+    },
+    "Seuchengranate": {
+        "a": "4",
+        "h": "4+",
+        "d": "2/4",
+        "wr": "WR Reichweite 6 Zoll, Explosiv 2 Zoll, Hagel, Heftig, Gift* SEUCHENMARINES: UPDATE-LOG\b"
+    }
+}
 };
