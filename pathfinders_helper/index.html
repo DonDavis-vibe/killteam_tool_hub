@@ -52,7 +52,31 @@
                     <!-- Operative selection cards will be injected here by JS -->
                 </div>
 
-                <div class="builder-actions">
+                
+                <!-- Roster Data Management -->
+                <div class="roster-save-section" style="margin-top: 30px; margin-bottom: 20px; padding: 15px; background: rgba(20,20,20,0.8); border: 1px solid var(--accent-color); border-radius: 8px;">
+                    <h3 style="margin-top: 0; color: var(--accent-color);"><i class="fa-solid fa-floppy-disk"></i> <span data-i18n="saveLoadTitle">Roster Data Management</span></h3>
+                    <p style="font-size: 0.9em; margin-bottom: 15px; color: #ccc;" data-i18n="saveLoadDesc">Save your current team setup for your next game session.</p>
+                    
+                    <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                        <div style="flex: 1; min-width: 200px; padding: 10px; background: rgba(0,0,0,0.5); border-radius: 5px; text-align: center;">
+                            <h4 style="margin-top: 0; margin-bottom: 5px;"><i class="fa-solid fa-memory"></i> Browser Cache</h4>
+                            <p style="font-size: 0.8em; color: #aaa; margin-bottom: 10px;">Quickly save and load on this device.</p>
+                            <button id="save-browser-btn" class="secondary-btn" style="width: 100%; margin-bottom: 5px;"><i class="fa-solid fa-cloud-arrow-up"></i> Quick Save</button>
+                            <button id="load-browser-btn" class="secondary-btn" style="width: 100%;"><i class="fa-solid fa-cloud-arrow-down"></i> Quick Load</button>
+                        </div>
+                        
+                        <div style="flex: 1; min-width: 200px; padding: 10px; background: rgba(0,0,0,0.5); border-radius: 5px; text-align: center;">
+                            <h4 style="margin-top: 0; margin-bottom: 5px;"><i class="fa-solid fa-file-code"></i> File Backup</h4>
+                            <p style="font-size: 0.8em; color: #aaa; margin-bottom: 10px;">Download or share your roster file.</p>
+                            <button id="export-file-btn" class="secondary-btn" style="width: 100%; margin-bottom: 5px;"><i class="fa-solid fa-download"></i> Export (.json)</button>
+                            <label for="import-file-input" class="secondary-btn" style="display: block; width: 100%; cursor: pointer; box-sizing: border-box;"><i class="fa-solid fa-upload"></i> Import (.json)</label>
+                            <input type="file" id="import-file-input" accept=".json" style="display: none;">
+                        </div>
+                    </div>
+                </div>
+
+                  <div class="builder-actions">
                     <button id="start-match-btn" class="primary-btn glow-btn" disabled data-i18n="startMatchBtn">
                         START MATCH <i class="fa-solid fa-arrow-right"></i>
                     </button>

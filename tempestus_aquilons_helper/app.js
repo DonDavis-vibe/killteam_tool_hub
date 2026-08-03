@@ -447,4 +447,110 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     applyTranslations();
+
+
+    // --- ROSTER DATA MANAGEMENT ---
+    const TEAM_ID = "tempestus_aquilons";
+    const STORAGE_KEY = `kt_roster_${TEAM_ID}`;
+
+    const saveBrowserBtn = document.getElementById('save-browser-btn');
+    const loadBrowserBtn = document.getElementById('load-browser-btn');
+    const exportFileBtn = document.getElementById('export-file-btn');
+    const importFileInput = document.getElementById('import-file-input');
+
+    if (saveBrowserBtn) {
+        // 1. Quick Save
+        saveBrowserBtn.addEventListener('click', () => {
+            if (Object.keys(selectedOperatives).length === 0) {
+                alert("No operatives selected to save!");
+                return;
+            }
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(selectedOperatives));
+            const originalText = saveBrowserBtn.innerHTML;
+            saveBrowserBtn.innerHTML = '<i class="fa-solid fa-check"></i> Saved!';
+            saveBrowserBtn.style.color = '#4CAF50';
+            saveBrowserBtn.style.borderColor = '#4CAF50';
+            setTimeout(() => {
+                saveBrowserBtn.innerHTML = originalText;
+                saveBrowserBtn.style.color = '';
+                saveBrowserBtn.style.borderColor = '';
+            }, 2000);
+        });
+
+        // 2. Quick Load
+        loadBrowserBtn.addEventListener('click', () => {
+            const data = localStorage.getItem(STORAGE_KEY);
+            if (data) {
+                try {
+                    const parsed = JSON.parse(data);
+                    if (Object.keys(parsed).length > 0) {
+                        for (let key in selectedOperatives) delete selectedOperatives[key];
+                        Object.assign(selectedOperatives, parsed);
+                        
+                        if (typeof applyTranslations === 'function') {
+                            applyTranslations();
+                        } else {
+                            if (typeof renderBuilder === 'function') renderBuilder();
+                            if (typeof updateBuilderState === 'function') updateBuilderState();
+                            if (typeof buildMatchRoster === 'function') buildMatchRoster();
+                        }
+                        
+                        alert("Roster loaded successfully!");
+                    }
+                } catch (e) {
+                    alert("Failed to parse saved roster.");
+                }
+            } else {
+                alert("No saved roster found in browser cache.");
+            }
+        });
+
+        // 3. Export File
+        exportFileBtn.addEventListener('click', () => {
+            if (Object.keys(selectedOperatives).length === 0) {
+                alert("No operatives selected to export!");
+                return;
+            }
+            const dataStr = JSON.stringify(selectedOperatives, null, 2);
+            const blob = new Blob([dataStr], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `${TEAM_ID}_roster.json`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        });
+
+        // 4. Import File
+        importFileInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                try {
+                    const parsed = JSON.parse(event.target.result);
+                    if (Object.keys(parsed).length > 0) {
+                        for (let key in selectedOperatives) delete selectedOperatives[key];
+                        Object.assign(selectedOperatives, parsed);
+                        
+                        if (typeof applyTranslations === 'function') {
+                            applyTranslations();
+                        } else {
+                            if (typeof renderBuilder === 'function') renderBuilder();
+                            if (typeof updateBuilderState === 'function') updateBuilderState();
+                            if (typeof buildMatchRoster === 'function') buildMatchRoster();
+                        }
+                        alert("Roster imported successfully!");
+                    }
+                } catch (err) {
+                    alert("Invalid JSON file.");
+                }
+                importFileInput.value = ''; // Reset input
+            };
+            reader.readAsText(file);
+        });
+    }
 });

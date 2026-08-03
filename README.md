@@ -22,6 +22,7 @@ Welcome to the **Kill Team Hub**! This repository aggregates multiple specialize
 
 🌍 **Fully Bilingual:** The Hub landing page and all included tools automatically sync your preference between **English** and **German**.
 ⚡ **Zero Backend:** All applications run entirely locally in your browser. No servers, no lag, fully portable.
+💾 **Persistent Rosters:** Save your team compositions directly to your browser's local cache or export them as portable `.json` files to easily resume your session!
 
 ---
 
