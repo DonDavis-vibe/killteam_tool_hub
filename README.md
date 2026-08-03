@@ -9,13 +9,6 @@
   ### [🔴 Play Live Demo on Cloudflare Pages](https://killteam-tool-hub.pages.dev/)
 </div>
 
-### 9. 🪂 Tempestus Aquilons Helper
-A highly disciplined datapad to manage your orbital drop troopers.
-- **Team Builder:** Construct a valid 10-operative roster including your Tempestor and Gunners.
-- **Drop Operations Tracker:** A tracker to manage your Drop Markers and orbital strikes.
-- **Ploys & CP Tracker:** Interactive Strategy and Firefight Ploys with an integrated Command Point tracker to manage your CP economy.
-- **Rules Reference:** Quick access to your Faction Rules.
-
 ---
 
 > [!WARNING]
@@ -29,13 +22,6 @@ Welcome to the **Kill Team Hub**! This repository aggregates multiple specialize
 
 🌍 **Fully Bilingual:** The Hub landing page and all included tools automatically sync your preference between **English** and **German**.
 ⚡ **Zero Backend:** All applications run entirely locally in your browser. No servers, no lag, fully portable.
-
-### 9. 🪂 Tempestus Aquilons Helper
-A highly disciplined datapad to manage your orbital drop troopers.
-- **Team Builder:** Construct a valid 10-operative roster including your Tempestor and Gunners.
-- **Drop Operations Tracker:** A tracker to manage your Drop Markers and orbital strikes.
-- **Ploys & CP Tracker:** Interactive Strategy and Firefight Ploys with an integrated Command Point tracker to manage your CP economy.
-- **Rules Reference:** Quick access to your Faction Rules.
 
 ---
 
@@ -108,6 +94,7 @@ A highly disciplined datapad to manage your orbital drop troopers.
 - **Drop Operations Tracker:** A tracker to manage your Drop Markers and orbital strikes.
 - **Ploys & CP Tracker:** Interactive Strategy and Firefight Ploys with an integrated Command Point tracker to manage your CP economy.
 - **Rules Reference:** Quick access to your Faction Rules.
+
 
 ---
 
