@@ -1,11 +1,8 @@
-const hubTranslations = {
+const HUB_I18N = {
     en: {
-        legalDisclaimer: "This is an unofficial fan-made utility. Warhammer 40,000, Kill Team, and all associated logos, names, and statistics are © Copyright Games Workshop Limited. This tool is provided for free and is not affiliated with, or endorsed by, Games Workshop in any way.",
-        title: "Kill Team <span class=\"highlight\">Hub</span>",
-        sectionTeamTools: "Team Datapads",
-        sectionGameTools: "Core Game Tools",
-        subtitle: "Your central command for unofficial, fan-made Warhammer 40,000 Kill Team utilities.",
-        hearthTitle: "Hearthkyn Helper",
+        title: "Warhammer 40,000: Kill Team Hub",
+        subtitle: "A bilingual portal for tabletop utilities, trackers, and datapad apps.",
+        launchApp: "Launch App",
         deathguardTitle: "Plague Marines (Death Guard)",
         deathguardDesc: "Build your Plague Marines kill team, track Contagions, and manage Nurgle's gifts.",
         aodTitle: "Angels of Death",
@@ -14,34 +11,34 @@ const hubTranslations = {
         descDeathwatch: "Watch Captains assemble. Select your veterans.",
         teamRaveners: "RAVENERS",
         descRaveners: "The swarm approaches. Dig your tunnels and ambush the prey.",
+        teamFellgor: "FELLGOR RAVAGERS",
+        descFellgor: "Channel your pain into an animalistic frenzy. Butcher your foes.",
         aquilonsTitle: "Tempestus Aquilons",
         aquilonsDesc: "Drop from the sky! Track your Grav-chutes, tactical insertions, and heavy airborne firepower.",
         novitiatesTitle: "Novitiates (Adepta Sororitas)",
-        novitiatesDesc: "Cleanse the impure! Manage Acts of Faith, blessings, and fanatical devotion in battle.",
-                exoditesTitle: "Exodite Dragon Masters",
-        exoditesDesc: "Ride to war! Manage your Draconic Cavalry, track your Mercurial Speed, and coordinate your strike.",
-hearthDesc: "Specialized tracking tools tailored for your Hearthkyn Salvager Kill Team rules and abilities.",
-        mandrakeTitle: "Mandrake Helper",
-        mandrakeDesc: "Specialized tracking tools tailored for your Mandrake Kill Team rules and abilities.",
+        novitiatesDesc: "Manage your Faith Points, Acts of Faith, and coordinate your holy crusaders.",
         arbitesTitle: "Exaction Squad",
-        arbitesDesc: "Maintain Imperial Law. Track your Arbitrators, administer justice, and deploy the Cyber-Mastiff.",
-        missionTitle: "Mission Generator",
-        missionDesc: "Generate random missions, primary objectives, and setups for varied gameplay.",
+        arbitesDesc: "Enforce the Lex Imperialis! Track your Arrests and Judgement points.",
+        mandrakeTitle: "Mandrake",
+        mandrakeDesc: "Harvest souls and weave through shadow portals with your Drukhari assassins.",
         pathfindersTitle: "Pathfinders",
-        pathfindersDesc: "Light up the darkness. Track your Markerlights, High-Intensity Markers, and unleash devastating firepower.",
+        pathfindersDesc: "For the Greater Good! Track your Markerlights, Savior Protocols, and drone synergies.",
         legionariesTitle: "Legionaries",
-        legionariesDesc: "Embrace the ruinous powers. Track Chaos Marks, Favours of the Dark Gods, and specific operative abilities.",
+        legionariesDesc: "Let the galaxy burn! Manage your Chaos Marks, Dark Gods' blessings, and ploys.",
         kommandosTitle: "Kommandos",
-        kommandosDesc: "Krump 'em good. Track sneaky tactics, Throat Slittas, and Waaagh! energy across the killzone.",
-        launchApp: "Launch App"
+        kommandosDesc: "WAAAGH! Track your Throat Slittas, bomb squigs, and sneaky ork maneuvers.",
+        dragonMastersTitle: "Exodite Dragon Masters",
+        dragonMastersDesc: "Ride the dragons! Track your Draconic Cavalry, Mercurial Speed, and Aeldari ancient tech.",
+        hearthTitle: "Hearthkyn Salvagers",
+        hearthDesc: "Dedicated tracking tools tailored to your Hearthkyn Salvagers kill team's rules and abilities.",
+        coreTools: "Core Rules & Tools",
+        teams: "Supported Kill Teams",
+        legal: "This is an unofficial fan-made utility. Warhammer 40,000, Kill Team, and all associated logos, names, and statistics are © Copyright Games Workshop Limited. This tool is provided for free and is not affiliated with, or endorsed by, Games Workshop in any way."
     },
     de: {
-        legalDisclaimer: "Dies ist ein inoffizielles, von Fans erstelltes Hilfsprogramm. Warhammer 40.000, Kill Team und alle zugehörigen Logos, Namen und Statistiken sind © Copyright Games Workshop Limited. Dieses Tool wird kostenlos zur Verfügung gestellt und ist in keiner Weise mit Games Workshop verbunden oder wird von Games Workshop unterstützt.",
-        title: "Kill Team <span class=\"highlight\">Hub</span>",
-        sectionTeamTools: "Team-Datenpads",
-        sectionGameTools: "Kern-Spielwerkzeuge",
-        subtitle: "Dein zentrales Kommando für inoffizielle, von Fans erstellte Warhammer 40.000 Kill Team Werkzeuge.",
-        hearthTitle: "Flammkyn Helfer",
+        title: "Warhammer 40.000: Kill Team Hub",
+        subtitle: "Ein zweisprachiges Portal für Tabletop-Tools, Tracker und Datapad-Apps.",
+        launchApp: "App Starten",
         deathguardTitle: "Seuchenmarines (Death Guard)",
         deathguardDesc: "Stelle dein Seuchenmarines Kill Team auf, verfolge Kontagionen und verwalte Nurgles Geschenke.",
         aodTitle: "Angels of Death",
@@ -50,23 +47,54 @@ hearthDesc: "Specialized tracking tools tailored for your Hearthkyn Salvager Kil
         descDeathwatch: "Watch Captains versammelt euch. Wählt eure Veteranen.",
         teamRaveners: "VENATOREN",
         descRaveners: "Der Schwarm naht. Grabe deine Tunnel und greife die Beute aus dem Hinterhalt an.",
+        teamFellgor: "FINSTERGOR-VERWÜSTER",
+        descFellgor: "Lenke deinen Schmerz in animalische Raserei. Schlachte deine Feinde ab.",
         aquilonsTitle: "Tempestus Aquilons",
         aquilonsDesc: "Angriff aus der Luft! Verfolge deine Grav-Schirme, taktische Landungen und schwere Luftlande-Feuerkraft.",
         hearthDesc: "Spezialisierte Tracking-Tools, zugeschnitten auf die Regeln und Fähigkeiten deines Flammkyn-Bergungscrew Kill Teams.",
-                exoditesTitle: "Exodite Dragon Masters",
-        exoditesDesc: "Zieht in den Krieg! Verwalte deine Drakonische Kavallerie, verfolge deine Quecksilbrige Geschwindigkeit und koordiniere deinen Angriff.",
-mandrakeTitle: "Mandrake Helfer",
-        mandrakeDesc: "Spezialisierte Tracking-Tools, zugeschnitten auf die Regeln und Fähigkeiten deines Mandrake Kill Teams.",
-        arbitesTitle: "Vollstreckertrupp",
-        arbitesDesc: "Sorge für imperiales Gesetz. Verfolge deine Arbitratoren, verwalte Gerechtigkeit und setze den Cybermastiff ein.",
-        missionTitle: "Missionsgenerator",
-        missionDesc: "Generiere zufällige Missionen, primäre Ziele und Setups für abwechslungsreiches Gameplay.",
-        pathfindersTitle: "Späher",
-        pathfindersDesc: "Erhelle die Dunkelheit. Verfolge deine Zielmarker, Hochintensitätsmarker und entfessle verheerende Feuerkraft.",
+        novitiatesTitle: "Novizinnen (Adepta Sororitas)",
+        novitiatesDesc: "Verwalte deine Glaubenspunkte, Glaubensakte und koordiniere deine heiligen Kreuzfahrer.",
+        arbitesTitle: "Exaction Squad (Arbites)",
+        arbitesDesc: "Setze die Lex Imperialis durch! Verfolge deine Verhaftungen und Urteilspunkte.",
+        mandrakeTitle: "Mandrake",
+        mandrakeDesc: "Ernte Seelen und wandle durch Schattenportale mit deinen Drukhari-Assassinen.",
+        pathfindersTitle: "Späher (Pathfinders)",
+        pathfindersDesc: "Für das Höhere Wohl! Verfolge deine Zielmarker, Erlöserprotokolle und Drohnen-Synergien.",
         legionariesTitle: "Legionäre",
-        legionariesDesc: "Umarme die ruinösen Mächte. Verfolge Chaosmale, Gunst der Dunklen Götter und spezifische Fähigkeiten.",
+        legionariesDesc: "Lass die Galaxis brennen! Verwalte deine Chaosmale, Segen der Dunklen Götter und Listen.",
         kommandosTitle: "Kommandos",
-        kommandosDesc: "Mach sie platt. Verfolge listige Taktiken, Kehlenschlitza und Waaagh!-Energie in der Killzone.",
-        launchApp: "App starten"
+        kommandosDesc: "WAAAGH! Verfolge deine Kehlenschlitza, Bombensquigs und hinterhältigen Ork-Manöver.",
+        dragonMastersTitle: "Exoditen Drachenmeister",
+        dragonMastersDesc: "Reite die Drachen! Verfolge deine drakonische Kavallerie, Quecksilbergeschwindigkeit und Aeldari-Tech.",
+        hearthTitle: "Flammkyn-Bergungscrew",
+        coreTools: "Grundregeln & Tools",
+        teams: "Unterstützte Kill Teams",
+        legal: "Dies ist ein inoffizielles, von Fans erstelltes Hilfsprogramm. Warhammer 40.000, Kill Team und alle zugehörigen Logos, Namen und Statistiken sind © Copyright Games Workshop Limited. Dieses Tool wird kostenlos zur Verfügung gestellt und ist in keiner Weise mit Games Workshop verbunden oder wird von Games Workshop unterstützt."
     }
 };
+
+let currentHubLang = 'en';
+
+function applyHubLanguage(lang) {
+    currentHubLang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (HUB_I18N[lang] && HUB_I18N[lang][key]) {
+            el.innerHTML = HUB_I18N[lang][key];
+        }
+    });
+
+    document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+    document.getElementById(`lang-${lang}`).classList.add('active');
+    
+    // Save preference
+    localStorage.setItem('kt_hub_lang', lang);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('kt_hub_lang') || 'en';
+    applyHubLanguage(savedLang);
+
+    document.getElementById('lang-en').addEventListener('click', () => applyHubLanguage('en'));
+    document.getElementById('lang-de').addEventListener('click', () => applyHubLanguage('de'));
+});
