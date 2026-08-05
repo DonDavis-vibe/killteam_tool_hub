@@ -30,3 +30,7 @@ official_rules_pdfs/
 # Agent Configs and Todos
 .agents/
 TODO.md
+
+# Ignore PDFs and Templates
+*.pdf
+_template_helper/

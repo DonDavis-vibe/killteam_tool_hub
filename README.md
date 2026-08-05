@@ -58,6 +58,8 @@ In addition to the core features above, each faction Datapad includes **customiz
 9. **Novitiates (Adepta Sororitas):** Faith Points & Acts of Faith manager.
 10. **Angels of Death:** Astartes heroics and discipline tracker.
 11. **Exodite Dragon Masters:** Draconic Cavalry & Mercurial Speed tracker.
+12. **Deathwatch:** Special Issue Ammunition and Veteran Astartes tracker.
+13. **Raveners:** Tunnel network and Burrow action manager.
 
 ---
 

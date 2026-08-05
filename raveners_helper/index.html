@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="title">RAVENERS | Datapad</title>
+    <link rel="stylesheet" href="style.css?v=8">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="background-effect"></div>
+    <div class="app-container">
+        <div class="lang-switcher">
+            <button id="lang-en" class="lang-btn active">EN</button>
+            <button id="lang-de" class="lang-btn">DE</button>
+        </div>
+        <header class="app-header glass-panel" style="position: relative;">
+            <a href="../index.html" class="back-btn" title="Back to Hub"><i class="fa-solid fa-house"></i></a>
+            <div class="logo">
+                <img src="../assets/logos/logo_raveners.jpg" class="team-logo header-logo" alt="Raveners Logo">
+                <h1 data-i18n="title">RAVENERS</h1>
+            </div>
+            <nav class="tabs">
+                <button class="tab-btn active" data-tab="builder">
+                    <i class="fa-solid fa-users"></i> <span data-i18n="tabAssemble">ASSEMBLE TEAM</span>
+                </button>
+                <button class="tab-btn" data-tab="match" id="match-tab-btn" disabled>
+                    <i class="fa-solid fa-crosshairs"></i> <span data-i18n="tabMatch">MATCH TRACKER</span>
+                </button>
+                <button class="tab-btn" data-tab="tokens">
+                    <i class="fa-solid fa-ghost"></i> <span data-i18n="tabTokens">TOKENS / TRACKERS</span>
+                </button>
+                <button class="tab-btn" data-tab="rules">
+                    <i class="fa-solid fa-book-skull"></i> <span data-i18n="tabRules">RULES</span>
+                </button>
+            </nav>
+        </header>
+
+        <main class="app-content">
+            <!-- TEAM BUILDER TAB -->
+            <section id="builder" class="tab-pane active glass-panel">
+                <div class="builder-header">
+                    <h2 data-i18n="tabAssemble">ASSEMBLE TEAM</h2>
+                    <p data-i18n="builderDesc">Select 1 Prime and 4 other Raveners. (Max 1 of each specialist, Warriors are unlimited).</p>
+                    <div class="counter-box">
+                        <span data-i18n="selectedText">Selected:</span> <span id="roster-count">0</span> / 5
+                    </div>
+                </div>
+
+                <div class="builder-grid" id="builder-grid">
+                    <!-- Operative selection cards will be injected here by JS -->
+                </div>
+
+                
+                <!-- Roster Data Management -->
+                <div class="roster-save-section" style="margin-top: 30px; margin-bottom: 20px; padding: 15px; background: rgba(20,20,20,0.8); border: 1px solid var(--accent-color); border-radius: 8px;">
+                    <h3 style="margin-top: 0; color: var(--accent-color);"><i class="fa-solid fa-floppy-disk"></i> <span data-i18n="saveLoadTitle">Roster Data Management</span></h3>
+                    <p style="font-size: 0.9em; margin-bottom: 15px; color: #ccc;" data-i18n="saveLoadDesc">Save your current team setup for your next game session.</p>
+                    
+                    <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                        <div style="flex: 1; min-width: 200px; padding: 10px; background: rgba(0,0,0,0.5); border-radius: 5px; text-align: center;">
+                            <h4 style="margin-top: 0; margin-bottom: 5px;"><i class="fa-solid fa-memory"></i> Browser Cache</h4>
+                            <p style="font-size: 0.8em; color: #aaa; margin-bottom: 10px;">Quickly save and load on this device.</p>
+                            <button id="save-browser-btn" class="secondary-btn" style="width: 100%; margin-bottom: 5px;"><i class="fa-solid fa-cloud-arrow-up"></i> Quick Save</button>
+                            <button id="load-browser-btn" class="secondary-btn" style="width: 100%;"><i class="fa-solid fa-cloud-arrow-down"></i> Quick Load</button>
+                        </div>
+                        
+                        <div style="flex: 1; min-width: 200px; padding: 10px; background: rgba(0,0,0,0.5); border-radius: 5px; text-align: center;">
+                            <h4 style="margin-top: 0; margin-bottom: 5px;"><i class="fa-solid fa-file-code"></i> File Backup</h4>
+                            <p style="font-size: 0.8em; color: #aaa; margin-bottom: 10px;">Download or share your roster file.</p>
+                            <button id="export-file-btn" class="secondary-btn" style="width: 100%; margin-bottom: 5px;"><i class="fa-solid fa-download"></i> Export (.json)</button>
+                            <label for="import-file-input" class="secondary-btn" style="display: block; width: 100%; cursor: pointer; box-sizing: border-box;"><i class="fa-solid fa-upload"></i> Import (.json)</label>
+                            <input type="file" id="import-file-input" accept=".json" style="display: none;">
+                        </div>
+                    </div>
+                </div>
+
+                  <div class="builder-actions">
+                    <button id="start-match-btn" class="primary-btn glow-btn" disabled data-i18n="startMatchBtn">
+                        START MATCH <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </section>
+
+            <!-- MATCH TRACKER TAB -->
+            <section id="match" class="tab-pane">
+                <div class="match-header glass-panel">
+                    <h2 data-i18n="activeTeam">ACTIVE TEAM</h2>
+                    <p data-i18n="activeTeamDesc">Track the Wounds of your operatives.</p>
+                </div>
+                
+                <div class="roster-grid" id="match-roster">
+                    <!-- Active operative cards will be injected here by JS -->
+                </div>
+            </section>
+
+            <!-- TOKENS TAB -->
+            <section id="tokens" class="tab-pane glass-panel">
+                <div class="tokens-header">
+                    <h2 data-i18n="tokensTitle">TOKENS & TRACKERS</h2>
+                    <p data-i18n="tokensDesc">Track ammunition reserves and other effects.</p>
+                    <button id="add-token-btn" class="secondary-btn"><i class="fa-solid fa-plus"></i> <span data-i18n="newTokenBtn">New Tracker</span></button>
+                </div>
+                
+                <div id="token-list" class="token-list">
+                    <!-- Dynamic Token Items -->
+                </div>
+            </section>
+
+            <!-- RULES TAB -->
+            <section id="rules" class="tab-pane glass-panel">
+                <div class="builder-header">
+                    <h2 data-i18n="tabRules">RULES & PLOYS</h2>
+                </div>
+                
+                <div class="rules-container">
+                    <div class="rule-card faction-rules">
+                        <div class="rules-section-divider"><h3><i class="fa-solid fa-cloud-moon"></i> <span data-i18n="rulesFaction">Faction Rules</span></h3></div>
+                        <p data-i18n="ruleCustom1"><strong>Burrow (1AP):</strong> If underground, set up on TUNNEL (subtract 2" from Move). If in killzone on TUNNEL, remove from killzone (now underground).</p>
+                        <p data-i18n="ruleCustom2"><strong>Predatory Instincts:</strong> Can perform two Fight actions. Can counteract regardless of order: change order or free Burrow action.</p>
+                    </div>
+
+                    <div class="cp-tracker-container">
+                        <div class="cp-label">COMMAND POINTS</div>
+                        <div class="cp-controls">
+                            <button class="cp-btn decrease" aria-label="-">-</button>
+                            <span class="cp-count" id="global-cp-count">3</span>
+                            <button class="cp-btn increase" aria-label="+">+</button>
+                        </div>
+                        <button id="reset-ploys-btn" class="secondary-btn" style="margin-left: auto;" data-i18n="resetPloysBtn"><i class="fa-solid fa-rotate-right"></i> Reset Ploys</button>
+                    </div>
+
+                    <div class="rules-section-divider">
+                        <h3><i class="fa-solid fa-chess-knight"></i> <span data-i18n="rulesStrategy">Strategy Ploys</span></h3>
+                    </div>
+                    <div class="ploy-grid" id="strategy-ploys-container">
+                        <!-- Populated by JS -->
+                    </div>
+
+                    <div class="rules-section-divider">
+                        <h3><i class="fa-solid fa-bolt"></i> <span data-i18n="rulesFirefight">Firefight Ploys</span></h3>
+                    </div>
+                    <div class="ploy-grid" id="firefight-ploys-container">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Templates for Operatives (Hidden) -->
+    <template id="operative-card-template">
+        <div class="operative-card">
+            <div class="card-header">
+                <h3 class="op-name">Name</h3>
+                <button class="toggle-dead-btn" title="Mark as Incapacitated"><i class="fa-solid fa-skull"></i></button>
+            </div>
+            <div class="stats-row">
+                <div class="stat"><span class="label" data-i18n="statApg">APL</span><span class="value op-apg"></span></div>
+                <div class="stat"><span class="label" data-i18n="statB">MOVE</span><span class="value op-b"></span></div>
+                <div class="stat"><span class="label" data-i18n="statRw">SAVE</span><span class="value op-rw"></span></div>
+                <div class="stat lp-tracker">
+                    <span class="label" data-i18n="statLp">WOUNDS</span>
+                    <div class="lp-controls">
+                        <button class="lp-btn minus">-</button>
+                        <span class="value op-lp"></span>
+                        <button class="lp-btn plus">+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="weapons-container">
+                    <!-- Weapons injected here -->
+                </div>
+                <button class="accordion"><span data-i18n="abilitiesHeader">Abilities</span> <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="panel">
+                    <ul class="op-abilities">
+                        <!-- Abilities injected here -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <script src="i18n.js?v=9"></script>
+    <script src="app.js?v=9"></script>
+
+    <footer class="legal-footer">
+        <p data-i18n="legalDisclaimer">This is an unofficial fan-made utility. Warhammer 40,000, Kill Team, and all associated logos, names, and statistics are &copy; Copyright Games Workshop Limited. This tool is provided for free and is not affiliated with, or endorsed by, Games Workshop in any way.</p>
+    </footer>
+</body>
+</html>
