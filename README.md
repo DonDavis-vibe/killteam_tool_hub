@@ -60,6 +60,8 @@ In addition to the core features above, each faction Datapad includes **customiz
 11. **Exodite Dragon Masters:** Draconic Cavalry & Mercurial Speed tracker.
 12. **Deathwatch:** Special Issue Ammunition and Veteran Astartes tracker.
 13. **Raveners:** Tunnel network and Burrow action manager.
+14. **Fellgor Ravagers:** Animalistic frenzy tokens and savage melee tracker.
+15. **Nemesis Claw:** In Midnight Clad, Prescience points, and terror tactics.
 
 ---
 
